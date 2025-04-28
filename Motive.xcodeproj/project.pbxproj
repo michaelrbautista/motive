@@ -6,6 +6,53 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		89AA09BA2DBEA93600308F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA09B62DBEA93600308F1E /* Assets.xcassets */; };
+		89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09B82DBEA93600308F1E /* MotiveApp.swift */; };
+		89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09C42DBEC98B00308F1E /* SettingsView.swift */; };
+		89AA09CD2DBEC9E000308F1E /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09CC2DBEC9E000308F1E /* LandingPageView.swift */; };
+		89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09CE2DBEC9E700308F1E /* LoggedInView.swift */; };
+		89AA09D22DBECA1A00308F1E /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09D12DBECA1A00308F1E /* Auth */; };
+		89AA09D42DBECA1A00308F1E /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09D32DBECA1A00308F1E /* Functions */; };
+		89AA09D62DBECA1A00308F1E /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09D52DBECA1A00308F1E /* PostgREST */; };
+		89AA09D82DBECA1A00308F1E /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09D72DBECA1A00308F1E /* Realtime */; };
+		89AA09DA2DBECA1A00308F1E /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09D92DBECA1A00308F1E /* Storage */; };
+		89AA09DC2DBECA1A00308F1E /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09DB2DBECA1A00308F1E /* Supabase */; };
+		89AA09DF2DBECA2A00308F1E /* SuperwallKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09DE2DBECA2A00308F1E /* SuperwallKit */; };
+		89AA09E22DBECA5200308F1E /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09E12DBECA5200308F1E /* ReceiptParser */; };
+		89AA09E42DBECA5200308F1E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09E32DBECA5200308F1E /* RevenueCat */; };
+		89AA09E62DBECA5200308F1E /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09E52DBECA5200308F1E /* RevenueCatUI */; };
+		89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09E82DBECA7800308F1E /* UserViewModel.swift */; };
+		89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09EB2DBECAA200308F1E /* UserService.swift */; };
+		89AA09EE2DBECABC00308F1E /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09ED2DBECABA00308F1E /* SupabaseService.swift */; };
+		89AA09F02DBECB5A00308F1E /* RevenueCatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09EF2DBECB5700308F1E /* RevenueCatService.swift */; };
+		89AA09F32DBECB8600308F1E /* RCPurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09F22DBECB7F00308F1E /* RCPurchaseController.swift */; };
+		89AA09F52DBECB9700308F1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09F42DBECB9700308F1E /* User.swift */; };
+		89AA09F82DBECC0300308F1E /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09F72DBECC0200308F1E /* Design.swift */; };
+		89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09FA2DBECC3100308F1E /* NavigationViews.swift */; };
+		89AA09FD2DBECC3800308F1E /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09FC2DBECC3600308F1E /* Navigation.swift */; };
+		89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */; };
+		89AA0A012DBECC8200308F1E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */; };
+		89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A022DBED19B00308F1E /* InspirationView.swift */; };
+		89AA0A052DBED1B700308F1E /* ReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A042DBED1B700308F1E /* ReligionView.swift */; };
+		89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A062DBED1C500308F1E /* SelectReligionView.swift */; };
+		89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A082DBED1D600308F1E /* PersonalizingView.swift */; };
+		89AA0A0B2DBED1E200308F1E /* MotiveHelpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0A2DBED1E200308F1E /* MotiveHelpsView.swift */; };
+		89AA0A0D2DBED23900308F1E /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */; };
+		89AA0A0F2DBED24000308F1E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0E2DBED24000308F1E /* SignInView.swift */; };
+		89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */; };
+		89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A132DBED29900308F1E /* StyledButton.swift */; };
+		89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A152DBED2A900308F1E /* SelectRow.swift */; };
+		89AA0A182DBED2E400308F1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A172DBED2E400308F1E /* HomeView.swift */; };
+		89AA0A232DBF138300308F1E /* MotiveStorekit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */; };
+		89AA0A2B2DBF2E1700308F1E /* AmbitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */; };
+		89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A322DBF305600308F1E /* MultiSelectRow.swift */; };
+		89AA0A352DBF320400308F1E /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A342DBF320400308F1E /* GoalsView.swift */; };
+		89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* WidgetsView.swift */; };
+		89FC6E9A2DBFE6540058B906 /* FirstStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6E992DBFE6540058B906 /* FirstStepView.swift */; };
+		89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		89AA099A2DBEA92900308F1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +74,43 @@
 		89AA098C2DBEA92800308F1E /* Motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA09992DBEA92900308F1E /* MotiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA09A32DBEA92900308F1E /* MotiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89AA09B62DBEA93600308F1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89AA09B82DBEA93600308F1E /* MotiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveApp.swift; sourceTree = "<group>"; };
+		89AA09C42DBEC98B00308F1E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		89AA09CC2DBEC9E000308F1E /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
+		89AA09CE2DBEC9E700308F1E /* LoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInView.swift; sourceTree = "<group>"; };
+		89AA09E82DBECA7800308F1E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		89AA09EB2DBECAA200308F1E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		89AA09ED2DBECABA00308F1E /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
+		89AA09EF2DBECB5700308F1E /* RevenueCatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatService.swift; sourceTree = "<group>"; };
+		89AA09F22DBECB7F00308F1E /* RCPurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCPurchaseController.swift; sourceTree = "<group>"; };
+		89AA09F42DBECB9700308F1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		89AA09F72DBECC0200308F1E /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		89AA09FA2DBECC3100308F1E /* NavigationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViews.swift; sourceTree = "<group>"; };
+		89AA09FC2DBECC3600308F1E /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTypes.swift; sourceTree = "<group>"; };
+		89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		89AA0A022DBED19B00308F1E /* InspirationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationView.swift; sourceTree = "<group>"; };
+		89AA0A042DBED1B700308F1E /* ReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReligionView.swift; sourceTree = "<group>"; };
+		89AA0A062DBED1C500308F1E /* SelectReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReligionView.swift; sourceTree = "<group>"; };
+		89AA0A082DBED1D600308F1E /* PersonalizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizingView.swift; sourceTree = "<group>"; };
+		89AA0A0A2DBED1E200308F1E /* MotiveHelpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveHelpsView.swift; sourceTree = "<group>"; };
+		89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		89AA0A0E2DBED24000308F1E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeView.swift; sourceTree = "<group>"; };
+		89AA0A132DBED29900308F1E /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
+		89AA0A152DBED2A900308F1E /* SelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRow.swift; sourceTree = "<group>"; };
+		89AA0A172DBED2E400308F1E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MotiveStorekit.storekit; sourceTree = "<group>"; };
+		89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbitionView.swift; sourceTree = "<group>"; };
+		89AA0A322DBF305600308F1E /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
+		89AA0A342DBF320400308F1E /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		89AA0A362DBF327100308F1E /* WidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsView.swift; sourceTree = "<group>"; };
+		89FC6E992DBFE6540058B906 /* FirstStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepView.swift; sourceTree = "<group>"; };
+		89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterGoalsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		89AA098E2DBEA92800308F1E /* Motive */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Motive;
-			sourceTree = "<group>";
-		};
 		89AA099C2DBEA92900308F1E /* MotiveTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MotiveTests;
@@ -52,6 +128,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA09D62DBECA1A00308F1E /* PostgREST in Frameworks */,
+				89AA09D42DBECA1A00308F1E /* Functions in Frameworks */,
+				89AA09DC2DBECA1A00308F1E /* Supabase in Frameworks */,
+				89AA09D22DBECA1A00308F1E /* Auth in Frameworks */,
+				89AA09DA2DBECA1A00308F1E /* Storage in Frameworks */,
+				89AA09E42DBECA5200308F1E /* RevenueCat in Frameworks */,
+				89AA09DF2DBECA2A00308F1E /* SuperwallKit in Frameworks */,
+				89AA09E22DBECA5200308F1E /* ReceiptParser in Frameworks */,
+				89AA09E62DBECA5200308F1E /* RevenueCatUI in Frameworks */,
+				89AA09D82DBECA1A00308F1E /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +161,7 @@
 		89AA09832DBEA92800308F1E = {
 			isa = PBXGroup;
 			children = (
-				89AA098E2DBEA92800308F1E /* Motive */,
+				89AA09B92DBEA93600308F1E /* Motive */,
 				89AA099C2DBEA92900308F1E /* MotiveTests */,
 				89AA09A62DBEA92900308F1E /* MotiveUITests */,
 				89AA098D2DBEA92800308F1E /* Products */,
@@ -90,6 +176,159 @@
 				89AA09A32DBEA92900308F1E /* MotiveUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		89AA09B92DBEA93600308F1E /* Motive */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09C02DBEA95500308F1E /* Views */,
+				89AA09BF2DBEA95000308F1E /* ViewModels */,
+				89AA09C12DBEA95B00308F1E /* Models */,
+				89AA09EA2DBECA9A00308F1E /* Services */,
+				89AA09F12DBECB7700308F1E /* Superwall */,
+				89AA09F92DBECC2700308F1E /* Navigation */,
+				89AA09F62DBECBED00308F1E /* Supporting */,
+				89AA0A122DBED28700308F1E /* Components */,
+				89AA09B62DBEA93600308F1E /* Assets.xcassets */,
+				89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */,
+			);
+			path = Motive;
+			sourceTree = "<group>";
+		};
+		89AA09BD2DBEA94400308F1E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */,
+				89AA0A022DBED19B00308F1E /* InspirationView.swift */,
+				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
+				89AA0A342DBF320400308F1E /* GoalsView.swift */,
+				89AA0A042DBED1B700308F1E /* ReligionView.swift */,
+				89AA0A062DBED1C500308F1E /* SelectReligionView.swift */,
+				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
+				89FC6E992DBFE6540058B906 /* FirstStepView.swift */,
+				89AA0A0A2DBED1E200308F1E /* MotiveHelpsView.swift */,
+				89AA0A362DBF327100308F1E /* WidgetsView.swift */,
+				89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */,
+				89AA0A0E2DBED24000308F1E /* SignInView.swift */,
+				89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		89AA09BE2DBEA94900308F1E /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09B82DBEA93600308F1E /* MotiveApp.swift */,
+				89AA09CC2DBEC9E000308F1E /* LandingPageView.swift */,
+				89AA09CE2DBEC9E700308F1E /* LoggedInView.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		89AA09BF2DBEA95000308F1E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				89AA0A1B2DBED39C00308F1E /* Onboarding */,
+				89AA09E72DBECA6D00308F1E /* Setup */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		89AA09C02DBEA95500308F1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09C22DBEA96900308F1E /* Home */,
+				89AA09C32DBEC97E00308F1E /* Settings */,
+				89AA09BD2DBEA94400308F1E /* Onboarding */,
+				89AA09BE2DBEA94900308F1E /* Setup */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89AA09C12DBEA95B00308F1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09F42DBECB9700308F1E /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		89AA09C22DBEA96900308F1E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				89AA0A172DBED2E400308F1E /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		89AA09C32DBEC97E00308F1E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09C42DBEC98B00308F1E /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		89AA09E72DBECA6D00308F1E /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09E82DBECA7800308F1E /* UserViewModel.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		89AA09EA2DBECA9A00308F1E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09EF2DBECB5700308F1E /* RevenueCatService.swift */,
+				89AA09EB2DBECAA200308F1E /* UserService.swift */,
+				89AA09ED2DBECABA00308F1E /* SupabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		89AA09F12DBECB7700308F1E /* Superwall */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09F22DBECB7F00308F1E /* RCPurchaseController.swift */,
+			);
+			path = Superwall;
+			sourceTree = "<group>";
+		};
+		89AA09F62DBECBED00308F1E /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09F72DBECC0200308F1E /* Design.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		89AA09F92DBECC2700308F1E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */,
+				89AA09FC2DBECC3600308F1E /* Navigation.swift */,
+				89AA09FA2DBECC3100308F1E /* NavigationViews.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		89AA0A122DBED28700308F1E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				89AA0A132DBED29900308F1E /* StyledButton.swift */,
+				89AA0A152DBED2A900308F1E /* SelectRow.swift */,
+				89AA0A322DBF305600308F1E /* MultiSelectRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		89AA0A1B2DBED39C00308F1E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +346,18 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				89AA098E2DBEA92800308F1E /* Motive */,
-			);
 			name = Motive;
 			packageProductDependencies = (
+				89AA09D12DBECA1A00308F1E /* Auth */,
+				89AA09D32DBECA1A00308F1E /* Functions */,
+				89AA09D52DBECA1A00308F1E /* PostgREST */,
+				89AA09D72DBECA1A00308F1E /* Realtime */,
+				89AA09D92DBECA1A00308F1E /* Storage */,
+				89AA09DB2DBECA1A00308F1E /* Supabase */,
+				89AA09DE2DBECA2A00308F1E /* SuperwallKit */,
+				89AA09E12DBECA5200308F1E /* ReceiptParser */,
+				89AA09E32DBECA5200308F1E /* RevenueCat */,
+				89AA09E52DBECA5200308F1E /* RevenueCatUI */,
 			);
 			productName = Motive;
 			productReference = 89AA098C2DBEA92800308F1E /* Motive.app */;
@@ -195,6 +441,11 @@
 			);
 			mainGroup = 89AA09832DBEA92800308F1E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				89AA09DD2DBECA2A00308F1E /* XCRemoteSwiftPackageReference "Superwall-iOS" */,
+				89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 89AA098D2DBEA92800308F1E /* Products */;
 			projectDirPath = "";
@@ -212,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA09BA2DBEA93600308F1E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA0A232DBF138300308F1E /* MotiveStorekit.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +489,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */,
+				89AA0A052DBED1B700308F1E /* ReligionView.swift in Sources */,
+				89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */,
+				89AA0A0B2DBED1E200308F1E /* MotiveHelpsView.swift in Sources */,
+				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
+				89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */,
+				89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */,
+				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
+				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
+				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
+				89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */,
+				89AA0A2B2DBF2E1700308F1E /* AmbitionView.swift in Sources */,
+				89AA0A012DBECC8200308F1E /* OnboardingViewModel.swift in Sources */,
+				89AA0A0D2DBED23900308F1E /* CreateAccountView.swift in Sources */,
+				89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */,
+				89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */,
+				89AA09F02DBECB5A00308F1E /* RevenueCatService.swift in Sources */,
+				89AA0A182DBED2E400308F1E /* HomeView.swift in Sources */,
+				89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */,
+				89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */,
+				89FC6E9A2DBFE6540058B906 /* FirstStepView.swift in Sources */,
+				89AA09CD2DBEC9E000308F1E /* LandingPageView.swift in Sources */,
+				89AA0A352DBF320400308F1E /* GoalsView.swift in Sources */,
+				89AA0A0F2DBED24000308F1E /* SignInView.swift in Sources */,
+				89AA09EE2DBECABC00308F1E /* SupabaseService.swift in Sources */,
+				89AA09F32DBECB8600308F1E /* RCPurchaseController.swift in Sources */,
+				89AA09FD2DBECC3800308F1E /* Navigation.swift in Sources */,
+				89AA09F82DBECC0300308F1E /* Design.swift in Sources */,
+				89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */,
+				89AA09F52DBECB9700308F1E /* User.swift in Sources */,
+				89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */,
+				89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +688,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,8 +719,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +849,86 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		89AA09DD2DBECA2A00308F1E /* XCRemoteSwiftPackageReference "Superwall-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/superwall/Superwall-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
+		89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.22.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		89AA09D12DBECA1A00308F1E /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		89AA09D32DBECA1A00308F1E /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		89AA09D52DBECA1A00308F1E /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		89AA09D72DBECA1A00308F1E /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		89AA09D92DBECA1A00308F1E /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		89AA09DB2DBECA1A00308F1E /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		89AA09DE2DBECA2A00308F1E /* SuperwallKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09DD2DBECA2A00308F1E /* XCRemoteSwiftPackageReference "Superwall-iOS" */;
+			productName = SuperwallKit;
+		};
+		89AA09E12DBECA5200308F1E /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = ReceiptParser;
+		};
+		89AA09E32DBECA5200308F1E /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		89AA09E52DBECA5200308F1E /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 89AA09842DBEA92800308F1E /* Project object */;
 }
