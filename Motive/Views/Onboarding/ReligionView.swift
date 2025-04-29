@@ -13,7 +13,7 @@ struct ReligionView: View {
     
     var body: some View {
         VStack {
-            Text("What are you training for?")
+            Text("Are you religious?")
                 .font(Font.FontStyles.title2)
                 .foregroundStyle(Color.ColorSystem.primaryText)
                 .multilineTextAlignment(.center)
@@ -39,7 +39,7 @@ struct ReligionView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                if viewModel.religion != "Yes" {
+                if viewModel.religion == "Yes" {
                     navigationController.push(.SelectReligionView(viewModel: viewModel))
                 } else {
                     navigationController.push(.PersonalizingView(viewModel: viewModel))

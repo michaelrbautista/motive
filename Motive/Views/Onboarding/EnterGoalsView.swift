@@ -23,14 +23,14 @@ struct EnterGoalsView: View {
                     Text("Enter your goals...")
                         .font(Font.FontStyles.body)
                         .foregroundStyle(Color.ColorSystem.systemGray)
-                        .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
+                        .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
                 }
                 
                 TextEditor(text: $viewModel.goals)
                     .frame(height: 200)
                     .scrollContentBackground(.hidden)
             }
-            .padding(EdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6))
+            .padding(EdgeInsets(top: 8, leading: 10, bottom: 8, trailing: 10))
             .background(Color.ColorSystem.systemGray6)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             Spacer()
@@ -39,7 +39,7 @@ struct EnterGoalsView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.GoalsView(viewModel: viewModel))
+                navigationController.push(.ReligionView(viewModel: viewModel))
             }
 
         }

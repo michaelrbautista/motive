@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Supabase
-import RevenueCat
 import SuperwallKit
 import HealthKit
 
@@ -18,8 +17,6 @@ class UserViewModel: ObservableObject {
     
     @Published var event: AuthChangeEvent? = nil
     @Published var session: Session? = nil
-    
-    @Published var isSubscribed = false
     
     init() {
         self.isLoading = true
@@ -49,13 +46,6 @@ class UserViewModel: ObservableObject {
                 .value
             
             UserService.currentUser = user
-            
-            // Check if user is subscribed
-            self.isSubscribed = try await RevenueCatService.shared.checkSubscription()
-            
-            #if DEBUG
-            self.isSubscribed = true
-            #endif
             
             self.isLoggedIn = true
             

@@ -7,7 +7,6 @@
 
 import UIKit
 import SwiftUI
-import RevenueCat
 
 extension Color {
     struct ColorSystem {

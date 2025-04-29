@@ -7,13 +7,13 @@
 
 import SwiftUI
 import Supabase
-import RevenueCat
 import SuperwallKit
 
 @main
 struct DailyApp: App {
     
     @StateObject var userViewModel = UserViewModel()
+    @StateObject var subscriptionService = SubscriptionService.shared
     
     init() {
         let navAppearance = UINavigationBarAppearance()
@@ -30,21 +30,9 @@ struct DailyApp: App {
         UITabBar.appearance().scrollEdgeAppearance = tabAppearance
         UITabBar.appearance().standardAppearance = tabAppearance
         
-        let purchaseController = RCPurchaseController()
-        
         Superwall.configure(
-            apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad",
-            purchaseController: purchaseController
+            apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad"
         )
-        
-        Purchases.logLevel = .error
-        Purchases.configure(with:
-            .builder(withAPIKey: "appl_erWVQOHRIufznMJwDIhkmndXRXL")
-            .with(purchasesAreCompletedBy: .myApp, storeKitVersion: .storeKit2)
-            .build()
-        )
-        
-        purchaseController.syncSubscriptionStatus()
     }
     
     var body: some Scene {

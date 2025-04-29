@@ -1,15 +1,6 @@
 {
-  "originHash" : "ac61549dd5519e7453395ce1eb51ae051da0870ced6d4d820225e4c44bbcc831",
+  "originHash" : "c08d0b34582769d7bd258fb130b5dd8ac875b7c685dd764e7d8554328aa08d34",
   "pins" : [
-    {
-      "identity" : "purchases-ios-spm",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RevenueCat/purchases-ios-spm",
-      "state" : {
-        "revision" : "84e860c081dc48bda81d5a51514f43218b2f4bf1",
-        "version" : "5.22.1"
-      }
-    },
     {
       "identity" : "supabase-swift",
       "kind" : "remoteSourceControl",

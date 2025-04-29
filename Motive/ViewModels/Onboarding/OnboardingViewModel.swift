@@ -18,7 +18,6 @@ final class OnboardingViewModel: ObservableObject {
     @Published var isValidEmail = false
     
     @Published var isPersonalizingGeneral = true
-    @Published var isPersonalizingImages = true
     @Published var isPersonalizingQuotes = true
     
     @Published var returnedError = false

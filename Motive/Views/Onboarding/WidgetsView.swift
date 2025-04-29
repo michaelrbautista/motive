@@ -12,7 +12,22 @@ struct WidgetsView: View {
     @StateObject var viewModel: OnboardingViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Add the widgets to your home and lock screens to lock in.")
+                .font(Font.FontStyles.title3)
+                .foregroundStyle(Color.ColorSystem.primaryText)
+                .multilineTextAlignment(.center)
+            Spacer()
+            StyledButton(
+                variant: .primary,
+                text: "Next",
+                isLoading: .constant(false)
+            ) {
+                navigationController.push(.CreateAccountView(viewModel: viewModel))
+            }
+        }
+        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+            .navigationBarBackButtonHidden(true)
     }
 }
 

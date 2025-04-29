@@ -14,12 +14,10 @@ enum Screen: Identifiable, Hashable {
     case AmbitionView
     case InspirationView
     case EnterGoalsView(viewModel: OnboardingViewModel)
-    case GoalsView(viewModel: OnboardingViewModel)
     case ReligionView(viewModel: OnboardingViewModel)
     case SelectReligionView(viewModel: OnboardingViewModel)
     case PersonalizingView(viewModel: OnboardingViewModel)
-    case FirstStepView(viewModel: OnboardingViewModel)
-    case MotiveHelpsView(viewModel: OnboardingViewModel)
+    case CustomizedView(viewModel: OnboardingViewModel)
     case WidgetsView(viewModel: OnboardingViewModel)
     
     // Auth
@@ -61,20 +59,15 @@ extension Screen {
 // MARK: Sheet
 enum Sheet: Identifiable, Hashable {
     
-    case ShareView
-    case SavePhotoView
-    
-    case NewProgramCoordinatorView
+    case SelectTopicView(topic: Binding<String>)
     
     var id: Self { return self }
     
     // Conform to Hashable
     func hash(into hasher: inout Hasher) {
         switch self {
-        case .ShareView:
-            hasher.combine("ShareView")
-        default:
-            hasher.combine("DefaultView")
+        case .SelectTopicView:
+            hasher.combine("SelectTopicView")
         }
     }
     

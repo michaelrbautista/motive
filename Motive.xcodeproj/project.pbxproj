@@ -19,14 +19,9 @@
 		89AA09DA2DBECA1A00308F1E /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09D92DBECA1A00308F1E /* Storage */; };
 		89AA09DC2DBECA1A00308F1E /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09DB2DBECA1A00308F1E /* Supabase */; };
 		89AA09DF2DBECA2A00308F1E /* SuperwallKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09DE2DBECA2A00308F1E /* SuperwallKit */; };
-		89AA09E22DBECA5200308F1E /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09E12DBECA5200308F1E /* ReceiptParser */; };
-		89AA09E42DBECA5200308F1E /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09E32DBECA5200308F1E /* RevenueCat */; };
-		89AA09E62DBECA5200308F1E /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 89AA09E52DBECA5200308F1E /* RevenueCatUI */; };
 		89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09E82DBECA7800308F1E /* UserViewModel.swift */; };
 		89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09EB2DBECAA200308F1E /* UserService.swift */; };
 		89AA09EE2DBECABC00308F1E /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09ED2DBECABA00308F1E /* SupabaseService.swift */; };
-		89AA09F02DBECB5A00308F1E /* RevenueCatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09EF2DBECB5700308F1E /* RevenueCatService.swift */; };
-		89AA09F32DBECB8600308F1E /* RCPurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09F22DBECB7F00308F1E /* RCPurchaseController.swift */; };
 		89AA09F52DBECB9700308F1E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09F42DBECB9700308F1E /* User.swift */; };
 		89AA09F82DBECC0300308F1E /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09F72DBECC0200308F1E /* Design.swift */; };
 		89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09FA2DBECC3100308F1E /* NavigationViews.swift */; };
@@ -37,7 +32,7 @@
 		89AA0A052DBED1B700308F1E /* ReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A042DBED1B700308F1E /* ReligionView.swift */; };
 		89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A062DBED1C500308F1E /* SelectReligionView.swift */; };
 		89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A082DBED1D600308F1E /* PersonalizingView.swift */; };
-		89AA0A0B2DBED1E200308F1E /* MotiveHelpsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0A2DBED1E200308F1E /* MotiveHelpsView.swift */; };
+		89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */; };
 		89AA0A0D2DBED23900308F1E /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */; };
 		89AA0A0F2DBED24000308F1E /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0E2DBED24000308F1E /* SignInView.swift */; };
 		89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */; };
@@ -47,10 +42,12 @@
 		89AA0A232DBF138300308F1E /* MotiveStorekit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */; };
 		89AA0A2B2DBF2E1700308F1E /* AmbitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */; };
 		89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A322DBF305600308F1E /* MultiSelectRow.swift */; };
-		89AA0A352DBF320400308F1E /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A342DBF320400308F1E /* GoalsView.swift */; };
 		89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* WidgetsView.swift */; };
-		89FC6E9A2DBFE6540058B906 /* FirstStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6E992DBFE6540058B906 /* FirstStepView.swift */; };
 		89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */; };
+		89FC6EA42DC020DF0058B906 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EA32DC020C80058B906 /* SubscriptionService.swift */; };
+		89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */; };
+		89FC6EB12DC12F350058B906 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB02DC12F320058B906 /* HomeViewModel.swift */; };
+		89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB22DC130E60058B906 /* OpenAIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +79,6 @@
 		89AA09E82DBECA7800308F1E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		89AA09EB2DBECAA200308F1E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		89AA09ED2DBECABA00308F1E /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
-		89AA09EF2DBECB5700308F1E /* RevenueCatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatService.swift; sourceTree = "<group>"; };
-		89AA09F22DBECB7F00308F1E /* RCPurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCPurchaseController.swift; sourceTree = "<group>"; };
 		89AA09F42DBECB9700308F1E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		89AA09F72DBECC0200308F1E /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		89AA09FA2DBECC3100308F1E /* NavigationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViews.swift; sourceTree = "<group>"; };
@@ -94,7 +89,7 @@
 		89AA0A042DBED1B700308F1E /* ReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReligionView.swift; sourceTree = "<group>"; };
 		89AA0A062DBED1C500308F1E /* SelectReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReligionView.swift; sourceTree = "<group>"; };
 		89AA0A082DBED1D600308F1E /* PersonalizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizingView.swift; sourceTree = "<group>"; };
-		89AA0A0A2DBED1E200308F1E /* MotiveHelpsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveHelpsView.swift; sourceTree = "<group>"; };
+		89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedView.swift; sourceTree = "<group>"; };
 		89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		89AA0A0E2DBED24000308F1E /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeView.swift; sourceTree = "<group>"; };
@@ -104,10 +99,12 @@
 		89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MotiveStorekit.storekit; sourceTree = "<group>"; };
 		89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbitionView.swift; sourceTree = "<group>"; };
 		89AA0A322DBF305600308F1E /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
-		89AA0A342DBF320400308F1E /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		89AA0A362DBF327100308F1E /* WidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsView.swift; sourceTree = "<group>"; };
-		89FC6E992DBFE6540058B906 /* FirstStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepView.swift; sourceTree = "<group>"; };
 		89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterGoalsView.swift; sourceTree = "<group>"; };
+		89FC6EA32DC020C80058B906 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTopicView.swift; sourceTree = "<group>"; };
+		89FC6EB02DC12F320058B906 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		89FC6EB22DC130E60058B906 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -133,10 +130,7 @@
 				89AA09DC2DBECA1A00308F1E /* Supabase in Frameworks */,
 				89AA09D22DBECA1A00308F1E /* Auth in Frameworks */,
 				89AA09DA2DBECA1A00308F1E /* Storage in Frameworks */,
-				89AA09E42DBECA5200308F1E /* RevenueCat in Frameworks */,
 				89AA09DF2DBECA2A00308F1E /* SuperwallKit in Frameworks */,
-				89AA09E22DBECA5200308F1E /* ReceiptParser in Frameworks */,
-				89AA09E62DBECA5200308F1E /* RevenueCatUI in Frameworks */,
 				89AA09D82DBECA1A00308F1E /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +179,6 @@
 				89AA09BF2DBEA95000308F1E /* ViewModels */,
 				89AA09C12DBEA95B00308F1E /* Models */,
 				89AA09EA2DBECA9A00308F1E /* Services */,
-				89AA09F12DBECB7700308F1E /* Superwall */,
 				89AA09F92DBECC2700308F1E /* Navigation */,
 				89AA09F62DBECBED00308F1E /* Supporting */,
 				89AA0A122DBED28700308F1E /* Components */,
@@ -201,12 +194,10 @@
 				89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */,
 				89AA0A022DBED19B00308F1E /* InspirationView.swift */,
 				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
-				89AA0A342DBF320400308F1E /* GoalsView.swift */,
 				89AA0A042DBED1B700308F1E /* ReligionView.swift */,
 				89AA0A062DBED1C500308F1E /* SelectReligionView.swift */,
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
-				89FC6E992DBFE6540058B906 /* FirstStepView.swift */,
-				89AA0A0A2DBED1E200308F1E /* MotiveHelpsView.swift */,
+				89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */,
 				89AA0A362DBF327100308F1E /* WidgetsView.swift */,
 				89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */,
 				89AA0A0E2DBED24000308F1E /* SignInView.swift */,
@@ -228,6 +219,7 @@
 		89AA09BF2DBEA95000308F1E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				89FC6EAD2DC12DE10058B906 /* Home */,
 				89AA0A1B2DBED39C00308F1E /* Onboarding */,
 				89AA09E72DBECA6D00308F1E /* Setup */,
 			);
@@ -257,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				89AA0A172DBED2E400308F1E /* HomeView.swift */,
+				89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -280,19 +273,12 @@
 		89AA09EA2DBECA9A00308F1E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				89AA09EF2DBECB5700308F1E /* RevenueCatService.swift */,
+				89FC6EB22DC130E60058B906 /* OpenAIService.swift */,
+				89FC6EA32DC020C80058B906 /* SubscriptionService.swift */,
 				89AA09EB2DBECAA200308F1E /* UserService.swift */,
 				89AA09ED2DBECABA00308F1E /* SupabaseService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		89AA09F12DBECB7700308F1E /* Superwall */ = {
-			isa = PBXGroup;
-			children = (
-				89AA09F22DBECB7F00308F1E /* RCPurchaseController.swift */,
-			);
-			path = Superwall;
 			sourceTree = "<group>";
 		};
 		89AA09F62DBECBED00308F1E /* Supporting */ = {
@@ -331,6 +317,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		89FC6EAD2DC12DE10058B906 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				89FC6EB02DC12F320058B906 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -355,9 +349,6 @@
 				89AA09D92DBECA1A00308F1E /* Storage */,
 				89AA09DB2DBECA1A00308F1E /* Supabase */,
 				89AA09DE2DBECA2A00308F1E /* SuperwallKit */,
-				89AA09E12DBECA5200308F1E /* ReceiptParser */,
-				89AA09E32DBECA5200308F1E /* RevenueCat */,
-				89AA09E52DBECA5200308F1E /* RevenueCatUI */,
 			);
 			productName = Motive;
 			productReference = 89AA098C2DBEA92800308F1E /* Motive.app */;
@@ -444,7 +435,6 @@
 			packageReferences = (
 				89AA09D02DBECA1A00308F1E /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				89AA09DD2DBECA2A00308F1E /* XCRemoteSwiftPackageReference "Superwall-iOS" */,
-				89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 89AA098D2DBEA92800308F1E /* Products */;
@@ -492,34 +482,34 @@
 				89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */,
 				89AA0A052DBED1B700308F1E /* ReligionView.swift in Sources */,
 				89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */,
-				89AA0A0B2DBED1E200308F1E /* MotiveHelpsView.swift in Sources */,
+				89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */,
 				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
 				89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */,
 				89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */,
 				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
 				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
+				89FC6EA42DC020DF0058B906 /* SubscriptionService.swift in Sources */,
 				89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */,
 				89AA0A2B2DBF2E1700308F1E /* AmbitionView.swift in Sources */,
 				89AA0A012DBECC8200308F1E /* OnboardingViewModel.swift in Sources */,
 				89AA0A0D2DBED23900308F1E /* CreateAccountView.swift in Sources */,
 				89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */,
 				89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */,
-				89AA09F02DBECB5A00308F1E /* RevenueCatService.swift in Sources */,
 				89AA0A182DBED2E400308F1E /* HomeView.swift in Sources */,
+				89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */,
 				89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */,
 				89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */,
-				89FC6E9A2DBFE6540058B906 /* FirstStepView.swift in Sources */,
 				89AA09CD2DBEC9E000308F1E /* LandingPageView.swift in Sources */,
-				89AA0A352DBF320400308F1E /* GoalsView.swift in Sources */,
 				89AA0A0F2DBED24000308F1E /* SignInView.swift in Sources */,
 				89AA09EE2DBECABC00308F1E /* SupabaseService.swift in Sources */,
-				89AA09F32DBECB8600308F1E /* RCPurchaseController.swift in Sources */,
 				89AA09FD2DBECC3800308F1E /* Navigation.swift in Sources */,
 				89AA09F82DBECC0300308F1E /* Design.swift in Sources */,
 				89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */,
+				89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */,
 				89AA09F52DBECB9700308F1E /* User.swift in Sources */,
 				89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */,
+				89FC6EB12DC12F350058B906 /* HomeViewModel.swift in Sources */,
 				89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -867,14 +857,6 @@
 				minimumVersion = 4.3.0;
 			};
 		};
-		89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.22.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -912,21 +894,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89AA09DD2DBECA2A00308F1E /* XCRemoteSwiftPackageReference "Superwall-iOS" */;
 			productName = SuperwallKit;
-		};
-		89AA09E12DBECA5200308F1E /* ReceiptParser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = ReceiptParser;
-		};
-		89AA09E32DBECA5200308F1E /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCat;
-		};
-		89AA09E52DBECA5200308F1E /* RevenueCatUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 89AA09E02DBECA5200308F1E /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCatUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
