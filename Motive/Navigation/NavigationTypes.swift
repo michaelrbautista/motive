@@ -14,7 +14,6 @@ enum Screen: Identifiable, Hashable {
     case AmbitionView
     case InspirationView
     case EnterGoalsView(viewModel: OnboardingViewModel)
-    case ReligionView(viewModel: OnboardingViewModel)
     case SelectReligionView(viewModel: OnboardingViewModel)
     case PersonalizingView(viewModel: OnboardingViewModel)
     case CustomizedView(viewModel: OnboardingViewModel)

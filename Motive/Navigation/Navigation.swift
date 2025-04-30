@@ -69,8 +69,6 @@ class NavigationController: CoordinatorProtocol {
             InspirationView()
         case .EnterGoalsView(let viewModel):
             EnterGoalsView(viewModel: viewModel)
-        case .ReligionView(let viewModel):
-            ReligionView(viewModel: viewModel)
         case .SelectReligionView(let viewModel):
             SelectReligionView(viewModel: viewModel)
         case .PersonalizingView(let viewModel):

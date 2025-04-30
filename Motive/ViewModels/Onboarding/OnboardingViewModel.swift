@@ -9,7 +9,7 @@ import SwiftUI
 
 final class OnboardingViewModel: ObservableObject {
     
-    @Published var pursuits = Set<String>()
+    @Published var inspirations = Set<String>()
     @Published var goals = ""
     @Published var religion = ""
     

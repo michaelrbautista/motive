@@ -29,7 +29,6 @@
 		89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */; };
 		89AA0A012DBECC8200308F1E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */; };
 		89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A022DBED19B00308F1E /* InspirationView.swift */; };
-		89AA0A052DBED1B700308F1E /* ReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A042DBED1B700308F1E /* ReligionView.swift */; };
 		89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A062DBED1C500308F1E /* SelectReligionView.swift */; };
 		89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A082DBED1D600308F1E /* PersonalizingView.swift */; };
 		89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */; };
@@ -48,6 +47,15 @@
 		89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */; };
 		89FC6EB12DC12F350058B906 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB02DC12F320058B906 /* HomeViewModel.swift */; };
 		89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB22DC130E60058B906 /* OpenAIService.swift */; };
+		89FC6EBB2DC135970058B906 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC6EBA2DC135970058B906 /* WidgetKit.framework */; };
+		89FC6EBD2DC135970058B906 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC6EBC2DC135970058B906 /* SwiftUI.framework */; };
+		89FC6ECE2DC135990058B906 /* MotiveWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		89FC6EDC2DC135B80058B906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FC6ED52DC135B80058B906 /* Assets.xcassets */; };
+		89FC6EDE2DC135B80058B906 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED42DC135B80058B906 /* AppIntent.swift */; };
+		89FC6EDF2DC135B80058B906 /* MotiveWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */; };
+		89FC6EE02DC135B80058B906 /* MotiveWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */; };
+		89FC6EE12DC135B80058B906 /* MotiveWidgetsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */; };
+		89FC6EE22DC135B80058B906 /* MotiveWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +73,28 @@
 			remoteGlobalIDString = 89AA098B2DBEA92800308F1E;
 			remoteInfo = Motive;
 		};
+		89FC6ECC2DC135990058B906 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89AA09842DBEA92800308F1E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89FC6EB72DC135970058B906;
+			remoteInfo = MotiveWidgetsExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89FC6ED32DC135990058B906 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				89FC6ECE2DC135990058B906 /* MotiveWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		89AA098C2DBEA92800308F1E /* Motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +115,6 @@
 		89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTypes.swift; sourceTree = "<group>"; };
 		89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		89AA0A022DBED19B00308F1E /* InspirationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationView.swift; sourceTree = "<group>"; };
-		89AA0A042DBED1B700308F1E /* ReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReligionView.swift; sourceTree = "<group>"; };
 		89AA0A062DBED1C500308F1E /* SelectReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReligionView.swift; sourceTree = "<group>"; };
 		89AA0A082DBED1D600308F1E /* PersonalizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizingView.swift; sourceTree = "<group>"; };
 		89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedView.swift; sourceTree = "<group>"; };
@@ -105,6 +133,18 @@
 		89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTopicView.swift; sourceTree = "<group>"; };
 		89FC6EB02DC12F320058B906 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		89FC6EB22DC130E60058B906 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotiveWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		89FC6EBA2DC135970058B906 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		89FC6EBC2DC135970058B906 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		89FC6ED42DC135B80058B906 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		89FC6ED52DC135B80058B906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89FC6ED62DC135B80058B906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgets.swift; sourceTree = "<group>"; };
+		89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsBundle.swift; sourceTree = "<group>"; };
+		89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsControl.swift; sourceTree = "<group>"; };
+		89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsLiveActivity.swift; sourceTree = "<group>"; };
+		89FC6EE32DC142910058B906 /* Motive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Motive.entitlements; sourceTree = "<group>"; };
+		89FC6EE42DC142CB0058B906 /* MotiveWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotiveWidgetsExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -149,6 +189,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89FC6EB52DC135970058B906 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FC6EBD2DC135970058B906 /* SwiftUI.framework in Frameworks */,
+				89FC6EBB2DC135970058B906 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -156,8 +205,11 @@
 			isa = PBXGroup;
 			children = (
 				89AA09B92DBEA93600308F1E /* Motive */,
+				89FC6EDB2DC135B80058B906 /* MotiveWidgets */,
+				89FC6EE42DC142CB0058B906 /* MotiveWidgetsExtension.entitlements */,
 				89AA099C2DBEA92900308F1E /* MotiveTests */,
 				89AA09A62DBEA92900308F1E /* MotiveUITests */,
+				89FC6EB92DC135970058B906 /* Frameworks */,
 				89AA098D2DBEA92800308F1E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,6 +220,7 @@
 				89AA098C2DBEA92800308F1E /* Motive.app */,
 				89AA09992DBEA92900308F1E /* MotiveTests.xctest */,
 				89AA09A32DBEA92900308F1E /* MotiveUITests.xctest */,
+				89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +237,7 @@
 				89AA0A122DBED28700308F1E /* Components */,
 				89AA09B62DBEA93600308F1E /* Assets.xcassets */,
 				89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */,
+				89FC6EE32DC142910058B906 /* Motive.entitlements */,
 			);
 			path = Motive;
 			sourceTree = "<group>";
@@ -193,9 +247,8 @@
 			children = (
 				89AA0A2A2DBF2E1700308F1E /* AmbitionView.swift */,
 				89AA0A022DBED19B00308F1E /* InspirationView.swift */,
-				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
-				89AA0A042DBED1B700308F1E /* ReligionView.swift */,
 				89AA0A062DBED1C500308F1E /* SelectReligionView.swift */,
+				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
 				89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */,
 				89AA0A362DBF327100308F1E /* WidgetsView.swift */,
@@ -325,6 +378,29 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		89FC6EB92DC135970058B906 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89FC6EBA2DC135970058B906 /* WidgetKit.framework */,
+				89FC6EBC2DC135970058B906 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89FC6EDB2DC135B80058B906 /* MotiveWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				89FC6ED42DC135B80058B906 /* AppIntent.swift */,
+				89FC6ED52DC135B80058B906 /* Assets.xcassets */,
+				89FC6ED62DC135B80058B906 /* Info.plist */,
+				89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */,
+				89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */,
+				89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */,
+				89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */,
+			);
+			path = MotiveWidgets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,10 +411,12 @@
 				89AA09882DBEA92800308F1E /* Sources */,
 				89AA09892DBEA92800308F1E /* Frameworks */,
 				89AA098A2DBEA92800308F1E /* Resources */,
+				89FC6ED32DC135990058B906 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				89FC6ECD2DC135990058B906 /* PBXTargetDependency */,
 			);
 			name = Motive;
 			packageProductDependencies = (
@@ -400,6 +478,25 @@
 			productReference = 89AA09A32DBEA92900308F1E /* MotiveUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		89FC6EB72DC135970058B906 /* MotiveWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89FC6ED02DC135990058B906 /* Build configuration list for PBXNativeTarget "MotiveWidgetsExtension" */;
+			buildPhases = (
+				89FC6EB42DC135970058B906 /* Sources */,
+				89FC6EB52DC135970058B906 /* Frameworks */,
+				89FC6EB62DC135970058B906 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotiveWidgetsExtension;
+			packageProductDependencies = (
+			);
+			productName = MotiveWidgetsExtension;
+			productReference = 89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -420,6 +517,9 @@
 					89AA09A22DBEA92900308F1E = {
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = 89AA098B2DBEA92800308F1E;
+					};
+					89FC6EB72DC135970058B906 = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
@@ -442,6 +542,7 @@
 			projectRoot = "";
 			targets = (
 				89AA098B2DBEA92800308F1E /* Motive */,
+				89FC6EB72DC135970058B906 /* MotiveWidgetsExtension */,
 				89AA09982DBEA92900308F1E /* MotiveTests */,
 				89AA09A22DBEA92900308F1E /* MotiveUITests */,
 			);
@@ -472,6 +573,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89FC6EB62DC135970058B906 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FC6EDC2DC135B80058B906 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -480,7 +589,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */,
-				89AA0A052DBED1B700308F1E /* ReligionView.swift in Sources */,
 				89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */,
 				89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */,
 				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
@@ -528,6 +636,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89FC6EB42DC135970058B906 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FC6EDE2DC135B80058B906 /* AppIntent.swift in Sources */,
+				89FC6EDF2DC135B80058B906 /* MotiveWidgets.swift in Sources */,
+				89FC6EE02DC135B80058B906 /* MotiveWidgetsBundle.swift in Sources */,
+				89FC6EE12DC135B80058B906 /* MotiveWidgetsControl.swift in Sources */,
+				89FC6EE22DC135B80058B906 /* MotiveWidgetsLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -540,6 +660,11 @@
 			isa = PBXTargetDependency;
 			target = 89AA098B2DBEA92800308F1E /* Motive */;
 			targetProxy = 89AA09A42DBEA92900308F1E /* PBXContainerItemProxy */;
+		};
+		89FC6ECD2DC135990058B906 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89FC6EB72DC135970058B906 /* MotiveWidgetsExtension */;
+			targetProxy = 89FC6ECC2DC135990058B906 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -670,6 +795,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
@@ -682,7 +808,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,6 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
@@ -713,7 +840,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -799,6 +926,64 @@
 			};
 			name = Release;
 		};
+		89FC6ED12DC135990058B906 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MotiveWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T2V9U83CKZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotiveWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MotiveWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Bautista.Motive.MotiveWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89FC6ED22DC135990058B906 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MotiveWidgetsExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T2V9U83CKZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MotiveWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MotiveWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Bautista.Motive.MotiveWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -834,6 +1019,15 @@
 			buildConfigurations = (
 				89AA09B42DBEA92900308F1E /* Debug */,
 				89AA09B52DBEA92900308F1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89FC6ED02DC135990058B906 /* Build configuration list for PBXNativeTarget "MotiveWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FC6ED12DC135990058B906 /* Debug */,
+				89FC6ED22DC135990058B906 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

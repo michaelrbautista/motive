@@ -21,77 +21,81 @@ struct InspirationView: View {
             VStack(spacing: 20) {
                 MultiSelectRow(
                     text: "Self improvement",
-                    setSelection: $viewModel.pursuits
+                    setSelection: $viewModel.inspirations
                 ) {
-                    if viewModel.pursuits.contains("Self improvement") {
-                        viewModel.pursuits.remove("Self improvement")
+                    if viewModel.inspirations.contains("Self improvement") {
+                        viewModel.inspirations.remove("Self improvement")
                     } else {
-                        viewModel.pursuits.insert("Self improvement")
-                    }
-                }
-                
-                MultiSelectRow(
-                    text: "Faith",
-                    setSelection: $viewModel.pursuits
-                ) {
-                    if viewModel.pursuits.contains("Faith") {
-                        viewModel.pursuits.remove("Faith")
-                    } else {
-                        viewModel.pursuits.insert("Faith")
-                    }
-                }
-                
-                MultiSelectRow(
-                    text: "Entrepreneurship",
-                    setSelection: $viewModel.pursuits
-                ) {
-                    if viewModel.pursuits.contains("Entrepreneurship") {
-                        viewModel.pursuits.remove("Entrepreneurship")
-                    } else {
-                        viewModel.pursuits.insert("Entrepreneurship")
+                        viewModel.inspirations.insert("Self improvement")
                     }
                 }
                 
                 MultiSelectRow(
                     text: "Sports",
-                    setSelection: $viewModel.pursuits
+                    setSelection: $viewModel.inspirations
                 ) {
-                    if viewModel.pursuits.contains("Sports") {
-                        viewModel.pursuits.remove("Sports")
+                    if viewModel.inspirations.contains("Sports") {
+                        viewModel.inspirations.remove("Sports")
                     } else {
-                        viewModel.pursuits.insert("Sports")
+                        viewModel.inspirations.insert("Sports")
+                    }
+                }
+                
+                MultiSelectRow(
+                    text: "Entrepreneurship",
+                    setSelection: $viewModel.inspirations
+                ) {
+                    if viewModel.inspirations.contains("Entrepreneurship") {
+                        viewModel.inspirations.remove("Entrepreneurship")
+                    } else {
+                        viewModel.inspirations.insert("Entrepreneurship")
+                    }
+                }
+                
+                MultiSelectRow(
+                    text: "Religion",
+                    setSelection: $viewModel.inspirations
+                ) {
+                    if viewModel.inspirations.contains("Religion") {
+                        viewModel.inspirations.remove("Religion")
+                    } else {
+                        viewModel.inspirations.insert("Religion")
                     }
                 }
                 
                 MultiSelectRow(
                     text: "Weightlifting",
-                    setSelection: $viewModel.pursuits
+                    setSelection: $viewModel.inspirations
                 ) {
-                    if viewModel.pursuits.contains("Weightlifting") {
-                        viewModel.pursuits.remove("Weightlifting")
+                    if viewModel.inspirations.contains("Weightlifting") {
+                        viewModel.inspirations.remove("Weightlifting")
                     } else {
-                        viewModel.pursuits.insert("Weightlifting")
+                        viewModel.inspirations.insert("Weightlifting")
                     }
                 }
                 
                 MultiSelectRow(
                     text: "Running",
-                    setSelection: $viewModel.pursuits
+                    setSelection: $viewModel.inspirations
                 ) {
-                    if viewModel.pursuits.contains("Running") {
-                        viewModel.pursuits.remove("Running")
+                    if viewModel.inspirations.contains("Running") {
+                        viewModel.inspirations.remove("Running")
                     } else {
-                        viewModel.pursuits.insert("Running")
+                        viewModel.inspirations.insert("Running")
                     }
                 }
             }
             Spacer()
             StyledButton(
-                variant: viewModel.pursuits.count == 0 ? .disabled : .primary,
+                variant: viewModel.inspirations.count == 0 ? .disabled : .primary,
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.EnterGoalsView(viewModel: viewModel))
+                if viewModel.inspirations.contains("Faith") {
+                    navigationController.push(.EnterGoalsView(viewModel: viewModel))
+                } else {
+                    navigationController.push(.EnterGoalsView(viewModel: viewModel))
+                }
             }
 
         }

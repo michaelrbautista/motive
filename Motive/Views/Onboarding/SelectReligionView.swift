@@ -67,7 +67,7 @@ struct SelectReligionView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.PersonalizingView(viewModel: viewModel))
+                navigationController.push(.EnterGoalsView(viewModel: viewModel))
             }
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
