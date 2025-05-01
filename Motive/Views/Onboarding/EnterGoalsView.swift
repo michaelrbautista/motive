@@ -39,7 +39,7 @@ struct EnterGoalsView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.ReligionView(viewModel: viewModel))
+                navigationController.push(.PersonalizingView(viewModel: viewModel))
             }
 
         }

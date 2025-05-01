@@ -39,7 +39,7 @@ struct SettingsCoordinatorView: View {
     
     var body: some View {
         NavigationStack(path: $navigationController.path) {
-            navigationController.build(.SettingsView)
+            navigationController.build(.SettingsView(selectedTopics: userViewModel.topics))
                 .environmentObject(userViewModel)
                 .navigationDestination(for: Screen.self) { screen in
                     navigationController.build(screen)

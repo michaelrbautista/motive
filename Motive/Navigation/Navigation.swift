@@ -91,8 +91,8 @@ class NavigationController: CoordinatorProtocol {
             HomeView()
             
         // Settings
-        case .SettingsView:
-            SettingsView()
+        case .SettingsView(let selectedTopics):
+            SettingsView(selectedTopics: selectedTopics)
         }
     }
     
@@ -102,6 +102,8 @@ class NavigationController: CoordinatorProtocol {
         switch sheet {
         case .SelectTopicView(let topic):
             SelectTopicView(topic: topic)
+        case .SelectAllTopicsView(let selectedTopics):
+            SelectAllTopicsView(selectedTopics: selectedTopics)
         }
     }
     

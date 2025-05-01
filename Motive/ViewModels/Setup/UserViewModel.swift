@@ -18,6 +18,8 @@ class UserViewModel: ObservableObject {
     @Published var event: AuthChangeEvent? = nil
     @Published var session: Session? = nil
     
+    @Published var topics = [String]()
+    
     init() {
         self.isLoading = true
         
@@ -46,6 +48,11 @@ class UserViewModel: ObservableObject {
                 .value
             
             UserService.currentUser = user
+            
+            // Get topics from UserDefaults
+            if let userTopics = UserDefaults.standard.array(forKey: "topics") as? [String] {
+                self.topics = userTopics
+            }
             
             self.isLoggedIn = true
             

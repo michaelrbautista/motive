@@ -11,6 +11,14 @@ struct SettingsView: View {
     @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var userViewModel: UserViewModel
     
+    var defaultTopics = [
+        "Self improvement",
+        "Entrepreneurship",
+        "Sports",
+        "Religion"
+    ]
+    @State var selectedTopics: [String]
+    
     @State var signOutIsLoading = false
     
     @State var presentConfirmSignOut = false
@@ -18,6 +26,33 @@ struct SettingsView: View {
     
     var body: some View {
         List {
+            // MARK: Topics
+            Section {
+                Button {
+                    navigationController.presentSheet(.SelectAllTopicsView(selectedTopics: $selectedTopics))
+                } label: {
+                    HStack {
+                        Text(
+                            self.defaultTopics.filter {
+                                self.selectedTopics.contains($0)
+                            }.joined(separator: ", ")
+                        )
+                            .font(Font.FontStyles.body)
+                            .foregroundStyle(Color.ColorSystem.primaryText)
+                            .lineLimit(1)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 12)
+                            .foregroundStyle(Color.ColorSystem.systemGray2)
+                            .fontWeight(.bold)
+                    }
+                }
+            } header: {
+                Text("Topics")
+            }
+            
             // MARK: Terms and privacy
             Section {
                 Button {
@@ -121,5 +156,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(selectedTopics: ["Sports"])
 }

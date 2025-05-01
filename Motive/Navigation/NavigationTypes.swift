@@ -28,7 +28,7 @@ enum Screen: Identifiable, Hashable {
     case HomeView
     
     // Settings
-    case SettingsView
+    case SettingsView(selectedTopics: [String])
     
     var id: Self { return self }
 }
@@ -59,6 +59,7 @@ extension Screen {
 enum Sheet: Identifiable, Hashable {
     
     case SelectTopicView(topic: Binding<String>)
+    case SelectAllTopicsView(selectedTopics: Binding<[String]>)
     
     var id: Self { return self }
     
@@ -67,6 +68,8 @@ enum Sheet: Identifiable, Hashable {
         switch self {
         case .SelectTopicView:
             hasher.combine("SelectTopicView")
+        case .SelectAllTopicsView:
+            hasher.combine("SelectAllTopicsView")
         }
     }
     

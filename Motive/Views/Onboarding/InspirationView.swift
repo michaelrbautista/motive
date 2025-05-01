@@ -62,28 +62,6 @@ struct InspirationView: View {
                         viewModel.inspirations.insert("Religion")
                     }
                 }
-                
-                MultiSelectRow(
-                    text: "Weightlifting",
-                    setSelection: $viewModel.inspirations
-                ) {
-                    if viewModel.inspirations.contains("Weightlifting") {
-                        viewModel.inspirations.remove("Weightlifting")
-                    } else {
-                        viewModel.inspirations.insert("Weightlifting")
-                    }
-                }
-                
-                MultiSelectRow(
-                    text: "Running",
-                    setSelection: $viewModel.inspirations
-                ) {
-                    if viewModel.inspirations.contains("Running") {
-                        viewModel.inspirations.remove("Running")
-                    } else {
-                        viewModel.inspirations.insert("Running")
-                    }
-                }
             }
             Spacer()
             StyledButton(

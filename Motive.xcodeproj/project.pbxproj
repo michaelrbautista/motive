@@ -56,6 +56,10 @@
 		89FC6EE02DC135B80058B906 /* MotiveWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */; };
 		89FC6EE12DC135B80058B906 /* MotiveWidgetsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */; };
 		89FC6EE22DC135B80058B906 /* MotiveWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */; };
+		89FC6EE62DC2B01C0058B906 /* SelectAllTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EE52DC2B01C0058B906 /* SelectAllTopicsView.swift */; };
+		89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */; };
+		89FC6EF02DC2D4070058B906 /* RowWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EEF2DC2D4070058B906 /* RowWithHeader.swift */; };
+		89FC6EF82DC2F5E70058B906 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EF72DC2F5DF0058B906 /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +149,10 @@
 		89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsLiveActivity.swift; sourceTree = "<group>"; };
 		89FC6EE32DC142910058B906 /* Motive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Motive.entitlements; sourceTree = "<group>"; };
 		89FC6EE42DC142CB0058B906 /* MotiveWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotiveWidgetsExtension.entitlements; sourceTree = "<group>"; };
+		89FC6EE52DC2B01C0058B906 /* SelectAllTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllTopicsView.swift; sourceTree = "<group>"; };
+		89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSelector.swift; sourceTree = "<group>"; };
+		89FC6EEF2DC2D4070058B906 /* RowWithHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowWithHeader.swift; sourceTree = "<group>"; };
+		89FC6EF72DC2F5DF0058B906 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -293,6 +301,7 @@
 		89AA09C12DBEA95B00308F1E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				89FC6EF72DC2F5DF0058B906 /* APIResponse.swift */,
 				89AA09F42DBECB9700308F1E /* User.swift */,
 			);
 			path = Models;
@@ -302,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				89AA0A172DBED2E400308F1E /* HomeView.swift */,
+				89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */,
 				89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */,
 			);
 			path = Home;
@@ -311,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				89AA09C42DBEC98B00308F1E /* SettingsView.swift */,
+				89FC6EE52DC2B01C0058B906 /* SelectAllTopicsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -358,6 +369,7 @@
 				89AA0A132DBED29900308F1E /* StyledButton.swift */,
 				89AA0A152DBED2A900308F1E /* SelectRow.swift */,
 				89AA0A322DBF305600308F1E /* MultiSelectRow.swift */,
+				89FC6EEF2DC2D4070058B906 /* RowWithHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -596,6 +608,7 @@
 				89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */,
 				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
+				89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */,
 				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
 				89FC6EA42DC020DF0058B906 /* SubscriptionService.swift in Sources */,
 				89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */,
@@ -606,6 +619,7 @@
 				89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */,
 				89AA0A182DBED2E400308F1E /* HomeView.swift in Sources */,
 				89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */,
+				89FC6EF02DC2D4070058B906 /* RowWithHeader.swift in Sources */,
 				89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */,
 				89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */,
 				89AA09CD2DBEC9E000308F1E /* LandingPageView.swift in Sources */,
@@ -614,10 +628,12 @@
 				89AA09FD2DBECC3800308F1E /* Navigation.swift in Sources */,
 				89AA09F82DBECC0300308F1E /* Design.swift in Sources */,
 				89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */,
+				89FC6EF82DC2F5E70058B906 /* APIResponse.swift in Sources */,
 				89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */,
 				89AA09F52DBECB9700308F1E /* User.swift in Sources */,
 				89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */,
 				89FC6EB12DC12F350058B906 /* HomeViewModel.swift in Sources */,
+				89FC6EE62DC2B01C0058B906 /* SelectAllTopicsView.swift in Sources */,
 				89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

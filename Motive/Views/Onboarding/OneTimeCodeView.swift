@@ -11,6 +11,7 @@ import Supabase
 struct OneTimeCodeView: View {
     @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var userViewModel: UserViewModel
+    
     @StateObject var viewModel: OnboardingViewModel
     
     var isSignIn: Bool
@@ -74,6 +75,14 @@ struct OneTimeCodeView: View {
                             let user = try await UserService.shared.getUser(uid: currentUserId)
                             
                             UserService.currentUser = user
+                            
+                            // Add topics to UserDefaults
+                            UserDefaults.standard.set([
+                                "Self improvement",
+                                "Sports",
+                                "Entrepreneurship",
+                                "Religion"
+                            ], forKey: "topics")
                             
                             userViewModel.isLoggedIn = true
                         } else {

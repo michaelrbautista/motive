@@ -12,7 +12,7 @@ struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(
             date: Date(),
-            quote: "The circumstances don't make the man. They merely reveal him to himself.",
+            quote: "Circumstances don't make the man, they only reveal him to himself.",
             configuration: ConfigurationAppIntent()
         )
     }
@@ -20,7 +20,7 @@ struct Provider: AppIntentTimelineProvider {
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         SimpleEntry(
             date: Date(),
-            quote: "The circumstances don't make the man. They merely reveal him to himself.",
+            quote: "Circumstances don't make the man, they only reveal him to himself.",
             configuration: configuration
         )
     }
@@ -34,7 +34,7 @@ struct Provider: AppIntentTimelineProvider {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(
                 date: entryDate,
-                quote: "Circumstances don't make the man. They merely reveal him to himself.",
+                quote: "Circumstances don't make the man, they only reveal him to himself.",
                 configuration: configuration
             )
             entries.append(entry)
@@ -84,14 +84,14 @@ struct MotiveWidgetsEntryView : View {
         case .systemSmall:
             Text(entry.quote)
                 .italic()
-                .font(Font.subheadline)
-                .fontWeight(.black)
+                .font(Font.system(size: 14))
+                .fontWeight(.bold)
                 .foregroundStyle(Color.white)
         case .systemMedium:
             Text(entry.quote)
                 .italic()
-                .font(Font.headline)
-                .fontWeight(.black)
+                .font(Font.system(size: 16))
+                .fontWeight(.bold)
                 .foregroundStyle(Color.white)
         case .accessoryRectangular:
             Text(entry.quote)
@@ -115,8 +115,8 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemMedium) {
+#Preview(as: .systemSmall) {
     MotiveWidgets()
 } timeline: {
-    SimpleEntry(date: .now, quote: "The circumstances don't make the man. They merely reveal him to himself.", configuration: .smiley)
+    SimpleEntry(date: .now, quote: "Circumstances don't make the man, they only reveal him to himself.", configuration: .smiley)
 }
