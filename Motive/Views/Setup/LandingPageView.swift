@@ -14,17 +14,11 @@ struct LandingPageView: View {
     
     var body: some View {
         VStack(spacing: 40) {
-            VStack(spacing: 10) {
-                Image("motiveLandingPage")
+            VStack(spacing: 0) {
+                Image("wordLandingPage")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200)
-                
-                Text("Time to lock in.")
-                    .italic()
-                    .font(.system(size: 16))
-                    .fontWeight(.black)
-                    .foregroundStyle(Color.ColorSystem.primaryText)
             }
             
             VStack(spacing: 10) {

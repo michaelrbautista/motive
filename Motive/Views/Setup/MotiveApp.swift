@@ -60,9 +60,8 @@ struct CheckAuthentication: View {
             VStack(spacing: 20) {
                 Spacer()
                 
-                Text("MOTIVE")
-                    .italic()
-                    .font(.system(size: 40))
+                Text("Time to lock in.")
+                    .font(.system(size: 16))
                     .fontWeight(.black)
                     .foregroundStyle(Color.ColorSystem.primaryText)
                 
