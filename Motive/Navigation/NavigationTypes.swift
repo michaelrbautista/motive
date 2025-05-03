@@ -60,6 +60,7 @@ enum Sheet: Identifiable, Hashable {
     
     case SelectTopicView(topic: Binding<String>)
     case SelectAllTopicsView(selectedTopics: Binding<[String]>)
+    case SaveQuoteView(viewModel: HomeViewModel)
     
     var id: Self { return self }
     
@@ -70,6 +71,8 @@ enum Sheet: Identifiable, Hashable {
             hasher.combine("SelectTopicView")
         case .SelectAllTopicsView:
             hasher.combine("SelectAllTopicsView")
+        case .SaveQuoteView:
+            hasher.combine("SaveQuoteView")
         }
     }
     

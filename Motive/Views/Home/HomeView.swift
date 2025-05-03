@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct HomeView: View {
     @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var userViewModel: UserViewModel
     
     @StateObject var viewModel = HomeViewModel()
-    
-    @State var presentConfirmSave = false
     
     var body: some View {
         VStack {
@@ -22,83 +21,23 @@ struct HomeView: View {
             
             Spacer()
             
-            // MARK: Mock ups
-            VStack(spacing: 20) {
-                // MARK: Medium
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("MEDIUM")
-                        .font(Font.FontStyles.footnote)
-                        .foregroundStyle(Color.ColorSystem.systemGray)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                    
-                    Text(viewModel.quote == "" ? "Quote goes here" : viewModel.quote)
-                        .italic()
-                        .font(Font.system(size: 16))
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color.white)
-                        .frame(height: 155)
-                        .frame(maxWidth: .infinity)
-                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.ColorSystem.systemGray5)
-                        )
-                }
+            // MARK: Quote
+            VStack(alignment: .leading, spacing: 5) {
+                Text(viewModel.quote == "" ? "Circumstances don't make the man, they only reveal him to himself." : viewModel.quote)
+                    .font(.custom("InterDisplay-Bold", size: 24))
+                    .foregroundStyle(Color.ColorSystem.primaryText)
                 
-                HStack(alignment: .top) {
-                    // MARK: Small
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("SMALL")
-                            .font(Font.FontStyles.footnote)
-                            .foregroundStyle(Color.ColorSystem.systemGray)
-                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                        
-                        Text(viewModel.quote == "" ? "Quote goes here" : viewModel.quote)
-                            .italic()
-                            .font(Font.system(size: 14))
-                            .fontWeight(.bold)
-                            .foregroundStyle(Color.white)
-                            .frame(height: 155)
-                            .frame(maxWidth: .infinity)
-                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.ColorSystem.systemGray5)
-                            )
-                    }
-                    
-                    // MARK: Lock screen
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("LOCK SCREEN")
-                            .font(Font.FontStyles.footnote)
-                            .foregroundStyle(Color.ColorSystem.systemGray)
-                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                        
-                        Text(viewModel.quote == "" ? "Quote goes here" : viewModel.quote)
-                            .font(Font.system(size: 12))
-                            .foregroundStyle(Color.white)
-                            .frame(height: 60)
-                            .frame(maxWidth: .infinity)
-                            .lineLimit(3)
-                            .multilineTextAlignment(.leading)
-                            .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.ColorSystem.systemGray5)
-                            )
-                    }
-                }
+                Text(viewModel.source == "" ? "Epictetus" : viewModel.source)
+                    .font(.custom("InterDisplay-Bold", size: 16))
+                    .foregroundStyle(Color.ColorSystem.systemGray)
             }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             
             Spacer()
             
             // MARK: Generate button
             Button {
-                viewModel.generateNewQuote()
+                viewModel.generateNewQuote(religion: UserService.currentUser?.religion)
             } label: {
                 HStack {
                     Spacer()
@@ -125,27 +64,12 @@ struct HomeView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    presentConfirmSave.toggle()
+                    navigationController.presentSheet(.SaveQuoteView(viewModel: viewModel))
                 } label: {
                     Text("Save")
-                        .foregroundStyle(viewModel.quote == "" ? Color.ColorSystem.systemGray : Color.ColorSystem.primaryText)
+                        .foregroundStyle(!viewModel.hasGenerated || viewModel.isLoading ? Color.ColorSystem.systemGray : Color.ColorSystem.primaryText)
                 }
-                .disabled(viewModel.quote == "" || viewModel.isLoading)
-            }
-        }
-        .alert(Text("Are you sure you want to save? This will overwrite the current quote."), isPresented: $presentConfirmSave) {
-            Button(role: .cancel) {
-                
-            } label: {
-                Text("Cancel")
-            }
-
-            
-            Button(role: .none) {
-                // Overwrite current quote
-                
-            } label: {
-                Text("Save")
+                .disabled(!viewModel.hasGenerated || viewModel.isLoading)
             }
         }
     }

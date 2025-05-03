@@ -14,28 +14,44 @@ struct SelectTopicView: View {
         "Self improvement",
         "Entrepreneurship",
         "Sports",
-        "Religion"
+        "Religion",
+        "Random"
     ]
     
     @Binding var topic: String
     
     var body: some View {
-        List {
-            ForEach(topics, id: \.self) { topic in
-                Button {
-                    self.topic = topic
-                    navigationController.dismissSheet()
-                } label: {
-                    Text(topic)
-                        .font(Font.FontStyles.body)
-                        .foregroundStyle(Color.ColorSystem.primaryText)
+        NavigationStack {
+            List {
+                ForEach(topics, id: \.self) { topic in
+                    Button {
+                        self.topic = topic
+                        navigationController.dismissSheet()
+                    } label: {
+                        Text(topic)
+                            .font(Font.FontStyles.body)
+                            .foregroundStyle(Color.ColorSystem.primaryText)
+                    }
+                    .listRowBackground(Color.ColorSystem.systemGray6)
                 }
-                .listRowBackground(Color.ColorSystem.systemGray6)
+            }
+            .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
+            .background(Color.ColorSystem.systemBackground)
+            .navigationTitle("Topic")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        navigationController.dismissSheet()
+                    } label: {
+                        Image(systemName: "multiply")
+                            .foregroundStyle(Color.ColorSystem.primaryText)
+                    }
+
+                }
             }
         }
-        .listStyle(.insetGrouped)
-        .scrollContentBackground(.hidden)
-        .background(Color.ColorSystem.systemBackground)
     }
 }
 

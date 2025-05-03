@@ -116,7 +116,6 @@ struct SettingsView: View {
                         try await SupabaseService.shared.supabase.auth.signOut()
                         
                         DispatchQueue.main.async {
-                            UserDefaults.standard.removeObject(forKey: "startDate")
                             UserService.currentUser = nil
                             self.userViewModel.isLoggedIn = false
                         }

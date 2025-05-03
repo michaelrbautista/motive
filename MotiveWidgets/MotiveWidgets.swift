@@ -9,38 +9,46 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(
+    func placeholder(in context: Context) -> QuoteEntry {
+        QuoteEntry(
             date: Date(),
             quote: "Circumstances don't make the man, they only reveal him to himself.",
+            source: "Epictetus",
             configuration: ConfigurationAppIntent()
         )
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(
+    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> QuoteEntry {
+        QuoteEntry(
             date: Date(),
             quote: "Circumstances don't make the man, they only reveal him to himself.",
+            source: "Epictetus",
             configuration: configuration
         )
     }
     
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
+    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<QuoteEntry> {
+        let todaysQuote = loadQuote()
+        
+        let entry = QuoteEntry(
+            date: .now,
+            quote: todaysQuote.quote,
+            source: todaysQuote.source,
+            configuration: configuration
+        )
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(
-                date: entryDate,
-                quote: "Circumstances don't make the man, they only reveal him to himself.",
-                configuration: configuration
-            )
-            entries.append(entry)
-        }
-
-        return Timeline(entries: entries, policy: .atEnd)
+        return Timeline(entries: [entry], policy: .never)
+    }
+    
+    private func loadQuote() -> FetchedQuote {
+        let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
+        
+        let quote = FetchedQuote(
+            quote: userDefaults?.value(forKey: "dailyQuote") as? String ?? "Circumstances don't make the man, they only reveal him to himself.",
+            source: userDefaults?.value(forKey: "dailySource") as? String ?? "Epictetus"
+        )
+        
+        return quote
     }
 
 //    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
@@ -48,10 +56,17 @@ struct Provider: AppIntentTimelineProvider {
 //    }
 }
 
-struct SimpleEntry: TimelineEntry {
+// MARK: Model
+struct QuoteEntry: TimelineEntry {
     let date: Date
     let quote: String
+    let source: String
     let configuration: ConfigurationAppIntent
+}
+
+struct FetchedQuote {
+    let quote: String
+    let source: String
 }
 
 // MARK: Types
@@ -82,41 +97,45 @@ struct MotiveWidgetsEntryView : View {
     var body: some View {
         switch family {
         case .systemSmall:
-            Text(entry.quote)
-                .italic()
-                .font(Font.system(size: 14))
-                .fontWeight(.bold)
-                .foregroundStyle(Color.white)
+            VStack(alignment: .leading, spacing: 5) {
+                Text(entry.quote)
+                    .font(.custom("InterDisplay-Bold", size: 14))
+                    .foregroundStyle(Color.white)
+                    .lineLimit(5)
+                Text(entry.source)
+                    .font(.custom("InterDisplay-Bold", size: 12))
+                    .foregroundStyle(Color.gray)
+                    .lineLimit(1)
+            }
         case .systemMedium:
-            Text(entry.quote)
-                .italic()
-                .font(Font.system(size: 16))
-                .fontWeight(.bold)
-                .foregroundStyle(Color.white)
+            VStack(alignment: .leading, spacing: 5) {
+                Text(entry.quote)
+                    .font(.custom("InterDisplay-Bold", size: 16))
+                    .foregroundStyle(Color.white)
+                    .lineLimit(5)
+                Text(entry.source)
+                    .font(.custom("InterDisplay-Bold", size: 14))
+                    .foregroundStyle(Color.gray)
+                    .lineLimit(1)
+            }
         case .accessoryRectangular:
-            Text(entry.quote)
+            VStack(alignment: .leading, spacing: 0) {
+                Text(entry.source)
+                    .font(.custom("InterDisplay-Bold", size: 12))
+                    .foregroundStyle(Color.white)
+                    .lineLimit(1)
+                Text(entry.quote)
+                    .font(.custom("InterDisplay", size: 10))
+                    .foregroundStyle(Color.white)
+            }
         default:
             Text("Unsupported widget.")
         }
     }
 }
 
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
-
 #Preview(as: .systemSmall) {
     MotiveWidgets()
 } timeline: {
-    SimpleEntry(date: .now, quote: "Circumstances don't make the man, they only reveal him to himself.", configuration: .smiley)
+    QuoteEntry(date: .now, quote: "Circumstances don't make the man, they only reveal him to himself.", source: "Epictetus", configuration: .init())
 }

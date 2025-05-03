@@ -18,7 +18,6 @@ final class SubscriptionService: ObservableObject, SuperwallDelegate {
         Superwall.shared.delegate = self
         
         if Superwall.shared.subscriptionStatus.isActive {
-            print("SUBSCRIBED")
             isSubscribed = true
         } else {
             print("NOT SUBSCRIBED")

@@ -104,6 +104,8 @@ class NavigationController: CoordinatorProtocol {
             SelectTopicView(topic: topic)
         case .SelectAllTopicsView(let selectedTopics):
             SelectAllTopicsView(selectedTopics: selectedTopics)
+        case .SaveQuoteView(let viewModel):
+            SaveQuoteView(viewModel: viewModel)
         }
     }
     

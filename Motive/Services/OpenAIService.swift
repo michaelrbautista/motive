@@ -11,8 +11,8 @@ final class OpenAIService: ObservableObject {
     
     public static let shared = OpenAIService()
     
-    // MARK: Get quote
-    public func getQuote(topic: String, completion: @escaping ((APIResponse) -> Void)) {
+    // MARK: Get url
+    public func getUrl(topic: String, religion: String?) -> String {
         var topicParameter = "self_improvement"
         
         switch topic {
@@ -26,13 +26,57 @@ final class OpenAIService: ObservableObject {
             break
         }
         
-        var env = "https://motive-server-ir1u.onrender.com"
+        let env = "https://motive-server-ir1u.onrender.com"
         
-        #if DEBUG
-        env = "http://127.0.0.1:8000"
-        #endif
+//        #if DEBUG
+//        env = "http://127.0.0.1:8000"
+//        #endif
         
-        guard let url = URL(string: "\(env)/quote?topic=\(topicParameter)") else { return }
+        var urlString = "\(env)/quote?topic=\(topicParameter)"
+        
+        if let userReligion = religion {
+            urlString.append("&user_religion=\(userReligion.lowercased())")
+        }
+        
+        return urlString
+    }
+    
+    // MARK: Get quote on background thread
+    public func getQuoteBackground(topic: String, religion: String?, completion: @escaping ((APIResponse) -> Void)) async {
+        let urlString = self.getUrl(topic: topic, religion: religion)
+        
+        guard let url = URL(string: urlString) else { return }
+                
+        let request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let config = URLSessionConfiguration.background(withIdentifier: "getQuoteInBackground")
+        config.sessionSendsLaunchEvents = true
+        let session = URLSession(configuration: config)
+        
+        let response = await withTaskCancellationHandler {
+            try? await session.data(for: request)
+        } onCancel: {
+            let task = session.downloadTask(with: request)
+            task.resume()
+        }
+        
+        if let data = response {
+            do {
+                let decoded = try JSONDecoder().decode(APIResponse.self, from: data.0)
+                completion(decoded)
+            } catch {
+                print("Decoding error:", error)
+            }
+        }
+    }
+    
+    // MARK: Get quote on main thread
+    public func getQuoteMain(topic: String, religion: String?, completion: @escaping ((APIResponse) -> Void)) {
+        let urlString = self.getUrl(topic: topic, religion: religion)
+        
+        guard let url = URL(string: urlString) else { return }
                 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -47,7 +91,7 @@ final class OpenAIService: ObservableObject {
                     completion(decoded)
                 }
             } catch {
-                print("Decoding error: ", error)
+                print("Decoding error:", error)
             }
         }.resume()
     }

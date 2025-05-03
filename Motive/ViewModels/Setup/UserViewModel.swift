@@ -54,13 +54,21 @@ class UserViewModel: ObservableObject {
                 self.topics = userTopics
             }
             
+            // Get quote
+            let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
+            let quote = userDefaults?.value(forKey: "dailyQuote") as? String
+            let source = userDefaults?.value(forKey: "dailySource") as? String
+            
+            if let existingQuote = quote, let existingSource = source {
+                QuoteService.quote = existingQuote
+                QuoteService.source = existingSource
+            }
+            
             self.isLoggedIn = true
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 self.isLoading = false
             }
-//            self.isLoggedIn = true
-//            self.isLoading = false
         } catch {
             print(error)
             self.isLoggedIn = false
@@ -68,8 +76,6 @@ class UserViewModel: ObservableObject {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 self.isLoading = false
             }
-//            self.isLoggedIn = false
-//            self.isLoading = false
         }
     }
 }

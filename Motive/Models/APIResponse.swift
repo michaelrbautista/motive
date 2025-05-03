@@ -7,5 +7,5 @@
 
 struct APIResponse: Codable {
     var quote: String
-    var person: String
+    var source: String
 }

@@ -76,13 +76,24 @@ struct OneTimeCodeView: View {
                             
                             UserService.currentUser = user
                             
-                            // Add topics to UserDefaults
-                            UserDefaults.standard.set([
+                            let topics = [
                                 "Self improvement",
                                 "Sports",
                                 "Entrepreneurship",
                                 "Religion"
-                            ], forKey: "topics")
+                            ]
+                            
+                            // Add topics to UserDefaults
+                            UserDefaults.standard.set(topics, forKey: "topics")
+                            
+                            // Create quote
+                            QuoteService.shared.createAndSaveQuote(
+                                topic: topics.randomElement() ?? "Self improvement",
+                                religion: user.religion
+                            )
+                            
+                            // Schedule next quote
+                            BackgroundService.shared.scheduleAppRefresh()
                             
                             userViewModel.isLoggedIn = true
                         } else {
@@ -93,13 +104,23 @@ struct OneTimeCodeView: View {
                             
                             let newUser = User(
                                 id: currentUserId,
-                                email: viewModel.email
+                                email: viewModel.email,
+                                religion: viewModel.religion
                             )
                             
                             // Create user row
                             let user = try await UserService.shared.createUser(user: newUser)
                             
                             UserService.currentUser = user
+                            
+                            // Create quote
+                            QuoteService.shared.createAndSaveQuote(
+                                topic: viewModel.inspirations.randomElement() ?? "Self improvement",
+                                religion: user.religion
+                            )
+                            
+                            // Schedule next quote
+                            BackgroundService.shared.scheduleAppRefresh()
                             
                             userViewModel.isLoggedIn = true
                         }

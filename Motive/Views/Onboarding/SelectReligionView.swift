@@ -48,13 +48,6 @@ struct SelectReligionView: View {
                 }
                 
                 SelectRow(
-                    text: "Hinduism",
-                    selection: $viewModel.religion
-                ) {
-                    viewModel.religion = "Hinduism"
-                }
-                
-                SelectRow(
                     text: "Other",
                     selection: $viewModel.religion
                 ) {

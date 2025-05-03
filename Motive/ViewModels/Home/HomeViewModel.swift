@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 final class HomeViewModel: ObservableObject {
     
@@ -14,20 +15,31 @@ final class HomeViewModel: ObservableObject {
     @Published var isLoading = false
     
     @Published var quote = ""
-    @Published var person = ""
+    @Published var source = ""
+    
+    @Published var hasGenerated = false
     
     @Published var returnedError = false
     @Published var errorMessage = ""
     
+    init() {
+        self.quote = QuoteService.quote
+        self.source = QuoteService.source
+    }
+    
     // MARK: Generate new quote
     @MainActor
-    public func generateNewQuote() {
+    public func generateNewQuote(religion: String?) {
         self.isLoading = true
         
-        OpenAIService.shared.getQuote(topic: self.topic) { response in
+        OpenAIService.shared.getQuoteMain(
+            topic: self.topic,
+            religion: self.topic == "Religion" ? religion : nil
+        ) { response in
             self.quote = response.quote
-            self.person = response.person
+            self.source = response.source
             
+            self.hasGenerated = true
             self.isLoading = false
         }
     }

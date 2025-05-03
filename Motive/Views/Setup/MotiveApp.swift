@@ -8,9 +8,12 @@
 import SwiftUI
 import Supabase
 import SuperwallKit
+import BackgroundTasks
 
 @main
 struct DailyApp: App {
+    
+    @Environment(\.scenePhase) private var phase
     
     @StateObject var userViewModel = UserViewModel()
     @StateObject var subscriptionService = SubscriptionService.shared
@@ -33,6 +36,8 @@ struct DailyApp: App {
         Superwall.configure(
             apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad"
         )
+        
+        print(UserDefaults.standard.value(forKey: "lastScheduledTime") ?? "nothing")
     }
     
     var body: some Scene {
@@ -42,6 +47,24 @@ struct DailyApp: App {
                 .onOpenURL { url in
                     handleIncomingURL(url)
                 }
+        }
+        .onChange(of: phase, { oldValue, newValue in
+            switch newValue {
+            case .background: BackgroundService.shared.scheduleAppRefresh()
+            default: break
+            }
+        })
+        .backgroundTask(.appRefresh("com.Michael-Bautista.motive.refresh")) { sendable in
+            // call API
+            await OpenAIService.shared.getQuoteBackground(
+                topic: userViewModel.topics.randomElement() ?? "Self improvement",
+                religion: UserService.currentUser?.religion
+            ) { response in
+                QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
+            }
+        }
+        .backgroundTask(.urlSession("getQuoteInBackground")) { sendable in
+            // ?
         }
     }
     
@@ -61,8 +84,7 @@ struct CheckAuthentication: View {
                 Spacer()
                 
                 Text("Time to lock in.")
-                    .font(.system(size: 16))
-                    .fontWeight(.black)
+                    .font(.custom("InterDisplay-Bold", size: 22))
                     .foregroundStyle(Color.ColorSystem.primaryText)
                 
                 Spacer()
