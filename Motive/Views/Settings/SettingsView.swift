@@ -106,6 +106,13 @@ struct SettingsView: View {
         .listStyle(.insetGrouped)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
+        .toolbar(content: {
+            ToolbarItem(placement: .principal) {
+                Text("MOTIVE")
+                    .font(.custom("InterDisplay-Bold", size: 12))
+                    .foregroundStyle(Color.ColorSystem.primaryText)
+            }
+        })
         .alert(Text("Are you sure you want to sign out?"), isPresented: $presentConfirmSignOut) {
             Button(role: .destructive) {
                 // Sign out
@@ -155,5 +162,7 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(selectedTopics: ["Sports"])
+    NavigationStack {
+        SettingsView(selectedTopics: ["Sports"])
+    }
 }

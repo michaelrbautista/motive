@@ -101,6 +101,7 @@ struct MotiveWidgetsEntryView : View {
                 Text(entry.quote)
                     .font(.custom("InterDisplay-Bold", size: 14))
                     .foregroundStyle(Color.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(5)
                 Text(entry.source)
                     .font(.custom("InterDisplay-Bold", size: 12))
@@ -112,6 +113,7 @@ struct MotiveWidgetsEntryView : View {
                 Text(entry.quote)
                     .font(.custom("InterDisplay-Bold", size: 16))
                     .foregroundStyle(Color.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .lineLimit(5)
                 Text(entry.source)
                     .font(.custom("InterDisplay-Bold", size: 14))
@@ -137,5 +139,5 @@ struct MotiveWidgetsEntryView : View {
 #Preview(as: .systemSmall) {
     MotiveWidgets()
 } timeline: {
-    QuoteEntry(date: .now, quote: "Circumstances don't make the man, they only reveal him to himself.", source: "Epictetus", configuration: .init())
+    QuoteEntry(date: .now, quote: "The secret of getting ahead is getting started.", source: "Mark Twain", configuration: .init())
 }

@@ -62,6 +62,12 @@ struct HomeView: View {
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(formattedDate)
         .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("MOTIVE")
+                    .font(.custom("InterDisplay-Bold", size: 12))
+                    .foregroundStyle(Color.ColorSystem.primaryText)
+            }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     navigationController.presentSheet(.SaveQuoteView(viewModel: viewModel))
@@ -82,5 +88,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    NavigationStack {
+        HomeView()
+    }
 }

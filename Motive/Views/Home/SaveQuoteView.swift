@@ -46,7 +46,7 @@ struct SaveQuoteView: View {
                             .foregroundStyle(Color.gray)
                         }
                         .frame(height: 155)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay(
@@ -79,7 +79,7 @@ struct SaveQuoteView: View {
                             .lineLimit(1)
                         }
                         .frame(height: 155)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay(

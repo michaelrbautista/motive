@@ -426,14 +426,14 @@
 		89FC6EDB2DC135B80058B906 /* MotiveWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				89FC6F132DC3D77B0058B906 /* Fonts */,
-				89FC6ED42DC135B80058B906 /* AppIntent.swift */,
-				89FC6ED52DC135B80058B906 /* Assets.xcassets */,
-				89FC6ED62DC135B80058B906 /* Info.plist */,
 				89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */,
+				89FC6ED42DC135B80058B906 /* AppIntent.swift */,
 				89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */,
 				89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */,
 				89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */,
+				89FC6F132DC3D77B0058B906 /* Fonts */,
+				89FC6ED52DC135B80058B906 /* Assets.xcassets */,
+				89FC6ED62DC135B80058B906 /* Info.plist */,
 			);
 			path = MotiveWidgets;
 			sourceTree = "<group>";

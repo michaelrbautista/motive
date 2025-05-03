@@ -48,12 +48,6 @@ struct DailyApp: App {
                     handleIncomingURL(url)
                 }
         }
-        .onChange(of: phase, { oldValue, newValue in
-            switch newValue {
-            case .background: BackgroundService.shared.scheduleAppRefresh()
-            default: break
-            }
-        })
         .backgroundTask(.appRefresh("com.Michael-Bautista.motive.refresh")) { sendable in
             // call API
             await OpenAIService.shared.getQuoteBackground(

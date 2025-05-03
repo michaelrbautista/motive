@@ -27,9 +27,6 @@ final class QuoteService: ObservableObject {
     public func createAndSaveQuote(topic: String, religion: String?) {
         OpenAIService.shared.getQuoteMain(topic: topic, religion: religion) { response in
             self.saveQuote(quote: response.quote, source: response.source)
-            
-            // Schedule next quote to be created in background
-            BackgroundService.shared.scheduleAppRefresh()
         }
     }
     
@@ -48,5 +45,8 @@ final class QuoteService: ObservableObject {
         
         // Update widget timeline
         WidgetCenter.shared.reloadAllTimelines()
+        
+        // Schedule next quote
+        BackgroundService.shared.scheduleAppRefresh()
     }
 }
