@@ -39,7 +39,7 @@ struct HomeView: View {
             
             // MARK: Generate button
             Button {
-                viewModel.generateNewQuote(religion: UserService.currentUser?.religion)
+                viewModel.generateNewQuote()
             } label: {
                 HStack {
                     Spacer()

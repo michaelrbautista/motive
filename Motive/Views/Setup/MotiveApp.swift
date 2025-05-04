@@ -55,8 +55,7 @@ struct DailyApp: App {
         .backgroundTask(.appRefresh("com.Michael-Bautista.motive.refresh")) { sendable in
             // call API
             await OpenAIService.shared.getQuoteBackground(
-                topic: userViewModel.topics.randomElement() ?? "Self improvement",
-                religion: UserService.currentUser?.religion
+                topic: userViewModel.topics.randomElement() ?? "Self improvement"
             ) { response in
                 QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
             }

@@ -12,12 +12,10 @@ final class OpenAIService: ObservableObject {
     public static let shared = OpenAIService()
     
     // MARK: Get url
-    public func getUrl(topic: String, religion: String?) -> String {
+    public func getUrl(topic: String) -> String {
         var topicParameter = "self_improvement"
         
         switch topic {
-        case "Religion":
-            topicParameter = "religion"
         case "Sports":
             topicParameter = "sports"
         case "Entrepreneurship":
@@ -34,16 +32,12 @@ final class OpenAIService: ObservableObject {
         
         var urlString = "\(env)/quote?topic=\(topicParameter)"
         
-        if let userReligion = religion {
-            urlString.append("&user_religion=\(userReligion.lowercased())")
-        }
-        
         return urlString
     }
     
     // MARK: Get quote on background thread
-    public func getQuoteBackground(topic: String, religion: String?, completion: @escaping ((APIResponse) -> Void)) async {
-        let urlString = self.getUrl(topic: topic, religion: religion)
+    public func getQuoteBackground(topic: String, completion: @escaping ((APIResponse) -> Void)) async {
+        let urlString = self.getUrl(topic: topic)
         
         guard let url = URL(string: urlString) else { return }
                 
@@ -73,8 +67,8 @@ final class OpenAIService: ObservableObject {
     }
     
     // MARK: Get quote on main thread
-    public func getQuoteMain(topic: String, religion: String?, completion: @escaping ((APIResponse) -> Void)) {
-        let urlString = self.getUrl(topic: topic, religion: religion)
+    public func getQuoteMain(topic: String, completion: @escaping ((APIResponse) -> Void)) {
+        let urlString = self.getUrl(topic: topic)
         
         guard let url = URL(string: urlString) else { return }
                 

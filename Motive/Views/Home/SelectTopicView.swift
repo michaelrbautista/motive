@@ -14,7 +14,6 @@ struct SelectTopicView: View {
         "Self improvement",
         "Entrepreneurship",
         "Sports",
-        "Religion",
         "Random"
     ]
     

@@ -51,17 +51,6 @@ struct InspirationView: View {
                         viewModel.inspirations.insert("Entrepreneurship")
                     }
                 }
-                
-                MultiSelectRow(
-                    text: "Religion",
-                    setSelection: $viewModel.inspirations
-                ) {
-                    if viewModel.inspirations.contains("Religion") {
-                        viewModel.inspirations.remove("Religion")
-                    } else {
-                        viewModel.inspirations.insert("Religion")
-                    }
-                }
             }
             Spacer()
             StyledButton(
@@ -69,11 +58,7 @@ struct InspirationView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                if viewModel.inspirations.contains("Religion") {
-                    navigationController.push(.SelectReligionView(viewModel: viewModel))
-                } else {
-                    navigationController.push(.EnterGoalsView(viewModel: viewModel))
-                }
+                navigationController.push(.EnterGoalsView(viewModel: viewModel))
             }
 
         }

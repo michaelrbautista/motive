@@ -29,7 +29,7 @@ final class HomeViewModel: ObservableObject {
     
     // MARK: Generate new quote
     @MainActor
-    public func generateNewQuote(religion: String?) {
+    public func generateNewQuote() {
         self.isLoading = true
         
         var randomTopic = "Self improvement"
@@ -38,14 +38,12 @@ final class HomeViewModel: ObservableObject {
             randomTopic = [
                 "Self improvement",
                 "Entrepreneurship",
-                "Sports",
-                "Religion"
+                "Sports"
             ].randomElement() ?? "Self improvement"
         }
         
         OpenAIService.shared.getQuoteMain(
-            topic: self.topic == "Random" ? randomTopic : self.topic,
-            religion: religion
+            topic: self.topic == "Random" ? randomTopic : self.topic
         ) { response in
             self.quote = response.quote
             self.source = response.source

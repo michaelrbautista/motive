@@ -81,8 +81,7 @@ struct OneTimeCodeView: View {
                             let topics = [
                                 "Self improvement",
                                 "Sports",
-                                "Entrepreneurship",
-                                "Religion"
+                                "Entrepreneurship"
                             ]
                             
                             // Add topics to UserDefaults
@@ -90,8 +89,7 @@ struct OneTimeCodeView: View {
                             
                             // Create quote
                             QuoteService.shared.createAndSaveQuote(
-                                topic: topics.randomElement() ?? "Self improvement",
-                                religion: user.religion
+                                topic: topics.randomElement() ?? "Self improvement"
                             )
                             
                             // Schedule next quote
@@ -106,8 +104,7 @@ struct OneTimeCodeView: View {
                             
                             let newUser = User(
                                 id: currentUserId,
-                                email: viewModel.email,
-                                religion: viewModel.religion
+                                email: viewModel.email
                             )
                             
                             // Create user row
@@ -120,8 +117,7 @@ struct OneTimeCodeView: View {
                             
                             // Create quote
                             QuoteService.shared.createAndSaveQuote(
-                                topic: viewModel.inspirations.randomElement() ?? "Self improvement",
-                                religion: user.religion
+                                topic: viewModel.inspirations.randomElement() ?? "Self improvement"
                             )
                             
                             // Schedule next quote

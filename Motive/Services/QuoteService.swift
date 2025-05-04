@@ -24,8 +24,8 @@ final class QuoteService: ObservableObject {
     }
     
     // MARK: Create and quote
-    public func createAndSaveQuote(topic: String, religion: String?) {
-        OpenAIService.shared.getQuoteMain(topic: topic, religion: religion) { response in
+    public func createAndSaveQuote(topic: String) {
+        OpenAIService.shared.getQuoteMain(topic: topic) { response in
             self.saveQuote(quote: response.quote, source: response.source)
         }
     }

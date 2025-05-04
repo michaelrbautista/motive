@@ -13,7 +13,6 @@ enum Screen: Identifiable, Hashable {
     case LandingPageView
     case WelcomeView
     case InspirationView
-    case SelectReligionView(viewModel: OnboardingViewModel)
     case EnterGoalsView(viewModel: OnboardingViewModel)
     case LearnView(viewModel: OnboardingViewModel)
     case PersonalizingView(viewModel: OnboardingViewModel)

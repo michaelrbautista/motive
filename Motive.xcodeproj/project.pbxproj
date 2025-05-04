@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8963D03C2DC6CE1C00E3430E /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963D03B2DC6CE1C00E3430E /* LearnView.swift */; };
+		8963D03E2DC7DEBB00E3430E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8963D03D2DC7DEBB00E3430E /* StoreKit.framework */; };
 		89AA09BA2DBEA93600308F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA09B62DBEA93600308F1E /* Assets.xcassets */; };
 		89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09B82DBEA93600308F1E /* MotiveApp.swift */; };
 		89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09C42DBEC98B00308F1E /* SettingsView.swift */; };
@@ -30,7 +31,6 @@
 		89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */; };
 		89AA0A012DBECC8200308F1E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */; };
 		89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A022DBED19B00308F1E /* InspirationView.swift */; };
-		89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A062DBED1C500308F1E /* SelectReligionView.swift */; };
 		89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A082DBED1D600308F1E /* PersonalizingView.swift */; };
 		89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */; };
 		89AA0A0D2DBED23900308F1E /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */; };
@@ -112,6 +112,7 @@
 
 /* Begin PBXFileReference section */
 		8963D03B2DC6CE1C00E3430E /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		8963D03D2DC7DEBB00E3430E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		89AA098C2DBEA92800308F1E /* Motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA09992DBEA92900308F1E /* MotiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA09A32DBEA92900308F1E /* MotiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +131,6 @@
 		89AA09FE2DBECC3B00308F1E /* NavigationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTypes.swift; sourceTree = "<group>"; };
 		89AA0A002DBECC7B00308F1E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		89AA0A022DBED19B00308F1E /* InspirationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationView.swift; sourceTree = "<group>"; };
-		89AA0A062DBED1C500308F1E /* SelectReligionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReligionView.swift; sourceTree = "<group>"; };
 		89AA0A082DBED1D600308F1E /* PersonalizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizingView.swift; sourceTree = "<group>"; };
 		89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedView.swift; sourceTree = "<group>"; };
 		89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
@@ -197,6 +197,7 @@
 				89AA09D62DBECA1A00308F1E /* PostgREST in Frameworks */,
 				89AA09D42DBECA1A00308F1E /* Functions in Frameworks */,
 				89AA09DC2DBECA1A00308F1E /* Supabase in Frameworks */,
+				8963D03E2DC7DEBB00E3430E /* StoreKit.framework in Frameworks */,
 				89AA09D22DBECA1A00308F1E /* Auth in Frameworks */,
 				89AA09DA2DBECA1A00308F1E /* Storage in Frameworks */,
 				89AA09DF2DBECA2A00308F1E /* SuperwallKit in Frameworks */,
@@ -278,7 +279,6 @@
 			children = (
 				89AA0A2A2DBF2E1700308F1E /* WelcomeView.swift */,
 				89AA0A022DBED19B00308F1E /* InspirationView.swift */,
-				89AA0A062DBED1C500308F1E /* SelectReligionView.swift */,
 				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
 				8963D03B2DC6CE1C00E3430E /* LearnView.swift */,
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
@@ -420,6 +420,7 @@
 		89FC6EB92DC135970058B906 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8963D03D2DC7DEBB00E3430E /* StoreKit.framework */,
 				89FC6EBA2DC135970058B906 /* WidgetKit.framework */,
 				89FC6EBC2DC135970058B906 /* SwiftUI.framework */,
 			);
@@ -659,7 +660,6 @@
 				89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */,
 				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
 				89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */,
-				89AA0A072DBED1C500308F1E /* SelectReligionView.swift in Sources */,
 				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
 				89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */,

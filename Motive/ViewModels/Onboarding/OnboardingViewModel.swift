@@ -11,7 +11,6 @@ final class OnboardingViewModel: ObservableObject {
     
     @Published var inspirations = Set<String>()
     @Published var goals = ""
-    @Published var religion = ""
     
     @Published var email = ""
     

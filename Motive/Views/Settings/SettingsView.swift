@@ -14,8 +14,7 @@ struct SettingsView: View {
     var defaultTopics = [
         "Self improvement",
         "Entrepreneurship",
-        "Sports",
-        "Religion"
+        "Sports"
     ]
     @State var selectedTopics: [String]
     

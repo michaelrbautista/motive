@@ -14,8 +14,7 @@ struct SelectAllTopicsView: View {
     var topics = [
         "Self improvement",
         "Entrepreneurship",
-        "Sports",
-        "Religion"
+        "Sports"
     ]
     
     @Binding var selectedTopics: [String]
