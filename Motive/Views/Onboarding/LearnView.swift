@@ -1,14 +1,13 @@
 //
-//  CustomizedView.swift
+//  LearnView.swift
 //  Motive
 //
-//  Created by Michael Bautista on 4/27/25.
+//  Created by Michael Bautista on 5/3/25.
 //
 
 import SwiftUI
-import SuperwallKit
 
-struct CustomizedView: View {
+struct LearnView: View {
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel: OnboardingViewModel
     
@@ -16,16 +15,16 @@ struct CustomizedView: View {
         VStack {
             Spacer()
             VStack(spacing: 40) {
-                Image("goggins")
+                Image("kobemj")
                     .resizable()
                     .scaledToFit()
                 
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Your app has been customized to your goals.")
+                    Text("History’s greatest leaders, innovators, and talents learned from those that came before them.")
                         .font(Font.FontStyles.title2)
                         .foregroundStyle(Color.ColorSystem.primaryText)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Become the best version of yourself with Motive.")
+                    Text("Motive helps you do the same thing.")
                         .font(Font.FontStyles.body)
                         .foregroundStyle(Color.ColorSystem.systemGray)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -37,19 +36,14 @@ struct CustomizedView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                if SubscriptionService.shared.isSubscribed {
-                    navigationController.push(.WidgetsView(viewModel: viewModel))
-                } else {
-                    Superwall.shared.register(placement: "campaign_trigger") {
-                        navigationController.push(.WidgetsView(viewModel: viewModel))
-                    }
-                }
+                navigationController.push(.PersonalizingView(viewModel: viewModel))
             }
+
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
     }
 }
 
 #Preview {
-    CustomizedView(viewModel: OnboardingViewModel())
+    LearnView(viewModel: OnboardingViewModel())
 }

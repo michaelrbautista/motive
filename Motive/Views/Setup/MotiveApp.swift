@@ -33,11 +33,15 @@ struct DailyApp: App {
         UITabBar.appearance().scrollEdgeAppearance = tabAppearance
         UITabBar.appearance().standardAppearance = tabAppearance
         
-        Superwall.configure(
-            apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad"
-        )
+        Superwall.configure(apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad")
         
-        print(UserDefaults.standard.value(forKey: "lastScheduledTime") ?? "nothing")
+        print("Next quote:")
+        print(UserDefaults.standard.value(forKey: "nextQuote") ?? "nothing")
+        print()
+        
+        print("Last quote:")
+        print(UserDefaults.standard.value(forKey: "lastQuoteDate") ?? "nothing")
+        print()
     }
     
     var body: some Scene {

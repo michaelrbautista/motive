@@ -14,9 +14,9 @@ struct EnterGoalsView: View {
     var body: some View {
         VStack {
             Text("What are your goals?")
-                .font(Font.FontStyles.title2)
+                .font(Font.FontStyles.title1)
                 .foregroundStyle(Color.ColorSystem.primaryText)
-                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             ZStack(alignment: .topLeading) {
                 if viewModel.goals == "" {
@@ -39,7 +39,7 @@ struct EnterGoalsView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.PersonalizingView(viewModel: viewModel))
+                navigationController.push(.LearnView(viewModel: viewModel))
             }
 
         }

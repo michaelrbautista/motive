@@ -14,9 +14,9 @@ struct SelectReligionView: View {
     var body: some View {
         VStack {
             Text("Which religion do you follow?")
-                .font(Font.FontStyles.title2)
+                .font(Font.FontStyles.title1)
                 .foregroundStyle(Color.ColorSystem.primaryText)
-                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             VStack(spacing: 20) {
                 SelectRow(

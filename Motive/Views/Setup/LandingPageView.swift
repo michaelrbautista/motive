@@ -24,7 +24,7 @@ struct LandingPageView: View {
                     text: "Get Started",
                     isLoading: .constant(false)
                 ) {
-                    navigationController.push(.AmbitionView)
+                    navigationController.push(.WelcomeView)
                 }
                 
                 StyledButton(

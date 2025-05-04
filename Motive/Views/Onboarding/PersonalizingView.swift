@@ -11,11 +11,6 @@ struct PersonalizingView: View {
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel: OnboardingViewModel
     
-//    isPersonalizingGeneral
-//    isPersonalizingImages
-//    isPersonalizingQuotes
-//    isWaitingForPaywall
-    
     var body: some View {
         VStack {
             Spacer()

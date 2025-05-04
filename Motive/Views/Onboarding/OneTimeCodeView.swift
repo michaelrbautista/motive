@@ -24,15 +24,17 @@ struct OneTimeCodeView: View {
     
     var body: some View {
         VStack {
-            Text("Enter the code that was sent to the email:")
-                .font(Font.FontStyles.title2)
-                .foregroundStyle(Color.ColorSystem.primaryText)
-                .multilineTextAlignment(.center)
-            Text(viewModel.email)
-                .font(Font.FontStyles.body)
-                .foregroundStyle(Color.ColorSystem.systemGray)
-                .multilineTextAlignment(.center)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+            VStack(spacing: 20) {
+                Text("Enter the code that was sent to the email:")
+                    .font(Font.FontStyles.title1)
+                    .foregroundStyle(Color.ColorSystem.primaryText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text(viewModel.email)
+                    .font(Font.FontStyles.body)
+                    .foregroundStyle(Color.ColorSystem.systemGray)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+            }
             Spacer()
             VStack(spacing: 10) {
                 HStack {
@@ -112,6 +114,9 @@ struct OneTimeCodeView: View {
                             let user = try await UserService.shared.createUser(user: newUser)
                             
                             UserService.currentUser = user
+                            
+                            // Add topics to UserDefaults
+                            UserDefaults.standard.set(viewModel.inspirations, forKey: "topics")
                             
                             // Create quote
                             QuoteService.shared.createAndSaveQuote(

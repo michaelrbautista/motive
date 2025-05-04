@@ -23,9 +23,9 @@ struct SignInView: View {
     var body: some View {
         VStack {
             Text("Sign in")
-                .font(Font.FontStyles.title3)
+                .font(Font.FontStyles.title1)
                 .foregroundStyle(Color.ColorSystem.primaryText)
-                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             VStack(spacing: 10) {
                 HStack {

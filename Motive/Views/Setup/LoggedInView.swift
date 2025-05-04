@@ -14,7 +14,7 @@ struct LoggedInView: View {
         TabView {
             HomeCoordinatorView()
                 .tabItem {
-                    Image(systemName: "figure.run")
+                    Image(systemName: "house.fill")
                 }
                 .environmentObject(userViewModel)
             

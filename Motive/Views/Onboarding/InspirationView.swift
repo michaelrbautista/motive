@@ -14,9 +14,9 @@ struct InspirationView: View {
     var body: some View {
         VStack {
             Text("Where do you get inspiration from? (Select all that apply)")
-                .font(Font.FontStyles.title2)
+                .font(Font.FontStyles.title1)
                 .foregroundStyle(Color.ColorSystem.primaryText)
-                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             VStack(spacing: 20) {
                 MultiSelectRow(
@@ -69,8 +69,8 @@ struct InspirationView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                if viewModel.inspirations.contains("Faith") {
-                    navigationController.push(.EnterGoalsView(viewModel: viewModel))
+                if viewModel.inspirations.contains("Religion") {
+                    navigationController.push(.SelectReligionView(viewModel: viewModel))
                 } else {
                     navigationController.push(.EnterGoalsView(viewModel: viewModel))
                 }

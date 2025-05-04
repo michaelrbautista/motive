@@ -25,7 +25,7 @@ final class BackgroundService: ObservableObject {
         do {
             try BGTaskScheduler.shared.submit(request)
             print("Background task scheduled successfuly")
-            UserDefaults.standard.set(Date(), forKey: "lastScheduledTime")
+            UserDefaults.standard.set(midnight, forKey: "nextQuote")
         } catch {
             print("Unable to submit task: \(error)")
         }

@@ -26,10 +26,12 @@ struct HomeView: View {
                 Text(viewModel.quote == "" ? "Circumstances don't make the man, they only reveal him to himself." : viewModel.quote)
                     .font(.custom("InterDisplay-Bold", size: 24))
                     .foregroundStyle(Color.ColorSystem.primaryText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text(viewModel.source == "" ? "Epictetus" : viewModel.source)
                     .font(.custom("InterDisplay-Bold", size: 16))
                     .foregroundStyle(Color.ColorSystem.systemGray)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             

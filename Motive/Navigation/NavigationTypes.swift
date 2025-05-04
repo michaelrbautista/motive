@@ -11,10 +11,11 @@ import SwiftUI
 enum Screen: Identifiable, Hashable {
     // Onboarding
     case LandingPageView
-    case AmbitionView
+    case WelcomeView
     case InspirationView
-    case EnterGoalsView(viewModel: OnboardingViewModel)
     case SelectReligionView(viewModel: OnboardingViewModel)
+    case EnterGoalsView(viewModel: OnboardingViewModel)
+    case LearnView(viewModel: OnboardingViewModel)
     case PersonalizingView(viewModel: OnboardingViewModel)
     case CustomizedView(viewModel: OnboardingViewModel)
     case WidgetsView(viewModel: OnboardingViewModel)

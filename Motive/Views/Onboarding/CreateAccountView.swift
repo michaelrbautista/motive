@@ -16,10 +16,10 @@ struct CreateAccountView: View {
     
     var body: some View {
         VStack {
-            Text("Enter your email.")
-                .font(Font.FontStyles.title3)
+            Text("Enter your email:")
+                .font(Font.FontStyles.title1)
                 .foregroundStyle(Color.ColorSystem.primaryText)
-                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
             VStack(spacing: 10) {
                 TextField("Email", text: $viewModel.email)

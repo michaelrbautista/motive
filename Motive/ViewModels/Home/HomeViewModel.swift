@@ -10,7 +10,7 @@ import WidgetKit
 
 final class HomeViewModel: ObservableObject {
     
-    @Published var topic = ""
+    @Published var topic = "Random"
     
     @Published var isLoading = false
     

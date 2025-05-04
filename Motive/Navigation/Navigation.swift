@@ -63,14 +63,16 @@ class NavigationController: CoordinatorProtocol {
         // Onboarding
         case .LandingPageView:
             LandingPageView()
-        case .AmbitionView:
-            AmbitionView()
+        case .WelcomeView:
+            WelcomeView()
         case .InspirationView:
             InspirationView()
-        case .EnterGoalsView(let viewModel):
-            EnterGoalsView(viewModel: viewModel)
         case .SelectReligionView(let viewModel):
             SelectReligionView(viewModel: viewModel)
+        case .EnterGoalsView(let viewModel):
+            EnterGoalsView(viewModel: viewModel)
+        case .LearnView(let viewModel):
+            LearnView(viewModel: viewModel)
         case .PersonalizingView(let viewModel):
             PersonalizingView(viewModel: viewModel)
         case .CustomizedView(let viewModel):
