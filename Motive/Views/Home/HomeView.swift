@@ -37,7 +37,6 @@ struct HomeView: View {
             .onAppear {
                 viewModel.quote = userViewModel.quote ?? ""
                 viewModel.source = userViewModel.source ?? ""
-                viewModel.image = userViewModel.image ?? Data()
             }
             
             Spacer()

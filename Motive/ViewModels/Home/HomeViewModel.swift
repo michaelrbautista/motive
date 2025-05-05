@@ -16,7 +16,6 @@ final class HomeViewModel: ObservableObject {
     
     @Published var quote = ""
     @Published var source = ""
-    @Published var image = Data()
     
     @Published var hasGenerated = false
     
@@ -38,6 +37,7 @@ final class HomeViewModel: ObservableObject {
             ].randomElement() ?? "Self improvement"
         }
         
+        // Get quote
         OpenAIService.shared.getQuoteMain(
             topic: self.topic == "Random" ? randomTopic : self.topic
         ) { response in

@@ -88,11 +88,10 @@ struct OneTimeCodeView: View {
                             UserDefaults.standard.set(topics, forKey: "topics")
                             
                             // Create quote
-                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source, image in
+                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source in
                                 DispatchQueue.main.async {
                                     userViewModel.quote = quote
                                     userViewModel.source = source
-                                    userViewModel.image = image
                                     userViewModel.isLoggedIn = true
                                 }
                             }
@@ -116,11 +115,10 @@ struct OneTimeCodeView: View {
                             UserDefaults.standard.set(viewModel.inspirations, forKey: "topics")
                             
                             // Create quote
-                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source, image in
+                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source in
                                 DispatchQueue.main.async {
                                     userViewModel.quote = quote
                                     userViewModel.source = source
-                                    userViewModel.image = image
                                     userViewModel.isLoggedIn = true
                                 }
                             }

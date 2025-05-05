@@ -63,16 +63,6 @@ struct DailyApp: App {
                 topic: userViewModel.topics.randomElement() ?? "Self improvement"
             ) { response in
                 QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
-                
-                // Get new image
-                Task {
-                    // Get new image
-                    let imageData = try await StorageService.shared.getImage(topic: userViewModel.topics.randomElement() ?? "Self improvement")
-                    
-                    // Save image data to UserDefaults
-                    let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
-                    userDefaults?.set(imageData, forKey: "imageData")
-                }
             }
         }
         .backgroundTask(.urlSession("getQuoteInBackground")) { sendable in

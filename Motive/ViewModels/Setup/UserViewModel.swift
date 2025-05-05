@@ -22,7 +22,6 @@ class UserViewModel: ObservableObject {
     
     @Published var quote: String? = nil
     @Published var source: String? = nil
-    @Published var image: Data? = nil
     
     init() {
         self.isLoading = true
@@ -58,11 +57,10 @@ class UserViewModel: ObservableObject {
                 self.topics = userTopics
             }
             
-            // Get quote, source, and image
+            // Get quote and source
             let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
             self.quote = userDefaults?.value(forKey: "quote") as? String
             self.source = userDefaults?.value(forKey: "source") as? String
-            self.image = userDefaults?.value(forKey: "image") as? Data
             
             self.isLoggedIn = true
             

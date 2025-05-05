@@ -14,7 +14,6 @@ struct Provider: AppIntentTimelineProvider {
             date: Date(),
             quote: "Circumstances don't make the man, they only reveal him to himself.",
             source: "Epictetus",
-            image: Data(),
             configuration: ConfigurationAppIntent()
         )
     }
@@ -24,7 +23,6 @@ struct Provider: AppIntentTimelineProvider {
             date: Date(),
             quote: "Circumstances don't make the man, they only reveal him to himself.",
             source: "Epictetus",
-            image: Data(),
             configuration: configuration
         )
     }
@@ -36,7 +34,6 @@ struct Provider: AppIntentTimelineProvider {
             date: .now,
             quote: todaysQuote.quote,
             source: todaysQuote.source,
-            image: todaysQuote.image,
             configuration: configuration
         )
 
@@ -49,8 +46,7 @@ struct Provider: AppIntentTimelineProvider {
         
         let quote = FetchedQuote(
             quote: userDefaults?.value(forKey: "quote") as? String ?? "Circumstances don't make the man, they only reveal him to himself.",
-            source: userDefaults?.value(forKey: "source") as? String ?? "Epictetus",
-            image: userDefaults?.value(forKey: "image") as? Data ?? Data()
+            source: userDefaults?.value(forKey: "source") as? String ?? "Epictetus"
         )
         
         return quote
@@ -66,14 +62,12 @@ struct QuoteEntry: TimelineEntry {
     let date: Date
     let quote: String
     let source: String
-    let image: Data
     let configuration: ConfigurationAppIntent
 }
 
 struct FetchedQuote {
     let quote: String
     let source: String
-    let image: Data
 }
 
 // MARK: Types
@@ -115,19 +109,7 @@ struct MotiveWidgetsEntryView : View {
                     .lineLimit(1)
             }
             .containerBackground(for: .widget) {
-                if let image = UIImage(data: entry.image) {
-                    ZStack {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                        
-                        Color.black
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .opacity(0.8)
-                    }
-                } else {
-                    Color.black
-                }
+                Color.black
             }
         case .systemMedium:
             VStack(alignment: .leading, spacing: 5) {
@@ -142,19 +124,7 @@ struct MotiveWidgetsEntryView : View {
                     .lineLimit(1)
             }
             .containerBackground(for: .widget) {
-                if let image = UIImage(data: entry.image) {
-                    ZStack {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                        
-                        Color.black
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .opacity(0.8)
-                    }
-                } else {
-                    Color.black
-                }
+                Color.black
             }
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 0) {
@@ -175,5 +145,5 @@ struct MotiveWidgetsEntryView : View {
 #Preview(as: .systemMedium) {
     MotiveWidgets()
 } timeline: {
-    QuoteEntry(date: .now, quote: "The secret of getting ahead is getting started.", source: "Mark Twain", image: Data(), configuration: .init())
+    QuoteEntry(date: .now, quote: "The secret of getting ahead is getting started.", source: "Mark Twain", configuration: .init())
 }

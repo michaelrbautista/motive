@@ -30,7 +30,7 @@ final class OpenAIService: ObservableObject {
 //        env = "http://127.0.0.1:8000"
 //        #endif
         
-        var urlString = "\(env)/quote?topic=\(topicParameter)"
+        let urlString = "\(env)/quote?topic=\(topicParameter)"
         
         return urlString
     }
