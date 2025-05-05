@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WidgetKit
+import SuperwallKit
 
 struct HomeView: View {
     @EnvironmentObject var navigationController: NavigationController
@@ -35,6 +36,10 @@ struct HomeView: View {
             }
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             .onAppear {
+                if !SubscriptionService.shared.isSubscribed {
+                    Superwall.shared.register(placement: "campaign_trigger")
+                }
+                
                 viewModel.quote = userViewModel.quote ?? ""
                 viewModel.source = userViewModel.source ?? ""
             }

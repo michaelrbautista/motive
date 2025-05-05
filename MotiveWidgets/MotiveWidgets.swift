@@ -44,10 +44,17 @@ struct Provider: AppIntentTimelineProvider {
     private func loadQuote() -> FetchedQuote {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         
+        #if DEBUG
+        let quote = FetchedQuote(
+            quote: "Mediocrity is always invisible until passion shows up and exposes it.",
+            source: "Graham Cooke"
+        )
+        #else
         let quote = FetchedQuote(
             quote: userDefaults?.value(forKey: "quote") as? String ?? "Circumstances don't make the man, they only reveal him to himself.",
             source: userDefaults?.value(forKey: "source") as? String ?? "Epictetus"
         )
+        #endif
         
         return quote
     }
