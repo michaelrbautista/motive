@@ -144,8 +144,20 @@ struct SettingsView: View {
                         
                         try await UserService.shared.deleteUser(uid: currentUserId)
                         
+                        // Clear defaults
+                        let defaults = UserDefaults.standard
+                        for key in defaults.dictionaryRepresentation().keys {
+                            defaults.removeObject(forKey: key)
+                        }
+                        
+                        if let widgetDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive") {
+                            for key in widgetDefaults.dictionaryRepresentation().keys {
+                                widgetDefaults.removeObject(forKey: key)
+                            }
+                            widgetDefaults.synchronize()
+                        }
+                        
                         DispatchQueue.main.async {
-                            UserDefaults.standard.removeObject(forKey: "startDate")
                             UserService.currentUser = nil
                             self.userViewModel.isLoggedIn = false
                         }

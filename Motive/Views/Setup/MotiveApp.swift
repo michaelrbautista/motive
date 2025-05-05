@@ -33,6 +33,11 @@ struct DailyApp: App {
         UITabBar.appearance().scrollEdgeAppearance = tabAppearance
         UITabBar.appearance().standardAppearance = tabAppearance
         
+//        if let appDomain = Bundle.main.bundleIdentifier {
+//            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+//            UserDefaults.standard.synchronize()
+//        }
+        
         Superwall.configure(apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad")
         
         print("Next quote:")
@@ -40,7 +45,7 @@ struct DailyApp: App {
         print()
         
         print("Last quote:")
-        print(UserDefaults.standard.value(forKey: "lastQuoteDate") ?? "nothing")
+        print(UserDefaults.standard.value(forKey: "lastQuote") ?? "nothing")
         print()
     }
     
@@ -58,6 +63,16 @@ struct DailyApp: App {
                 topic: userViewModel.topics.randomElement() ?? "Self improvement"
             ) { response in
                 QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
+                
+                // Get new image
+                Task {
+                    // Get new image
+                    let imageData = try await StorageService.shared.getImage(topic: userViewModel.topics.randomElement() ?? "Self improvement")
+                    
+                    // Save image data to UserDefaults
+                    let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
+                    userDefaults?.set(imageData, forKey: "imageData")
+                }
             }
         }
         .backgroundTask(.urlSession("getQuoteInBackground")) { sendable in

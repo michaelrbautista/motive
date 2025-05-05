@@ -23,23 +23,30 @@ struct HomeView: View {
             
             // MARK: Quote
             VStack(alignment: .leading, spacing: 5) {
-                Text(viewModel.quote == "" ? "Circumstances don't make the man, they only reveal him to himself." : viewModel.quote)
+                Text(viewModel.quote)
                     .font(.custom("InterDisplay-Bold", size: 24))
                     .foregroundStyle(Color.ColorSystem.primaryText)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(viewModel.source == "" ? "Epictetus" : viewModel.source)
+                Text(viewModel.source)
                     .font(.custom("InterDisplay-Bold", size: 16))
                     .foregroundStyle(Color.ColorSystem.systemGray)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+            .onAppear {
+                viewModel.quote = userViewModel.quote ?? ""
+                viewModel.source = userViewModel.source ?? ""
+                viewModel.image = userViewModel.image ?? Data()
+            }
             
             Spacer()
             
             // MARK: Generate button
             Button {
-                viewModel.generateNewQuote()
+                Task {
+                    await viewModel.generateNewQuote()
+                }
             } label: {
                 HStack {
                     Spacer()

@@ -20,6 +20,10 @@ class UserViewModel: ObservableObject {
     
     @Published var topics = [String]()
     
+    @Published var quote: String? = nil
+    @Published var source: String? = nil
+    @Published var image: Data? = nil
+    
     init() {
         self.isLoading = true
         
@@ -54,15 +58,11 @@ class UserViewModel: ObservableObject {
                 self.topics = userTopics
             }
             
-            // Get quote
+            // Get quote, source, and image
             let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
-            let quote = userDefaults?.value(forKey: "dailyQuote") as? String
-            let source = userDefaults?.value(forKey: "dailySource") as? String
-            
-            if let existingQuote = quote, let existingSource = source {
-                QuoteService.quote = existingQuote
-                QuoteService.source = existingSource
-            }
+            self.quote = userDefaults?.value(forKey: "quote") as? String
+            self.source = userDefaults?.value(forKey: "source") as? String
+            self.image = userDefaults?.value(forKey: "image") as? Data
             
             self.isLoggedIn = true
             

@@ -88,14 +88,14 @@ struct OneTimeCodeView: View {
                             UserDefaults.standard.set(topics, forKey: "topics")
                             
                             // Create quote
-                            QuoteService.shared.createAndSaveQuote(
-                                topic: topics.randomElement() ?? "Self improvement"
-                            )
-                            
-                            // Schedule next quote
-                            BackgroundService.shared.scheduleAppRefresh()
-                            
-                            userViewModel.isLoggedIn = true
+                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source, image in
+                                DispatchQueue.main.async {
+                                    userViewModel.quote = quote
+                                    userViewModel.source = source
+                                    userViewModel.image = image
+                                    userViewModel.isLoggedIn = true
+                                }
+                            }
                         } else {
                             let session = try await SupabaseService.shared.supabase.auth.verifyOTP(email: viewModel.email, token: code, type: .email)
                             
@@ -116,14 +116,14 @@ struct OneTimeCodeView: View {
                             UserDefaults.standard.set(viewModel.inspirations, forKey: "topics")
                             
                             // Create quote
-                            QuoteService.shared.createAndSaveQuote(
-                                topic: viewModel.inspirations.randomElement() ?? "Self improvement"
-                            )
-                            
-                            // Schedule next quote
-                            BackgroundService.shared.scheduleAppRefresh()
-                            
-                            userViewModel.isLoggedIn = true
+                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source, image in
+                                DispatchQueue.main.async {
+                                    userViewModel.quote = quote
+                                    userViewModel.source = source
+                                    userViewModel.image = image
+                                    userViewModel.isLoggedIn = true
+                                }
+                            }
                         }
                     } catch {
                         isLoading = false

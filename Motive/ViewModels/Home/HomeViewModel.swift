@@ -16,20 +16,16 @@ final class HomeViewModel: ObservableObject {
     
     @Published var quote = ""
     @Published var source = ""
+    @Published var image = Data()
     
     @Published var hasGenerated = false
     
     @Published var returnedError = false
     @Published var errorMessage = ""
     
-    init() {
-        self.quote = QuoteService.quote
-        self.source = QuoteService.source
-    }
-    
     // MARK: Generate new quote
     @MainActor
-    public func generateNewQuote() {
+    public func generateNewQuote() async {
         self.isLoading = true
         
         var randomTopic = "Self improvement"
