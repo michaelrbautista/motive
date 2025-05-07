@@ -18,6 +18,9 @@ final class QuoteService: ObservableObject {
             // Save quote
             self.saveQuote(quote: response.quote, source: response.source)
             
+            // Generate and save image
+            
+            
             completion(response.quote, response.source)
         }
     }

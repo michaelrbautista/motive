@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8963D03C2DC6CE1C00E3430E /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963D03B2DC6CE1C00E3430E /* LearnView.swift */; };
 		8963D03E2DC7DEBB00E3430E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8963D03D2DC7DEBB00E3430E /* StoreKit.framework */; };
+		8963D0422DC9287D00E3430E /* ImageWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963D0412DC9287600E3430E /* ImageWidgets.swift */; };
+		8963D04A2DC9BA2900E3430E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963D0492DC9BA2900E3430E /* StorageService.swift */; };
+		8963D0542DCA65D100E3430E /* NewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963D0532DCA65D100E3430E /* NewImageView.swift */; };
+		8963D0582DCA679C00E3430E /* WidgetPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963D0572DCA679C00E3430E /* WidgetPreviews.swift */; };
 		89AA09BA2DBEA93600308F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89AA09B62DBEA93600308F1E /* Assets.xcassets */; };
 		89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09B82DBEA93600308F1E /* MotiveApp.swift */; };
 		89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA09C42DBEC98B00308F1E /* SettingsView.swift */; };
@@ -38,25 +42,25 @@
 		89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */; };
 		89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A132DBED29900308F1E /* StyledButton.swift */; };
 		89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A152DBED2A900308F1E /* SelectRow.swift */; };
-		89AA0A182DBED2E400308F1E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A172DBED2E400308F1E /* HomeView.swift */; };
+		89AA0A182DBED2E400308F1E /* WidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A172DBED2E400308F1E /* WidgetsView.swift */; };
 		89AA0A232DBF138300308F1E /* MotiveStorekit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */; };
 		89AA0A2B2DBF2E1700308F1E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A2A2DBF2E1700308F1E /* WelcomeView.swift */; };
 		89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A322DBF305600308F1E /* MultiSelectRow.swift */; };
-		89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* WidgetsView.swift */; };
-		89CBB2262DC460DD0034873F /* SaveQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2252DC460DD0034873F /* SaveQuoteView.swift */; };
+		89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* AddWidgetsView.swift */; };
+		89CBB2262DC460DD0034873F /* NewQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2252DC460DD0034873F /* NewQuoteView.swift */; };
 		89CBB22C2DC52A380034873F /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB22B2DC52A340034873F /* QuoteService.swift */; };
 		89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2312DC55C750034873F /* BackgroundService.swift */; };
 		89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */; };
 		89FC6EA42DC020DF0058B906 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EA32DC020C80058B906 /* SubscriptionService.swift */; };
 		89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */; };
-		89FC6EB12DC12F350058B906 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB02DC12F320058B906 /* HomeViewModel.swift */; };
+		89FC6EB12DC12F350058B906 /* WidgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB02DC12F320058B906 /* WidgetsViewModel.swift */; };
 		89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB22DC130E60058B906 /* OpenAIService.swift */; };
 		89FC6EBB2DC135970058B906 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC6EBA2DC135970058B906 /* WidgetKit.framework */; };
 		89FC6EBD2DC135970058B906 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC6EBC2DC135970058B906 /* SwiftUI.framework */; };
 		89FC6ECE2DC135990058B906 /* MotiveWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		89FC6EDC2DC135B80058B906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FC6ED52DC135B80058B906 /* Assets.xcassets */; };
 		89FC6EDE2DC135B80058B906 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED42DC135B80058B906 /* AppIntent.swift */; };
-		89FC6EDF2DC135B80058B906 /* MotiveWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */; };
+		89FC6EDF2DC135B80058B906 /* QuoteWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED72DC135B80058B906 /* QuoteWidgets.swift */; };
 		89FC6EE02DC135B80058B906 /* MotiveWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */; };
 		89FC6EE12DC135B80058B906 /* MotiveWidgetsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */; };
 		89FC6EE22DC135B80058B906 /* MotiveWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */; };
@@ -113,6 +117,10 @@
 /* Begin PBXFileReference section */
 		8963D03B2DC6CE1C00E3430E /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		8963D03D2DC7DEBB00E3430E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8963D0412DC9287600E3430E /* ImageWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWidgets.swift; sourceTree = "<group>"; };
+		8963D0492DC9BA2900E3430E /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		8963D0532DCA65D100E3430E /* NewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewImageView.swift; sourceTree = "<group>"; };
+		8963D0572DCA679C00E3430E /* WidgetPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPreviews.swift; sourceTree = "<group>"; };
 		89AA098C2DBEA92800308F1E /* Motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA09992DBEA92900308F1E /* MotiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89AA09A32DBEA92900308F1E /* MotiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,18 +146,18 @@
 		89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeView.swift; sourceTree = "<group>"; };
 		89AA0A132DBED29900308F1E /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
 		89AA0A152DBED2A900308F1E /* SelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRow.swift; sourceTree = "<group>"; };
-		89AA0A172DBED2E400308F1E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		89AA0A172DBED2E400308F1E /* WidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsView.swift; sourceTree = "<group>"; };
 		89AA0A222DBF138300308F1E /* MotiveStorekit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MotiveStorekit.storekit; sourceTree = "<group>"; };
 		89AA0A2A2DBF2E1700308F1E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		89AA0A322DBF305600308F1E /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
-		89AA0A362DBF327100308F1E /* WidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsView.swift; sourceTree = "<group>"; };
-		89CBB2252DC460DD0034873F /* SaveQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveQuoteView.swift; sourceTree = "<group>"; };
+		89AA0A362DBF327100308F1E /* AddWidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWidgetsView.swift; sourceTree = "<group>"; };
+		89CBB2252DC460DD0034873F /* NewQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuoteView.swift; sourceTree = "<group>"; };
 		89CBB22B2DC52A340034873F /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
 		89CBB2312DC55C750034873F /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
 		89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterGoalsView.swift; sourceTree = "<group>"; };
 		89FC6EA32DC020C80058B906 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
 		89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTopicView.swift; sourceTree = "<group>"; };
-		89FC6EB02DC12F320058B906 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		89FC6EB02DC12F320058B906 /* WidgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsViewModel.swift; sourceTree = "<group>"; };
 		89FC6EB22DC130E60058B906 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotiveWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FC6EBA2DC135970058B906 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -157,7 +165,7 @@
 		89FC6ED42DC135B80058B906 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		89FC6ED52DC135B80058B906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89FC6ED62DC135B80058B906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgets.swift; sourceTree = "<group>"; };
+		89FC6ED72DC135B80058B906 /* QuoteWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteWidgets.swift; sourceTree = "<group>"; };
 		89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsBundle.swift; sourceTree = "<group>"; };
 		89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsControl.swift; sourceTree = "<group>"; };
 		89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsLiveActivity.swift; sourceTree = "<group>"; };
@@ -283,7 +291,7 @@
 				8963D03B2DC6CE1C00E3430E /* LearnView.swift */,
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
 				89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */,
-				89AA0A362DBF327100308F1E /* WidgetsView.swift */,
+				89AA0A362DBF327100308F1E /* AddWidgetsView.swift */,
 				89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */,
 				89AA0A0E2DBED24000308F1E /* SignInView.swift */,
 				89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */,
@@ -334,10 +342,12 @@
 		89AA09C22DBEA96900308F1E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				89AA0A172DBED2E400308F1E /* HomeView.swift */,
+				89AA0A172DBED2E400308F1E /* WidgetsView.swift */,
+				89CBB2252DC460DD0034873F /* NewQuoteView.swift */,
+				8963D0572DCA679C00E3430E /* WidgetPreviews.swift */,
+				8963D0532DCA65D100E3430E /* NewImageView.swift */,
 				89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */,
 				89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */,
-				89CBB2252DC460DD0034873F /* SaveQuoteView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -367,6 +377,7 @@
 				89FC6EB22DC130E60058B906 /* OpenAIService.swift */,
 				89FC6EA32DC020C80058B906 /* SubscriptionService.swift */,
 				89AA09EB2DBECAA200308F1E /* UserService.swift */,
+				8963D0492DC9BA2900E3430E /* StorageService.swift */,
 				89AA09ED2DBECABA00308F1E /* SupabaseService.swift */,
 			);
 			path = Services;
@@ -412,7 +423,7 @@
 		89FC6EAD2DC12DE10058B906 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				89FC6EB02DC12F320058B906 /* HomeViewModel.swift */,
+				89FC6EB02DC12F320058B906 /* WidgetsViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -430,7 +441,8 @@
 		89FC6EDB2DC135B80058B906 /* MotiveWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				89FC6ED72DC135B80058B906 /* MotiveWidgets.swift */,
+				89FC6ED72DC135B80058B906 /* QuoteWidgets.swift */,
+				8963D0412DC9287600E3430E /* ImageWidgets.swift */,
 				89FC6ED42DC135B80058B906 /* AppIntent.swift */,
 				89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */,
 				89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */,
@@ -656,14 +668,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */,
-				89AA0A372DBF327100308F1E /* WidgetsView.swift in Sources */,
+				89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */,
 				89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */,
 				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
 				89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */,
 				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
+				8963D04A2DC9BA2900E3430E /* StorageService.swift in Sources */,
 				89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */,
 				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
+				8963D0582DCA679C00E3430E /* WidgetPreviews.swift in Sources */,
 				8963D03C2DC6CE1C00E3430E /* LearnView.swift in Sources */,
 				89FC6EA42DC020DF0058B906 /* SubscriptionService.swift in Sources */,
 				89AA0A092DBED1D600308F1E /* PersonalizingView.swift in Sources */,
@@ -672,9 +686,10 @@
 				89AA0A0D2DBED23900308F1E /* CreateAccountView.swift in Sources */,
 				89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */,
 				89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */,
-				89AA0A182DBED2E400308F1E /* HomeView.swift in Sources */,
+				89AA0A182DBED2E400308F1E /* WidgetsView.swift in Sources */,
 				89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */,
 				89FC6EF02DC2D4070058B906 /* RowWithHeader.swift in Sources */,
+				8963D0542DCA65D100E3430E /* NewImageView.swift in Sources */,
 				89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */,
 				89CBB22C2DC52A380034873F /* QuoteService.swift in Sources */,
 				89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */,
@@ -687,10 +702,10 @@
 				89FC6EF82DC2F5E70058B906 /* APIResponse.swift in Sources */,
 				89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */,
 				89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */,
-				89CBB2262DC460DD0034873F /* SaveQuoteView.swift in Sources */,
+				89CBB2262DC460DD0034873F /* NewQuoteView.swift in Sources */,
 				89AA09F52DBECB9700308F1E /* User.swift in Sources */,
 				89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */,
-				89FC6EB12DC12F350058B906 /* HomeViewModel.swift in Sources */,
+				89FC6EB12DC12F350058B906 /* WidgetsViewModel.swift in Sources */,
 				89FC6EE62DC2B01C0058B906 /* SelectAllTopicsView.swift in Sources */,
 				89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */,
 			);
@@ -715,7 +730,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				89FC6EDE2DC135B80058B906 /* AppIntent.swift in Sources */,
-				89FC6EDF2DC135B80058B906 /* MotiveWidgets.swift in Sources */,
+				8963D0422DC9287D00E3430E /* ImageWidgets.swift in Sources */,
+				89FC6EDF2DC135B80058B906 /* QuoteWidgets.swift in Sources */,
 				89FC6EE02DC135B80058B906 /* MotiveWidgetsBundle.swift in Sources */,
 				89FC6EE12DC135B80058B906 /* MotiveWidgetsControl.swift in Sources */,
 				89FC6EE22DC135B80058B906 /* MotiveWidgetsLiveActivity.swift in Sources */,
@@ -871,7 +887,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -880,8 +896,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -904,7 +920,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -913,8 +929,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (

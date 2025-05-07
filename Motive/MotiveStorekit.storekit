@@ -20,7 +20,7 @@
     "_applicationInternalID" : "6745153411",
     "_developerTeamID" : "T2V9U83CKZ",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 767497099.53933203,
+    "_lastSynchronizedDate" : 768273676.75994503,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -89,18 +89,18 @@
           "displayPrice" : "9.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "6745153436",
+          "internalID" : "6745492083",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Monthly recurring payment",
-              "displayName" : "Monthly Pro Plan",
+              "description" : "Monthly recurring subscription",
+              "displayName" : "Monthly Pro",
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.motive.monthly",
+          "productID" : "com.motive.pro.monthly",
           "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly Pro Plan",
+          "referenceName" : "Monthly Pro",
           "subscriptionGroupID" : "21676503",
           "type" : "RecurringSubscription",
           "winbackOffers" : [
@@ -117,23 +117,23 @@
           "displayPrice" : "39.99",
           "familyShareable" : false,
           "groupNumber" : 2,
-          "internalID" : "6745153303",
+          "internalID" : "6745492147",
           "introductoryOffer" : {
-            "internalID" : "EC370918",
+            "internalID" : "0254BE75",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P3D"
           },
           "localizations" : [
             {
-              "description" : "Yearly recurring payment",
-              "displayName" : "Yearly Pro Plan",
+              "description" : "Yearly recurring subscription",
+              "displayName" : "Yearly Pro",
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.motive.yearly",
+          "productID" : "com.motive.pro.yearly",
           "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Yearly Pro Plan",
+          "referenceName" : "Yearly Pro",
           "subscriptionGroupID" : "21676503",
           "type" : "RecurringSubscription",
           "winbackOffers" : [

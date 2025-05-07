@@ -20,11 +20,11 @@ struct LearnView: View {
                     .scaledToFit()
                 
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("History’s greatest leaders, innovators, and talents learned from those that came before them.")
+                    Text("History’s greatest leaders, innovators, and talents were inspired by those that came before them.")
                         .font(Font.FontStyles.title2)
                         .foregroundStyle(Color.ColorSystem.primaryText)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Motive helps you do the same thing.")
+                    Text("Motive gives you inspiration just like they had.")
                         .font(Font.FontStyles.body)
                         .foregroundStyle(Color.ColorSystem.systemGray)
                         .frame(maxWidth: .infinity, alignment: .leading)

@@ -17,15 +17,17 @@ enum Screen: Identifiable, Hashable {
     case LearnView(viewModel: OnboardingViewModel)
     case PersonalizingView(viewModel: OnboardingViewModel)
     case CustomizedView(viewModel: OnboardingViewModel)
-    case WidgetsView(viewModel: OnboardingViewModel)
+    case AddWidgetsView(viewModel: OnboardingViewModel)
     
     // Auth
     case SignInView
     case CreateAccountView(viewModel: OnboardingViewModel)
     case OneTimeCodeView(viewModel: OnboardingViewModel, isSignIn: Bool)
     
-    // Home
-    case HomeView
+    // Widgets
+    case WidgetsView
+    case NewQuoteView(viewModel: WidgetsViewModel)
+    case NewImageView(viewModel: WidgetsViewModel)
     
     // Settings
     case SettingsView(selectedTopics: [String])
@@ -58,15 +60,21 @@ extension Screen {
 // MARK: Sheet
 enum Sheet: Identifiable, Hashable {
     
+    case NewQuoteCoordinatorView(viewModel: WidgetsViewModel)
+    case NewImageCoordinatorView(viewModel: WidgetsViewModel)
     case SelectTopicView(topic: Binding<String>)
     case SelectAllTopicsView(selectedTopics: Binding<[String]>)
-    case SaveQuoteView(viewModel: HomeViewModel)
+    case SaveQuoteView(viewModel: WidgetsViewModel)
     
     var id: Self { return self }
     
     // Conform to Hashable
     func hash(into hasher: inout Hasher) {
         switch self {
+        case .NewQuoteCoordinatorView:
+            hasher.combine("NewQuoteCoordinatorView")
+        case .NewImageCoordinatorView:
+            hasher.combine("NewImageCoordinatorView")
         case .SelectTopicView:
             hasher.combine("SelectTopicView")
         case .SelectAllTopicsView:

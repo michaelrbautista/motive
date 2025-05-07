@@ -1,5 +1,5 @@
 //
-//  SaveQuoteView.swift
+//  NewQuoteView.swift
 //  Motive
 //
 //  Created by Michael Bautista on 5/1/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-struct SaveQuoteView: View {
+struct NewQuoteView: View {
     @EnvironmentObject var navigationController: NavigationController
     @EnvironmentObject var userViewModel: UserViewModel
     
@@ -165,5 +165,5 @@ struct SaveQuoteView: View {
 }
 
 #Preview {
-    SaveQuoteView(viewModel: HomeViewModel())
+    NewQuoteView(viewModel: HomeViewModel())
 }

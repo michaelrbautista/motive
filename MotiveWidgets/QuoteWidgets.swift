@@ -8,12 +8,26 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: AppIntentTimelineProvider {
+// MARK: Quote type
+struct QuoteEntry: TimelineEntry {
+    let date: Date
+    let quote: String
+    let source: String
+    let configuration: ConfigurationAppIntent
+}
+
+struct FetchedQuote {
+    let quote: String
+    let source: String
+}
+
+// MARK: Quote provider
+struct QuoteProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> QuoteEntry {
         QuoteEntry(
             date: Date(),
-            quote: "Circumstances don't make the man, they only reveal him to himself.",
-            source: "Epictetus",
+            quote: "...",
+            source: "...",
             configuration: ConfigurationAppIntent()
         )
     }
@@ -21,8 +35,8 @@ struct Provider: AppIntentTimelineProvider {
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> QuoteEntry {
         QuoteEntry(
             date: Date(),
-            quote: "Circumstances don't make the man, they only reveal him to himself.",
-            source: "Epictetus",
+            quote: "Quote",
+            source: "Source",
             configuration: configuration
         )
     }
@@ -45,9 +59,14 @@ struct Provider: AppIntentTimelineProvider {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         
         #if DEBUG
+        // For screenshots
+//        let quote = FetchedQuote(
+//            quote: "You are in danger of living a life so comfortable and soft, that you will die without ever realizing your true potential.",
+//            source: "David Goggins",
+//        )
         let quote = FetchedQuote(
-            quote: "Mediocrity is always invisible until passion shows up and exposes it.",
-            source: "Graham Cooke"
+            quote: userDefaults?.value(forKey: "quote") as? String ?? "No current quote.",
+            source: userDefaults?.value(forKey: "source") as? String ?? "No current source."
         )
         #else
         let quote = FetchedQuote(
@@ -64,26 +83,12 @@ struct Provider: AppIntentTimelineProvider {
 //    }
 }
 
-// MARK: Model
-struct QuoteEntry: TimelineEntry {
-    let date: Date
-    let quote: String
-    let source: String
-    let configuration: ConfigurationAppIntent
-}
-
-struct FetchedQuote {
-    let quote: String
-    let source: String
-}
-
-// MARK: Types
-struct MotiveWidgets: Widget {
-    let kind: String = "MotiveWidgets"
+struct QuoteWidgets: Widget {
+    let kind: String = "QuoteWidgets"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            MotiveWidgetsEntryView(entry: entry)
+        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: QuoteProvider()) { entry in
+            QuoteWidgetsEntryView(entry: entry)
         }
         .configurationDisplayName("Motive Widget")
         .description("Shows quotes.")
@@ -95,9 +100,9 @@ struct MotiveWidgets: Widget {
     }
 }
 
-// MARK: Views
-struct MotiveWidgetsEntryView : View {
-    var entry: Provider.Entry
+// MARK: Quote views
+struct QuoteWidgetsEntryView : View {
+    var entry: QuoteProvider.Entry
     
     @Environment(\.widgetFamily) var family
 
@@ -150,7 +155,7 @@ struct MotiveWidgetsEntryView : View {
 }
 
 #Preview(as: .systemMedium) {
-    MotiveWidgets()
+    QuoteWidgets()
 } timeline: {
     QuoteEntry(date: .now, quote: "The secret of getting ahead is getting started.", source: "Mark Twain", configuration: .init())
 }

@@ -1,5 +1,5 @@
 //
-//  WidgetsView.swift
+//  AddWidgetsView.swift
 //  Motive
 //
 //  Created by Michael Bautista on 4/27/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WidgetsView: View {
+struct AddWidgetsView: View {
     @EnvironmentObject var navigationController: NavigationController
     @StateObject var viewModel: OnboardingViewModel
     
@@ -121,5 +121,5 @@ struct WidgetsView: View {
 }
 
 #Preview {
-    WidgetsView(viewModel: OnboardingViewModel())
+    AddWidgetsView(viewModel: OnboardingViewModel())
 }

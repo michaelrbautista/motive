@@ -75,8 +75,8 @@ class NavigationController: CoordinatorProtocol {
             PersonalizingView(viewModel: viewModel)
         case .CustomizedView(let viewModel):
             CustomizedView(viewModel: viewModel)
-        case .WidgetsView(let viewModel):
-            WidgetsView(viewModel: viewModel)
+        case .AddWidgetsView(let viewModel):
+            AddWidgetsView(viewModel: viewModel)
             
         // Auth
         case .SignInView:
@@ -87,8 +87,12 @@ class NavigationController: CoordinatorProtocol {
             OneTimeCodeView(viewModel: viewModel, isSignIn: isSignIn)
             
         // Home
-        case .HomeView:
-            HomeView()
+        case .WidgetsView:
+            WidgetsView()
+        case .NewQuoteView(let viewModel):
+            NewQuoteView(viewModel: viewModel)
+        case .NewImageView(let viewModel):
+            NewImageView(viewModel: viewModel)
             
         // Settings
         case .SettingsView(let selectedTopics):
@@ -100,12 +104,84 @@ class NavigationController: CoordinatorProtocol {
     @ViewBuilder
     func build(_ sheet: Sheet) -> some View {
         switch sheet {
+        case .NewQuoteCoordinatorView(let viewModel):
+            NewQuoteCoordinatorView(viewModel: viewModel)
+        case .NewImageCoordinatorView(let viewModel):
+            NewImageCoordinatorView(viewModel: viewModel)
         case .SelectTopicView(let topic):
             SelectTopicView(topic: topic)
         case .SelectAllTopicsView(let selectedTopics):
             SelectAllTopicsView(selectedTopics: selectedTopics)
         case .SaveQuoteView(let viewModel):
-            SaveQuoteView(viewModel: viewModel)
+            NewQuoteView(viewModel: viewModel)
+        }
+    }
+    
+    // MARK: Fullscreen cover views
+    @ViewBuilder
+    func build(_ fullScreenCover: FullScreenCover) -> some View {
+        switch fullScreenCover {
+        default:
+            Text("Full screen view")
+        }
+    }
+}
+
+// MARK: Sheet navigation controller
+class SheetNavigationController: CoordinatorProtocol {
+    @Published var path: NavigationPath = NavigationPath()
+    @Published var sheet: Sheet? = nil
+    @Published var fullScreenCover: FullScreenCover? = nil
+    
+    func push(_ screen: Screen) {
+        path.append(screen)
+    }
+    
+    func presentSheet(_ sheet: Sheet) {
+        self.sheet = sheet
+    }
+    
+    func presentFullScreenCover(_ fullScreenCover: FullScreenCover) {
+        self.fullScreenCover = fullScreenCover
+    }
+    
+    func pop() {
+        path.removeLast()
+    }
+    
+    func popToRoot() {
+        path.removeLast(path.count)
+    }
+    
+    func dismissSheet() {
+        self.sheet = nil
+    }
+    
+    func dismissFullScreenCover() {
+        self.fullScreenCover = nil
+    }
+    
+    // MARK: - Screen views
+    @ViewBuilder
+    func build(_ screen: Screen) -> some View {
+        switch screen {
+        case .NewQuoteView(let viewModel):
+            NewQuoteView(viewModel: viewModel)
+        case .NewImageView(let viewModel):
+            NewImageView(viewModel: viewModel)
+        default:
+            Text("Error")
+        }
+    }
+    
+    // MARK: Sheet views
+    @ViewBuilder
+    func build(_ sheet: Sheet) -> some View {
+        switch sheet {
+        case .SelectTopicView(let topic):
+            SelectTopicView(topic: topic)
+        default:
+            Text("Error")
         }
     }
     

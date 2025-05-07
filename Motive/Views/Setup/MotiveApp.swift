@@ -96,6 +96,11 @@ struct CheckAuthentication: View {
             if userViewModel.isLoggedIn {
                 LoggedInView()
                     .environmentObject(userViewModel)
+                    .onAppear {
+                        if !SubscriptionService.shared.isSubscribed {
+                            Superwall.shared.register(placement: "campaign_trigger")
+                        }
+                    }
             } else {
                 LandingPageCoordinatorView()
                     .environmentObject(userViewModel)

@@ -11,7 +11,8 @@ import SwiftUI
 @main
 struct MotiveWidgetsBundle: WidgetBundle {
     var body: some Widget {
-        MotiveWidgets()
+        QuoteWidgets()
+        ImageWidgets()
         MotiveWidgetsControl()
         MotiveWidgetsLiveActivity()
     }

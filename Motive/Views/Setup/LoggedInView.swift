@@ -12,9 +12,9 @@ struct LoggedInView: View {
     
     var body: some View {
         TabView {
-            HomeCoordinatorView()
+            WidgetsCoordinatorView()
                 .tabItem {
-                    Image(systemName: "house.fill")
+                    Image(systemName: "photo.stack.fill")
                 }
                 .environmentObject(userViewModel)
             

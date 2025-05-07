@@ -38,10 +38,10 @@ struct CustomizedView: View {
                 isLoading: .constant(false)
             ) {
                 if SubscriptionService.shared.isSubscribed {
-                    navigationController.push(.WidgetsView(viewModel: viewModel))
+                    navigationController.push(.AddWidgetsView(viewModel: viewModel))
                 } else {
                     Superwall.shared.register(placement: "campaign_trigger") {
-                        navigationController.push(.WidgetsView(viewModel: viewModel))
+                        navigationController.push(.AddWidgetsView(viewModel: viewModel))
                     }
                 }
             }

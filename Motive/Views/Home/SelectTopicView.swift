@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectTopicView: View {
-    @EnvironmentObject var navigationController: NavigationController
+    @EnvironmentObject var sheetNavigationController: SheetNavigationController
     
     var topics = [
         "Self improvement",
@@ -25,7 +25,7 @@ struct SelectTopicView: View {
                 ForEach(topics, id: \.self) { topic in
                     Button {
                         self.topic = topic
-                        navigationController.dismissSheet()
+                        sheetNavigationController.dismissSheet()
                     } label: {
                         Text(topic)
                             .font(Font.FontStyles.body)
@@ -40,14 +40,13 @@ struct SelectTopicView: View {
             .navigationTitle("Topic")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        navigationController.dismissSheet()
+                        sheetNavigationController.dismissSheet()
                     } label: {
-                        Image(systemName: "multiply")
+                        Text("Cancel")
                             .foregroundStyle(Color.ColorSystem.primaryText)
                     }
-
                 }
             }
         }

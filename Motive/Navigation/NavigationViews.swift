@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-// MARK: Training
-struct HomeCoordinatorView: View {
+// MARK: Widgets
+struct WidgetsCoordinatorView: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @StateObject var navigationController: NavigationController = NavigationController()
     
     var body: some View {
         NavigationStack(path: $navigationController.path) {
-            navigationController.build(.HomeView)
+            navigationController.build(.WidgetsView)
                 .environmentObject(userViewModel)
                 .navigationDestination(for: Screen.self) { screen in
                     navigationController.build(screen)
@@ -28,6 +28,64 @@ struct HomeCoordinatorView: View {
                 }
         }
         .environmentObject(navigationController)
+    }
+}
+
+// MARK: New quote
+struct NewQuoteCoordinatorView: View {
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var navigationController: NavigationController
+    
+    @StateObject var sheetNavigationController = SheetNavigationController()
+    
+    @StateObject var viewModel: WidgetsViewModel
+    
+    var body: some View {
+        NavigationStack(path: $sheetNavigationController.path) {
+            sheetNavigationController.build(.NewQuoteView(viewModel: viewModel))
+                .environmentObject(userViewModel)
+                .navigationDestination(for: Screen.self) { screen in
+                    sheetNavigationController.build(screen)
+                }
+                .sheet(item: $sheetNavigationController.sheet) { sheet in
+                    sheetNavigationController.build(sheet)
+                }
+                .fullScreenCover(item: $sheetNavigationController.fullScreenCover) { fullScreenCover in
+                    sheetNavigationController.build(fullScreenCover)
+                }
+        }
+        .environmentObject(navigationController)
+        .environmentObject(sheetNavigationController)
+    }
+}
+
+// MARK: New image
+struct NewImageCoordinatorView: View {
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var navigationController: NavigationController
+    
+    @StateObject var sheetNavigationController = SheetNavigationController()
+    
+    @StateObject var viewModel: WidgetsViewModel
+    
+    var body: some View {
+        NavigationStack(path: $sheetNavigationController.path) {
+            sheetNavigationController.build(.NewImageView(viewModel: viewModel))
+                .environmentObject(userViewModel)
+                .navigationDestination(for: Screen.self) { screen in
+                    sheetNavigationController.build(screen)
+                }
+                .sheet(item: $sheetNavigationController.sheet) { sheet in
+                    sheetNavigationController.build(sheet)
+                }
+                .fullScreenCover(item: $sheetNavigationController.fullScreenCover) { fullScreenCover in
+                    sheetNavigationController.build(fullScreenCover)
+                }
+        }
+        .environmentObject(navigationController)
+        .environmentObject(sheetNavigationController)
     }
 }
 

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TopicSelector: View {
-    @EnvironmentObject var navigationController: NavigationController
+    @EnvironmentObject var sheetNavigationController: SheetNavigationController
     
-    @StateObject var viewModel: HomeViewModel
+    @Binding var topic: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -20,15 +20,15 @@ struct TopicSelector: View {
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             
             Button {
-                navigationController.presentSheet(.SelectTopicView(topic: $viewModel.topic))
+                sheetNavigationController.presentSheet(.SelectTopicView(topic: $topic))
             } label: {
                 HStack {
-                    if viewModel.topic == "" {
+                    if topic == "" {
                         Text("Select topic")
                             .font(Font.FontStyles.body)
                             .foregroundStyle(Color.ColorSystem.systemGray)
                     } else {
-                        Text(viewModel.topic)
+                        Text(topic)
                             .font(Font.FontStyles.body)
                             .foregroundStyle(Color.ColorSystem.primaryText)
                     }
@@ -49,5 +49,5 @@ struct TopicSelector: View {
 }
 
 #Preview {
-    TopicSelector(viewModel: HomeViewModel())
+    TopicSelector(topic: .constant("Random"))
 }
