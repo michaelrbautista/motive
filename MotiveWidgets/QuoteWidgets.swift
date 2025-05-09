@@ -61,7 +61,7 @@ struct QuoteProvider: AppIntentTimelineProvider {
         #if DEBUG
         // For screenshots
 //        let quote = FetchedQuote(
-//            quote: "You are in danger of living a life so comfortable and soft, that you will die without ever realizing your true potential.",
+//            quote: "No one is going to come help you. No one's coming to save you.",
 //            source: "David Goggins",
 //        )
         let quote = FetchedQuote(

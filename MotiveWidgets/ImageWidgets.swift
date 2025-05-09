@@ -55,13 +55,13 @@ struct ImageProvider: AppIntentTimelineProvider {
         
         #if DEBUG
         // For testing
-//        let image = FetchedImage(imageName: "davidGoggins")
+//        let image = FetchedImage(image: UIImage(named: "davidGoggins")?.jpegData(compressionQuality: 1.0) ?? Data())
         let image = FetchedImage(
             image: userDefaults?.value(forKey: "image") as? Data ?? Data()
         )
         #else
         let image = FetchedImage(
-            imageName: userDefaults?.value(forKey: "image") as? Data ?? Data()
+            image: userDefaults?.value(forKey: "image") as? Data ?? Data()
         )
         #endif
         

@@ -25,32 +25,32 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            // MARK: Topics
-            Section {
-                Button {
-                    navigationController.presentSheet(.SelectAllTopicsView(selectedTopics: $selectedTopics))
-                } label: {
-                    HStack {
-                        Text(
-                            self.defaultTopics.filter {
-                                self.selectedTopics.contains($0)
-                            }.joined(separator: ", ")
-                        )
-                            .font(Font.FontStyles.body)
-                            .foregroundStyle(Color.ColorSystem.primaryText)
-                            .lineLimit(1)
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 12)
-                            .foregroundStyle(Color.ColorSystem.systemGray2)
-                            .fontWeight(.bold)
-                    }
-                }
-            } header: {
-                Text("Topics")
-            }
+//            // MARK: Topics
+//            Section {
+//                Button {
+//                    navigationController.presentSheet(.SelectAllTopicsView(selectedTopics: $selectedTopics))
+//                } label: {
+//                    HStack {
+//                        Text(
+//                            self.defaultTopics.filter {
+//                                self.selectedTopics.contains($0)
+//                            }.joined(separator: ", ")
+//                        )
+//                            .font(Font.FontStyles.body)
+//                            .foregroundStyle(Color.ColorSystem.primaryText)
+//                            .lineLimit(1)
+//                        Spacer()
+//                        Image(systemName: "chevron.right")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(height: 12)
+//                            .foregroundStyle(Color.ColorSystem.systemGray2)
+//                            .fontWeight(.bold)
+//                    }
+//                }
+//            } header: {
+//                Text("Topics")
+//            }
             
             // MARK: Terms and privacy
             Section {
