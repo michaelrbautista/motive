@@ -23,8 +23,16 @@ class CheckInEntry {
     }
 }
 
-extension Calendar {
-    func startOfWeek(for date: Date = Date()) -> Date? {
-        self.dateInterval(of: .weekOfYear, for: date)?.start
+extension Date {
+    var startOfWeek: Date {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
+        return calendar.date(from: components)!
+    }
+
+    var endOfWeek: Date {
+        let calendar = Calendar.current
+        let start = self.startOfWeek
+        return calendar.date(byAdding: .day, value: 6, to: start)!
     }
 }

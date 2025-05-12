@@ -21,28 +21,63 @@ struct HomeView: View {
         return days[weekdayIndex]
     }
     
+    @Query var entries: [CheckInEntry]
+
+    let weekDates: [Date]
+    let descriptor: FetchDescriptor<CheckInEntry>
+    
     var streak = 23
+    
+    init(navigationController: Binding<NavigationController>, userViewModel: Binding<UserViewModel>) {
+        _navigationController = navigationController
+        _userViewModel = userViewModel
+        
+        let calendar = Calendar.current
+        let startOfWeek = Date().startOfWeek
+        let endOfWeek = Date().endOfWeek
+        
+        self.weekDates = (0...6).compactMap {
+            calendar.date(byAdding: .day, value: $0, to: startOfWeek)
+        }
+        
+        let predicate = #Predicate<CheckInEntry> {
+            $0.date >= startOfWeek && $0.date <= endOfWeek
+        }
+        
+        self.descriptor = FetchDescriptor(predicate: predicate, sortBy: [SortDescriptor(\.date)])
+        
+        self._entries = Query(descriptor)
+        
+        self.streak = UserDefaults.standard.value(forKey: "streak") as? Int ?? 0
+    }
     
     var body: some View {
         List {
             // MARK: Week view
             HStack(spacing: 10) {
                 Spacer()
-                ForEach(0..<7, id: \.self) { index in
+                ForEach(weekDates, id: \.self) { day in
+                    let hasEntry = entries.contains {
+                        Calendar.current.isDate($0.date, inSameDayAs: day)
+                    }
+                    let isToday = Calendar.current.isDate(day, inSameDayAs: Date())
+                    
                     VStack(spacing: 5) {
                         Rectangle()
-                            .fill(Color.ColorSystem.systemGray6)
+                            .fill(hasEntry ? Color.ColorSystem.primaryText : Color.ColorSystem.systemGray6)
                             .frame(width: 35, height: 35)
                             .cornerRadius(5)
                             .overlay(
-                                days[index] == currentDay ? RoundedRectangle(cornerRadius: 5)
+                                isToday ? RoundedRectangle(cornerRadius: 5)
                                     .stroke(Color.ColorSystem.systemBlue, lineWidth: 2) : nil
                             )
                         
-                        Text(days[index].prefix(1))
-                            .font(Font.FontStyles.callout)
-                            .foregroundColor(Color.ColorSystem.primaryText)
-                            .frame(width: 35, height: 25)
+                        Text(
+                            DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: day) - 1].prefix(1)
+                        )
+                        .font(Font.FontStyles.callout)
+                        .foregroundColor(Color.ColorSystem.primaryText)
+                        .frame(width: 35, height: 25)
                     }
                 }
                 Spacer()
@@ -125,6 +160,7 @@ struct HomeView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Text("\(streak) 🔥")
+                    .font(Font.FontStyles.headline)
                     .foregroundStyle(Color.ColorSystem.primaryText)
             }
         }

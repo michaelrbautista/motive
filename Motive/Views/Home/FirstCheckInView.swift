@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct FirstCheckInView: View {
+    @Environment(\.modelContext) private var modelContext
     
     @Binding var navigationController: NavigationController
     @Binding var sheetNavigationController: SheetNavigationController

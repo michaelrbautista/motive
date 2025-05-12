@@ -17,29 +17,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
         }
         
-        scheduleAppRefresh()
+        BackgroundService.shared.scheduleAppRefresh()
         
         return true
     }
 
-    func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "com.Michael-Bautista.motive.refresh")
-        
-        let today = Calendar.current.startOfDay(for: .now)
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
-        let midnightComponent = DateComponents(hour: 0)
-        let midnight = Calendar.current.date(byAdding: midnightComponent, to: tomorrow)
-        
-        request.earliestBeginDate = midnight
-        do {
-            try BGTaskScheduler.shared.submit(request)
-        } catch {
-            print("Could not schedule app refresh: \(error)")
-        }
-    }
-
     func handleAppRefresh(task: BGAppRefreshTask) {
-        scheduleAppRefresh()
+        BackgroundService.shared.scheduleAppRefresh()
 
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1

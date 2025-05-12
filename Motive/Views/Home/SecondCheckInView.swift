@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SecondCheckInView: View {
+    @Environment(\.modelContext) private var modelContext
     
     @Binding var navigationController: NavigationController
     @Binding var sheetNavigationController: SheetNavigationController

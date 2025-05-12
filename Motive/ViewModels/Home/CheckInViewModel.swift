@@ -16,14 +16,17 @@ final class CheckInViewModel {
     var willDoBetter = ""
     
     // MARK: Save check in
-    public func saveCheckIn() {
+    public func saveCheckIn(using context: ModelContext) {
         let newEntry = CheckInEntry(
             didWell: didWell,
             didntDoWell: didntDoWell,
             willDoBetter: willDoBetter
         )
         
+        context.insert(newEntry)
         
+        let streak = UserDefaults.standard.value(forKey: "streak") as? Int ?? 0
+        UserDefaults.standard.set(streak + 1, forKey: "streak")
     }
     
 }

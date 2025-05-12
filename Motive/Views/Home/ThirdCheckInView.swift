@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ThirdCheckInView: View {
+    @Environment(\.modelContext) private var modelContext
     
     @Binding var navigationController: NavigationController
     @Binding var sheetNavigationController: SheetNavigationController
@@ -45,7 +46,7 @@ struct ThirdCheckInView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     // Save entry
-                    
+                    viewModel.saveCheckIn(using: modelContext)
                     
                     navigationController.dismissSheet()
                 } label: {

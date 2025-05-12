@@ -27,7 +27,8 @@ final class BackgroundService: ObservableObject {
             print("Background task scheduled successfuly")
             UserDefaults.standard.set(midnight, forKey: "nextQuote")
         } catch {
-            print("Unable to submit task: \(error)")
+            print("(BackgroundService) Could not schedule app refresh.")
+            print("Error: \(error)")
         }
     }
 }
