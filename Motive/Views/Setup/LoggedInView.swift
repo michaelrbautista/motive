@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct LoggedInView: View {
-    @EnvironmentObject var userViewModel: UserViewModel
+    
+    var userViewModel: UserViewModel
     
     var body: some View {
         TabView {
-            WidgetsCoordinatorView()
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                }
+                .environmentObject(userViewModel)
+            
+            WidgetsView()
                 .tabItem {
                     Image(systemName: "photo.stack.fill")
                 }
                 .environmentObject(userViewModel)
             
-            SettingsCoordinatorView()
+            SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                 }
@@ -29,6 +36,5 @@ struct LoggedInView: View {
 }
 
 #Preview {
-    LoggedInView()
-        .environmentObject(UserViewModel())
+    LoggedInView(userViewModel: UserViewModel())
 }

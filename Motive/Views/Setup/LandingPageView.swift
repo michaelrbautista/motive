@@ -9,8 +9,8 @@ import SwiftUI
 import SuperwallKit
 
 struct LandingPageView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
+    
+    var navigationController: NavigationController
     
     var body: some View {
         VStack(spacing: 40) {
@@ -41,5 +41,5 @@ struct LandingPageView: View {
 }
 
 #Preview {
-    LandingPageView()
+    LandingPageView(navigationController: NavigationController())
 }

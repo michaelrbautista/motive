@@ -65,7 +65,7 @@ struct SettingsView: View {
                 }
                 
                 Button {
-                    if let url = URL(string: "https://www.michaelrbautista.github.io/appstoreprivacy/") {
+                    if let url = URL(string: "https://michaelrbautista.github.io/appstoreprivacy/") {
                         UIApplication.shared.open(url)
                     }
                 } label: {

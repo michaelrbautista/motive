@@ -8,11 +8,12 @@
 import SwiftUI
 import SuperwallKit
 
-final class SubscriptionService: ObservableObject, SuperwallDelegate {
+@Observable
+final class SubscriptionService: SuperwallDelegate {
     
     public static let shared = SubscriptionService()
         
-    @Published var isSubscribed: Bool = false
+    var isSubscribed: Bool = false
 
     private init() {
         Superwall.shared.delegate = self

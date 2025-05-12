@@ -86,7 +86,7 @@ struct WidgetsView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
                 } else {
-                    Image("davidGoggins")
+                    Image("goggins")
                         .resizable()
                         .scaledToFill()
                         .frame(height: 170)

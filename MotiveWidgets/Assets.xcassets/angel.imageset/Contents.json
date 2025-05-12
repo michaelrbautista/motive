@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "fallen-angel-painting-close-up-1689189809963_dec60a29-3742-4c4c-9ec7-aa4d317774e5 1.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

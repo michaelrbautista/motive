@@ -11,18 +11,19 @@ import SuperwallKit
 import HealthKit
 
 @MainActor
-class UserViewModel: ObservableObject {
-    @Published var isLoggedIn = false
-    @Published var isLoading = false
+@Observable
+class UserViewModel {
+    var isLoggedIn = false
+    var isLoading = false
     
-    @Published var event: AuthChangeEvent? = nil
-    @Published var session: Session? = nil
+    var event: AuthChangeEvent? = nil
+    var session: Session? = nil
     
-    @Published var topics = [String]()
+    var topics = [String]()
     
-    @Published var quote: String? = nil
-    @Published var source: String? = nil
-    @Published var image: Data? = nil
+    var quote: String? = nil
+    var source: String? = nil
+    var image: Data? = nil
     
     init() {
         self.isLoading = true

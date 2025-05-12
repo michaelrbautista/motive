@@ -15,8 +15,8 @@ struct DailyApp: App {
     
     @Environment(\.scenePhase) private var phase
     
-    @StateObject var userViewModel = UserViewModel()
-    @StateObject var subscriptionService = SubscriptionService.shared
+    var userViewModel = UserViewModel()
+    var subscriptionService = SubscriptionService.shared
     
     init() {
         let navAppearance = UINavigationBarAppearance()
@@ -51,12 +51,12 @@ struct DailyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CheckAuthentication()
-                .environmentObject(userViewModel)
+            CheckAuthentication(userViewModel: userViewModel)
                 .onOpenURL { url in
                     handleIncomingURL(url)
                 }
         }
+        .modelContainer(for: CheckInEntry.self)
         .backgroundTask(.appRefresh("com.Michael-Bautista.motive.refresh")) { sendable in
             // call API
             await OpenAIService.shared.getQuoteBackground(
@@ -78,7 +78,7 @@ struct DailyApp: App {
 
 struct CheckAuthentication: View {
     
-    @EnvironmentObject var userViewModel: UserViewModel
+    var userViewModel: UserViewModel
     
     var body: some View {
         if userViewModel.isLoading {
@@ -94,16 +94,14 @@ struct CheckAuthentication: View {
             .frame(width: 160)
         } else {
             if userViewModel.isLoggedIn {
-                LoggedInView()
-                    .environmentObject(userViewModel)
+                LoggedInView(userViewModel: userViewModel)
                     .onAppear {
                         if !SubscriptionService.shared.isSubscribed {
                             Superwall.shared.register(placement: "campaign_trigger")
                         }
                     }
             } else {
-                LandingPageCoordinatorView()
-                    .environmentObject(userViewModel)
+                LandingPageCoordinatorView(userViewModel: userViewModel)
             }
         }
     }

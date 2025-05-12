@@ -11,22 +11,18 @@ import SwiftUI
 protocol CoordinatorProtocol: ObservableObject {
     var path: NavigationPath { get set }
     var sheet: Sheet? { get set }
-    var fullScreenCover: FullScreenCover? { get set }
 
     func push(_ screen:  Screen)
     func pop()
     func popToRoot()
     func presentSheet(_ sheet: Sheet)
     func dismissSheet()
-    func presentFullScreenCover(_ fullScreenCover: FullScreenCover)
-    func dismissFullScreenCover()
 }
 
 // MARK: Navigation controller
 class NavigationController: CoordinatorProtocol {
     @Published var path: NavigationPath = NavigationPath()
     @Published var sheet: Sheet? = nil
-    @Published var fullScreenCover: FullScreenCover? = nil
     
     func push(_ screen: Screen) {
         path.append(screen)
@@ -34,10 +30,6 @@ class NavigationController: CoordinatorProtocol {
     
     func presentSheet(_ sheet: Sheet) {
         self.sheet = sheet
-    }
-    
-    func presentFullScreenCover(_ fullScreenCover: FullScreenCover) {
-        self.fullScreenCover = fullScreenCover
     }
     
     func pop() {
@@ -52,17 +44,13 @@ class NavigationController: CoordinatorProtocol {
         self.sheet = nil
     }
     
-    func dismissFullScreenCover() {
-        self.fullScreenCover = nil
-    }
-    
     // MARK: - Screen views
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
         // Onboarding
-        case .LandingPageView:
-            LandingPageView()
+        case .LandingPageView(let navigationController, let userViewModel):
+            LandingPageView(navigationController: navigationController)
         case .WelcomeView:
             WelcomeView()
         case .InspirationView:
@@ -87,6 +75,16 @@ class NavigationController: CoordinatorProtocol {
             OneTimeCodeView(viewModel: viewModel, isSignIn: isSignIn)
             
         // Home
+        case .HomeView:
+            HomeView()
+        case .FirstCheckInView:
+            FirstCheckInView()
+        case .SecondCheckInView(let viewModel):
+            SecondCheckInView(viewModel: viewModel)
+        case .ThirdCheckInView(let viewModel):
+            ThirdCheckInView(viewModel: viewModel)
+            
+        // Widgets
         case .WidgetsView:
             WidgetsView()
         case .NewQuoteView(let viewModel):
@@ -114,15 +112,8 @@ class NavigationController: CoordinatorProtocol {
             SelectAllTopicsView(selectedTopics: selectedTopics)
         case .SaveQuoteView(let viewModel):
             NewQuoteView(viewModel: viewModel)
-        }
-    }
-    
-    // MARK: Fullscreen cover views
-    @ViewBuilder
-    func build(_ fullScreenCover: FullScreenCover) -> some View {
-        switch fullScreenCover {
-        default:
-            Text("Full screen view")
+        case .CheckInCoordinatorView:
+            CheckInCoordinatorView()
         }
     }
 }
@@ -131,7 +122,6 @@ class NavigationController: CoordinatorProtocol {
 class SheetNavigationController: CoordinatorProtocol {
     @Published var path: NavigationPath = NavigationPath()
     @Published var sheet: Sheet? = nil
-    @Published var fullScreenCover: FullScreenCover? = nil
     
     func push(_ screen: Screen) {
         path.append(screen)
@@ -139,10 +129,6 @@ class SheetNavigationController: CoordinatorProtocol {
     
     func presentSheet(_ sheet: Sheet) {
         self.sheet = sheet
-    }
-    
-    func presentFullScreenCover(_ fullScreenCover: FullScreenCover) {
-        self.fullScreenCover = fullScreenCover
     }
     
     func pop() {
@@ -157,18 +143,23 @@ class SheetNavigationController: CoordinatorProtocol {
         self.sheet = nil
     }
     
-    func dismissFullScreenCover() {
-        self.fullScreenCover = nil
-    }
-    
     // MARK: - Screen views
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
+        // New quote/image
         case .NewQuoteView(let viewModel):
             NewQuoteView(viewModel: viewModel)
         case .NewImageView(let viewModel):
             NewImageView(viewModel: viewModel)
+            
+        // Check in
+        case .FirstCheckInView:
+            FirstCheckInView()
+        case .SecondCheckInView(let viewModel):
+            SecondCheckInView(viewModel: viewModel)
+        case .ThirdCheckInView(let viewModel):
+            ThirdCheckInView(viewModel: viewModel)
         default:
             Text("Error")
         }
@@ -182,15 +173,6 @@ class SheetNavigationController: CoordinatorProtocol {
             SelectTopicView(topic: topic)
         default:
             Text("Error")
-        }
-    }
-    
-    // MARK: Fullscreen cover views
-    @ViewBuilder
-    func build(_ fullScreenCover: FullScreenCover) -> some View {
-        switch fullScreenCover {
-        default:
-            Text("Full screen view")
         }
     }
 }
