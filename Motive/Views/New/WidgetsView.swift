@@ -129,15 +129,9 @@ struct WidgetsView: View {
             Spacer()
         }
         .listStyle(.insetGrouped)
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle("Widgets")
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("MOTIVE")
-                    .font(.custom("InterDisplay-Bold", size: 12))
-                    .foregroundStyle(Color.ColorSystem.primaryText)
-            }
-        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("New")
+        .toolbarRole(.editor)
     }
 }
 

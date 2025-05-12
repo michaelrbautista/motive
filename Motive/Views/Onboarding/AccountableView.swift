@@ -1,42 +1,41 @@
 //
-//  WelcomeView.swift
+//  AccountableView.swift
 //  Motive
 //
-//  Created by Michael Bautista on 4/27/25.
+//  Created by Michael Bautista on 5/12/25.
 //
 
 import SwiftUI
 
-import SwiftUI
-
-struct WelcomeView: View {
-    
+struct AccountableView: View {
     @Binding var navigationController: NavigationController
     @Binding var userViewModel: UserViewModel
+    @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
             Spacer()
             VStack(alignment: .leading, spacing: 20) {
-                Text("Welcome to Motive. We’ll give you daily inspiration and accountability so you can reach your goals.")
+                Text("People that use the daily check in are 30% more likely to achieve their goals.")
                     .font(Font.FontStyles.title2)
                     .foregroundStyle(Color.ColorSystem.primaryText)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Let’s personalize the app for you.")
+                Text("The check in will ask you questions to help you reflect and stay accountable.")
                     .font(Font.FontStyles.body)
                     .foregroundStyle(Color.ColorSystem.systemGray)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             Spacer()
             StyledButton(
-                variant: .primary,
+                variant: viewModel.goals == "" ? .disabled : .primary,
                 text: "Next",
                 isLoading: .constant(false)
             ) {
                 navigationController.push(
-                    .InspirationView(
+                    .ReminderView(
                         navigationController: $navigationController,
-                        userViewModel: $userViewModel
+                        userViewModel: $userViewModel,
+                        viewModel: $viewModel
                     )
                 )
             }
@@ -47,5 +46,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
+    AccountableView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

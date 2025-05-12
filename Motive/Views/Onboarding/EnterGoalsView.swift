@@ -42,7 +42,7 @@ struct EnterGoalsView: View {
                 isLoading: .constant(false)
             ) {
                 navigationController.push(
-                    .LearnView(
+                    .PreventingView(
                         navigationController: $navigationController,
                         userViewModel: $userViewModel,
                         viewModel: $viewModel

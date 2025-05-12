@@ -20,9 +20,6 @@ struct NewQuoteView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                // MARK: Topic selector
-//                TopicSelector(topic: $viewModel.quoteTopic)
-                
                 MediumWidgetPreview(
                     quote: viewModel.newQuote == "" ? $viewModel.originalQuote : $viewModel.newQuote,
                     source: viewModel.newSource == "" ? $viewModel.originalSource : $viewModel.newSource

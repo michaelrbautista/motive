@@ -54,13 +54,16 @@
 		89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A322DBF305600308F1E /* MultiSelectRow.swift */; };
 		89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* AddWidgetsView.swift */; };
 		89B649A42DD24CD300A45A50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A32DD24CD100A45A50 /* AppDelegate.swift */; };
+		89B649A62DD26F8B00A45A50 /* AccountableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A52DD26F8B00A45A50 /* AccountableView.swift */; };
+		89B649A82DD26F9100A45A50 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A72DD26F9100A45A50 /* ReminderView.swift */; };
+		89B649AA2DD2979400A45A50 /* PreventingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A92DD2979400A45A50 /* PreventingView.swift */; };
+		89B649AC2DD29CF800A45A50 /* CheckInTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */; };
 		89CBB2262DC460DD0034873F /* NewQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2252DC460DD0034873F /* NewQuoteView.swift */; };
 		89CBB22C2DC52A380034873F /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB22B2DC52A340034873F /* QuoteService.swift */; };
 		89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2312DC55C750034873F /* BackgroundService.swift */; };
 		89F3D5A92DD14C8900AA5503 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3D5A82DD14C8400AA5503 /* CheckIn.swift */; };
 		89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */; };
 		89FC6EA42DC020DF0058B906 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EA32DC020C80058B906 /* SubscriptionService.swift */; };
-		89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */; };
 		89FC6EB12DC12F350058B906 /* WidgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB02DC12F320058B906 /* WidgetsViewModel.swift */; };
 		89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EB22DC130E60058B906 /* OpenAIService.swift */; };
 		89FC6EBB2DC135970058B906 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FC6EBA2DC135970058B906 /* WidgetKit.framework */; };
@@ -72,8 +75,6 @@
 		89FC6EE02DC135B80058B906 /* MotiveWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED82DC135B80058B906 /* MotiveWidgetsBundle.swift */; };
 		89FC6EE12DC135B80058B906 /* MotiveWidgetsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6ED92DC135B80058B906 /* MotiveWidgetsControl.swift */; };
 		89FC6EE22DC135B80058B906 /* MotiveWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */; };
-		89FC6EE62DC2B01C0058B906 /* SelectAllTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EE52DC2B01C0058B906 /* SelectAllTopicsView.swift */; };
-		89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */; };
 		89FC6EF02DC2D4070058B906 /* RowWithHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EEF2DC2D4070058B906 /* RowWithHeader.swift */; };
 		89FC6EF82DC2F5E70058B906 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6EF72DC2F5DF0058B906 /* APIResponse.swift */; };
 		89FC6F042DC3CB910058B906 /* InterVariable.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89FC6F022DC3CB910058B906 /* InterVariable.ttf */; };
@@ -166,13 +167,16 @@
 		89AA0A322DBF305600308F1E /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
 		89AA0A362DBF327100308F1E /* AddWidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWidgetsView.swift; sourceTree = "<group>"; };
 		89B649A32DD24CD100A45A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89B649A52DD26F8B00A45A50 /* AccountableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountableView.swift; sourceTree = "<group>"; };
+		89B649A72DD26F9100A45A50 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		89B649A92DD2979400A45A50 /* PreventingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventingView.swift; sourceTree = "<group>"; };
+		89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeView.swift; sourceTree = "<group>"; };
 		89CBB2252DC460DD0034873F /* NewQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuoteView.swift; sourceTree = "<group>"; };
 		89CBB22B2DC52A340034873F /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
 		89CBB2312DC55C750034873F /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
 		89F3D5A82DD14C8400AA5503 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
 		89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterGoalsView.swift; sourceTree = "<group>"; };
 		89FC6EA32DC020C80058B906 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
-		89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTopicView.swift; sourceTree = "<group>"; };
 		89FC6EB02DC12F320058B906 /* WidgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsViewModel.swift; sourceTree = "<group>"; };
 		89FC6EB22DC130E60058B906 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		89FC6EB82DC135970058B906 /* MotiveWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MotiveWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,8 +191,6 @@
 		89FC6EDA2DC135B80058B906 /* MotiveWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotiveWidgetsLiveActivity.swift; sourceTree = "<group>"; };
 		89FC6EE32DC142910058B906 /* Motive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Motive.entitlements; sourceTree = "<group>"; };
 		89FC6EE42DC142CB0058B906 /* MotiveWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotiveWidgetsExtension.entitlements; sourceTree = "<group>"; };
-		89FC6EE52DC2B01C0058B906 /* SelectAllTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllTopicsView.swift; sourceTree = "<group>"; };
-		89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicSelector.swift; sourceTree = "<group>"; };
 		89FC6EEF2DC2D4070058B906 /* RowWithHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowWithHeader.swift; sourceTree = "<group>"; };
 		89FC6EF72DC2F5DF0058B906 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		89FC6EFF2DC3C26D0058B906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -322,8 +324,11 @@
 			children = (
 				89AA0A2A2DBF2E1700308F1E /* WelcomeView.swift */,
 				89AA0A022DBED19B00308F1E /* InspirationView.swift */,
-				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
 				8963D03B2DC6CE1C00E3430E /* LearnView.swift */,
+				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
+				89B649A92DD2979400A45A50 /* PreventingView.swift */,
+				89B649A52DD26F8B00A45A50 /* AccountableView.swift */,
+				89B649A72DD26F9100A45A50 /* ReminderView.swift */,
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
 				89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */,
 				89AA0A362DBF327100308F1E /* AddWidgetsView.swift */,
@@ -360,7 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				8963D0772DD10B6E00E3430E /* Home */,
-				89AA09C22DBEA96900308F1E /* Widgets */,
+				89AA09C22DBEA96900308F1E /* New */,
 				89AA09C32DBEC97E00308F1E /* Settings */,
 				89AA09BD2DBEA94400308F1E /* Onboarding */,
 				89AA09BE2DBEA94900308F1E /* Setup */,
@@ -378,24 +383,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		89AA09C22DBEA96900308F1E /* Widgets */ = {
+		89AA09C22DBEA96900308F1E /* New */ = {
 			isa = PBXGroup;
 			children = (
 				89AA0A172DBED2E400308F1E /* WidgetsView.swift */,
 				89CBB2252DC460DD0034873F /* NewQuoteView.swift */,
 				8963D0572DCA679C00E3430E /* WidgetPreviews.swift */,
 				8963D0532DCA65D100E3430E /* NewImageView.swift */,
-				89FC6EED2DC2BFFC0058B906 /* TopicSelector.swift */,
-				89FC6EAB2DC12CA70058B906 /* SelectTopicView.swift */,
 			);
-			path = Widgets;
+			path = New;
 			sourceTree = "<group>";
 		};
 		89AA09C32DBEC97E00308F1E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				89AA09C42DBEC98B00308F1E /* SettingsView.swift */,
-				89FC6EE52DC2B01C0058B906 /* SelectAllTopicsView.swift */,
+				89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -709,15 +712,18 @@
 			files = (
 				89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */,
 				89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */,
+				89B649AA2DD2979400A45A50 /* PreventingView.swift in Sources */,
+				89B649A82DD26F9100A45A50 /* ReminderView.swift in Sources */,
 				89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */,
 				8963D0822DD11BD200E3430E /* HomeViewModel.swift in Sources */,
 				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
 				89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */,
 				8963D0842DD11BD700E3430E /* CheckInViewModel.swift in Sources */,
+				89B649AC2DD29CF800A45A50 /* CheckInTimeView.swift in Sources */,
 				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
 				8963D04A2DC9BA2900E3430E /* StorageService.swift in Sources */,
-				89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */,
+				89B649A62DD26F8B00A45A50 /* AccountableView.swift in Sources */,
 				89B649A42DD24CD300A45A50 /* AppDelegate.swift in Sources */,
 				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
 				8963D0582DCA679C00E3430E /* WidgetPreviews.swift in Sources */,
@@ -732,7 +738,6 @@
 				89AA09C52DBEC98B00308F1E /* SettingsView.swift in Sources */,
 				89AA09FB2DBECC3400308F1E /* NavigationViews.swift in Sources */,
 				89AA0A182DBED2E400308F1E /* WidgetsView.swift in Sources */,
-				89FC6EAC2DC12CA70058B906 /* SelectTopicView.swift in Sources */,
 				89FC6EF02DC2D4070058B906 /* RowWithHeader.swift in Sources */,
 				8963D0542DCA65D100E3430E /* NewImageView.swift in Sources */,
 				89AA09FF2DBECC3F00308F1E /* NavigationTypes.swift in Sources */,
@@ -754,7 +759,6 @@
 				89AA09F52DBECB9700308F1E /* User.swift in Sources */,
 				89FC6E9C2DBFE79A0058B906 /* EnterGoalsView.swift in Sources */,
 				89FC6EB12DC12F350058B906 /* WidgetsViewModel.swift in Sources */,
-				89FC6EE62DC2B01C0058B906 /* SelectAllTopicsView.swift in Sources */,
 				89AA0A162DBED2A900308F1E /* SelectRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

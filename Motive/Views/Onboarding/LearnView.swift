@@ -26,7 +26,7 @@ struct LearnView: View {
                         .font(Font.FontStyles.title2)
                         .foregroundStyle(Color.ColorSystem.primaryText)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Motive gives you inspiration just like they had.")
+                    Text("Motive gives you daily quotes from history’s best so you can be inspired too.")
                         .font(Font.FontStyles.body)
                         .foregroundStyle(Color.ColorSystem.systemGray)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,7 +39,7 @@ struct LearnView: View {
                 isLoading: .constant(false)
             ) {
                 navigationController.push(
-                    .PersonalizingView(
+                    .EnterGoalsView(
                         navigationController: $navigationController,
                         userViewModel: $userViewModel,
                         viewModel: $viewModel

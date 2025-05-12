@@ -123,7 +123,7 @@ struct AddWidgetsView: View {
                 )
             }
         }
-        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
             .navigationBarBackButtonHidden(true)
     }
 }

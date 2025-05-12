@@ -46,9 +46,7 @@ class MyBackgroundOperation: Operation, @unchecked Sendable {
     override func main() {
         if isCancelled { return }
         Task {
-            await OpenAIService.shared.getQuoteBackground(
-                topic: "Self improvement"
-            ) { response in
+            await OpenAIService.shared.getQuoteBackground { response in
                 QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
             }
         }

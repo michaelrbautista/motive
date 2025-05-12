@@ -18,8 +18,6 @@ class UserViewModel {
     var event: AuthChangeEvent? = nil
     var session: Session? = nil
     
-    var topics = [String]()
-    
     var quote: String? = nil
     var source: String? = nil
     var image: Data? = nil
@@ -53,16 +51,35 @@ class UserViewModel {
             
             UserService.currentUser = user
             
-            // Get topics from UserDefaults
-            if let userTopics = UserDefaults.standard.array(forKey: "topics") as? [String] {
-                self.topics = userTopics
-            }
-            
             // Get quote, source, and image
             let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
             self.quote = userDefaults?.value(forKey: "quote") as? String
             self.source = userDefaults?.value(forKey: "source") as? String
             self.image = userDefaults?.value(forKey: "image") as? Data
+            
+            // Check streak
+            let calendar = Calendar.current
+            
+            let lastEntry = UserDefaults.standard.value(forKey: "lastCheckIn") as? Date
+            let now = Date()
+            
+            print("Last entry: \(lastEntry)")
+            
+            if let entry = lastEntry {
+                let lastDay = calendar.startOfDay(for: entry)
+                let today = calendar.startOfDay(for: now)
+                
+                if let daysBetween = calendar.dateComponents([.day], from: lastDay, to: today).day {
+                    if daysBetween >= 2 {
+                        print("Streak lost")
+                        UserDefaults.standard.set(0, forKey: "streak")
+                    } else {
+                        print("Streak still going")
+                    }
+                }
+            } else {
+                UserDefaults.standard.set(0, forKey: "streak")
+            }
             
             self.isLoggedIn = true
             

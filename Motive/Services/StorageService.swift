@@ -12,14 +12,8 @@ final class StorageService: ObservableObject {
     public static let shared = StorageService()
     
     // MARK: Get image
-    public func getImage(topic: String) async throws -> Data? {
+    public func getImage() async throws -> Data? {
         var folderPath = "self_improvement"
-        
-        if topic == "Sports" {
-            folderPath = "athletes"
-        } else if topic == "Entrepreneurship" {
-            folderPath = "entrepreneurs"
-        }
         
         let files = try await SupabaseService.shared.supabase.storage
             .from("images")

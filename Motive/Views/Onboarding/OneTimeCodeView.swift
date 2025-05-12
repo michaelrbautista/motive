@@ -15,9 +15,6 @@ struct OneTimeCodeView: View {
     @Binding var viewModel: OnboardingViewModel
     
     var isSignIn: Bool
-    @State var code = ""
-    
-    @State var isLoading = false
     
     @State var returnedError = false
     @State var errorMessage = ""
@@ -38,7 +35,7 @@ struct OneTimeCodeView: View {
             Spacer()
             VStack(spacing: 10) {
                 HStack {
-                    TextField("Enter code", text: $code)
+                    TextField("Enter code", text: $viewModel.code)
                         .frame(maxWidth: .infinity)
                         .foregroundStyle(Color.ColorSystem.primaryText)
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
@@ -59,75 +56,27 @@ struct OneTimeCodeView: View {
             }
             Spacer()
             StyledButton(
-                variant: code == "" ? .disabled : .primary,
+                variant: viewModel.code == "" ? .disabled : .primary,
                 text: "Next",
-                isLoading: $isLoading
+                isLoading: $viewModel.isLoading
             ) {
                 Task {
-                    // Validate code is correct
-                    do {
-                        isLoading = true
-                        
-                        if isSignIn {
-                            let session = try await SupabaseService.shared.supabase.auth.verifyOTP(email: viewModel.email, token: code, type: .email)
-                            
-                            let currentUserId = session.user.id.description
-                            
-                            // Get user from db
-                            let user = try await UserService.shared.getUser(uid: currentUserId)
-                            
-                            UserService.currentUser = user
-                            
-                            let topics = [
-                                "Self improvement",
-                                "Sports",
-                                "Entrepreneurship"
-                            ]
-                            
-                            // Add topics to UserDefaults
-                            UserDefaults.standard.set(topics, forKey: "topics")
-                            
-                            // Create quote
-                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source in
-                                DispatchQueue.main.async {
-                                    userViewModel.quote = quote
-                                    userViewModel.source = source
-                                    userViewModel.isLoggedIn = true
-                                }
-                            }
-                        } else {
-                            let session = try await SupabaseService.shared.supabase.auth.verifyOTP(email: viewModel.email, token: code, type: .email)
-                            
-                            // Set user to logged in and redirect
-                            let currentUserId = session.user.id.description
-                            
-                            let newUser = User(
-                                id: currentUserId,
-                                email: viewModel.email
-                            )
-                            
-                            // Create user row
-                            let user = try await UserService.shared.createUser(user: newUser)
-                            
-                            UserService.currentUser = user
-                            
-                            // Add topics to UserDefaults
-                            UserDefaults.standard.set(viewModel.inspirations, forKey: "topics")
-                            
-                            // Create quote
-                            QuoteService.shared.createAndSaveQuote(topic: viewModel.inspirations.randomElement() ?? "Self improvement") { quote, source in
-                                DispatchQueue.main.async {
-                                    userViewModel.quote = quote
-                                    userViewModel.source = source
-                                    userViewModel.isLoggedIn = true
-                                }
+                    if isSignIn {
+                        await viewModel.signIn { quote, source in
+                            DispatchQueue.main.async {
+                                userViewModel.quote = quote
+                                userViewModel.source = source
+                                userViewModel.isLoggedIn = true
                             }
                         }
-                    } catch {
-                        isLoading = false
-                        errorMessage = "There was an issue signing you in. Please try again later."
-                        print(error)
-                        returnedError = true
+                    } else {
+                        await viewModel.createAccount { quote, source in
+                            DispatchQueue.main.async {
+                                userViewModel.quote = quote
+                                userViewModel.source = source
+                                userViewModel.isLoggedIn = true
+                            }
+                        }
                     }
                 }
             }
@@ -140,5 +89,5 @@ struct OneTimeCodeView: View {
 }
 
 #Preview {
-    OneTimeCodeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()), isSignIn: true, code: "")
+    OneTimeCodeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()), isSignIn: true)
 }

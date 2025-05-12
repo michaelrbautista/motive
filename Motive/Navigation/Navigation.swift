@@ -64,14 +64,32 @@ class NavigationController: CoordinatorProtocol {
                 navigationController: navigationController,
                 userViewModel: userViewModel
             )
+        case .LearnView(let navigationController, let userViewModel, let viewModel):
+            LearnView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
         case .EnterGoalsView(let navigationController, let userViewModel, let viewModel):
             EnterGoalsView(
                 navigationController: navigationController,
                 userViewModel: userViewModel,
                 viewModel: viewModel
             )
-        case .LearnView(let navigationController, let userViewModel, let viewModel):
-            LearnView(
+        case .PreventingView(let navigationController, let userViewModel, let viewModel):
+            PreventingView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .AccountableView(let navigationController, let userViewModel, let viewModel):
+            AccountableView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .ReminderView(let navigationController, let userViewModel, let viewModel):
+            ReminderView(
                 navigationController: navigationController,
                 userViewModel: userViewModel,
                 viewModel: viewModel
@@ -144,11 +162,10 @@ class NavigationController: CoordinatorProtocol {
             )
             
         // MARK: Settings
-        case .SettingsView(let navigationController, let userViewModel, let selectedTopics):
+        case .SettingsView(let navigationController, let userViewModel):
             SettingsView(
                 navigationController: navigationController,
-                userViewModel: userViewModel,
-                selectedTopics: selectedTopics
+                userViewModel: userViewModel
             )
             
         default:
@@ -173,25 +190,16 @@ class NavigationController: CoordinatorProtocol {
                 viewModel: viewModel
             )
             
-        // MARK: Select topic
-        case .SelectTopicView(let sheetNavigationController, let topic):
-            SelectTopicView(
-                sheetNavigationController: sheetNavigationController,
-                topic: topic
-            )
-        case .SelectAllTopicsView(let navigationController, let userViewModel, let selectedTopics):
-            SelectAllTopicsView(
-                navigationController: navigationController,
-                userViewModel: userViewModel,
-                selectedTopics: selectedTopics
-            )
-            
         // MARK: Check in coordinator
         case .CheckInCoordinatorView(let navigationController, let userViewModel):
             CheckInCoordinatorView(
                 navigationController: navigationController,
                 userViewModel: userViewModel
             )
+            
+        // MARK: Check in time
+        case .CheckInTimeView(let navigationController, let userViewModel):
+            CheckInTimeView(navigationController: navigationController, userViewModel: userViewModel)
         }
     }
 }
@@ -271,11 +279,6 @@ class SheetNavigationController: CoordinatorProtocol {
     @ViewBuilder
     func build(_ sheet: Sheet) -> some View {
         switch sheet {
-        case .SelectTopicView(let sheetNavigationController, let topic):
-            SelectTopicView(
-                sheetNavigationController: sheetNavigationController,
-                topic: topic
-            )
         default:
             Text("Navigation Error")
         }

@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+    @Environment(\.modelContext) private var modelContext
     
     @Binding var navigationController: NavigationController
     @Binding var userViewModel: UserViewModel
@@ -25,6 +26,12 @@ struct HomeView: View {
 
     let weekDates: [Date]
     let descriptor: FetchDescriptor<CheckInEntry>
+    
+    var hasEntryToday: Bool {
+        entries.contains {
+            Calendar.current.isDate($0.date, inSameDayAs: Date())
+        }
+    }
     
     var streak = 23
     
@@ -82,31 +89,46 @@ struct HomeView: View {
                 }
                 Spacer()
             }
-            .listRowInsets(EdgeInsets(top: 20, leading: 20, bottom: 40, trailing: 20))
+            .listRowInsets(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
             .listRowSeparator(.hidden)
             
             // MARK: Check in button
-            Button {
-                navigationController.presentSheet(
-                    .CheckInCoordinatorView(
-                        navigationController: $navigationController,
-                        userViewModel: $userViewModel
-                    ))
-            } label: {
+            if hasEntryToday {
                 HStack {
                     Spacer()
-                    Text("Complete today's check in")
+                    Text("Check in complete")
                         .font(Font.FontStyles.headline)
-                        .foregroundStyle(Color.ColorSystem.primaryText)
+                        .foregroundStyle(Color.ColorSystem.systemGray)
                     Spacer()
                 }
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                .background(Color.ColorSystem.systemBlue)
+                .background(Color.ColorSystem.systemGray6)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
+                .listRowSeparator(.hidden)
+            } else {
+                Button {
+                    navigationController.presentSheet(
+                        .CheckInCoordinatorView(
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel
+                        ))
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Complete today's check in")
+                            .font(Font.FontStyles.headline)
+                            .foregroundStyle(Color.ColorSystem.primaryText)
+                        Spacer()
+                    }
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .background(Color.ColorSystem.systemBlue)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .buttonStyle(.plain)
+                .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
+                .listRowSeparator(.hidden)
             }
-            .buttonStyle(.plain)
-            .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
-            .listRowSeparator(.hidden)
             
             VStack(spacing: 20) {
                 // MARK: Quote
@@ -144,6 +166,30 @@ struct HomeView: View {
                         .frame(height: 170)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
+                
+                // MARK: New quote/image
+                Button {
+                    navigationController.push(
+                        .WidgetsView(
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel
+                        )
+                    )
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("New quote or image")
+                            .font(Font.FontStyles.headline)
+                            .foregroundStyle(Color.ColorSystem.primaryText)
+                        Spacer()
+                    }
+                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    .background(Color.ColorSystem.systemGray5)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .buttonStyle(.plain)
+                .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
+                .listRowSeparator(.hidden)
             }
             .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             .listRowSeparator(.hidden)
@@ -152,6 +198,26 @@ struct HomeView: View {
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle(Date.now.formatted(date: .abbreviated, time: .omitted))
         .toolbar {
+            #if DEBUG
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    let fetchDescriptor = FetchDescriptor<CheckInEntry>()
+                    do {
+                        let allEntries = try modelContext.fetch(fetchDescriptor)
+                        for entry in allEntries {
+                            modelContext.delete(entry)
+                        }
+                        try modelContext.save()
+                    } catch {
+                        print("Failed to delete all journal entries: \(error.localizedDescription)")
+                    }
+                } label: {
+                    Text("Delete")
+                        .foregroundStyle(Color.ColorSystem.systemRed)
+                }
+            }
+            #endif
+            
             ToolbarItem(placement: .principal) {
                 Text("MOTIVE")
                     .font(.custom("InterDisplay-Bold", size: 12))
@@ -163,6 +229,15 @@ struct HomeView: View {
                     .font(Font.FontStyles.headline)
                     .foregroundStyle(Color.ColorSystem.primaryText)
             }
+        }
+        .onAppear {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                    if let error = error {
+                        print("Notification permission error: \(error.localizedDescription)")
+                    } else {
+                        print("Permission granted.")
+                    }
+                }
         }
     }
 }

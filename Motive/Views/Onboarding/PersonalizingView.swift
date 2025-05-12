@@ -16,18 +16,8 @@ struct PersonalizingView: View {
     var body: some View {
         VStack {
             Spacer()
-            if viewModel.isPersonalizingGeneral {
+            if viewModel.isPersonalizing {
                 Text("Personalizing your app...")
-                    .font(Font.FontStyles.title2)
-                    .foregroundStyle(Color.ColorSystem.primaryText)
-                    .multilineTextAlignment(.center)
-                ProgressView()
-                    .frame(maxWidth: UIScreen.main.bounds.size.width)
-                    .frame(height: 17)
-                    .tint(Color.ColorSystem.primaryText)
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-            } else if viewModel.isPersonalizingQuotes {
-                Text("Customizing quotes...")
                     .font(Font.FontStyles.title2)
                     .foregroundStyle(Color.ColorSystem.primaryText)
                     .multilineTextAlignment(.center)
@@ -49,7 +39,7 @@ struct PersonalizingView: View {
             }
             Spacer()
             StyledButton(
-                variant: viewModel.isPersonalizingGeneral || viewModel.isPersonalizingQuotes ? .disabled : .primary,
+                variant: viewModel.isPersonalizing ? .disabled : .primary,
                 text: "Next",
                 isLoading: .constant(false)) {
                     navigationController.push(
@@ -63,15 +53,8 @@ struct PersonalizingView: View {
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
         .onAppear {
-            let firstPhase = Double.random(in: 2...4)
-            let secondPhase = Double.random(in: 2...4)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + firstPhase) {
-                viewModel.isPersonalizingGeneral = false
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + secondPhase) {
-                    viewModel.isPersonalizingQuotes = false
-                }
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 3...5)) {
+                viewModel.isPersonalizing = false
             }
         }
     }

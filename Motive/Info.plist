@@ -6,6 +6,8 @@
 	<array>
 		<string>com.Michael-Bautista.motive.refresh</string>
 	</array>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>We use this to remind you to check in.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter.ttc</string>

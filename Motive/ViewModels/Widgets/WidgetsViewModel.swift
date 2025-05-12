@@ -11,9 +11,6 @@ import WidgetKit
 @Observable
 final class WidgetsViewModel {
     
-    var quoteTopic = "Random"
-    var imageTopic = "Random"
-    
     var quoteIsLoading = false
     var imageIsLoading = false
     
@@ -36,18 +33,8 @@ final class WidgetsViewModel {
     public func getNewImage() {
         self.imageIsLoading = true
         
-        var randomTopic = "Self improvement"
-        
-        if self.quoteTopic == "Random" {
-            randomTopic = [
-                "Self improvement",
-                "Entrepreneurship",
-                "Sports"
-            ].randomElement() ?? "Self improvement"
-        }
-        
         Task {
-            let newImage = try await StorageService.shared.getImage(topic: self.quoteTopic == "Random" ? randomTopic : self.quoteTopic)
+            let newImage = try await StorageService.shared.getImage()
             
             if let image = newImage {
                 self.newImage = image
@@ -63,20 +50,8 @@ final class WidgetsViewModel {
     public func generateNewQuote() async {
         self.quoteIsLoading = true
         
-        var randomTopic = "Self improvement"
-        
-        if self.quoteTopic == "Random" {
-            randomTopic = [
-                "Self improvement",
-                "Entrepreneurship",
-                "Sports"
-            ].randomElement() ?? "Self improvement"
-        }
-        
         // Get quote
-        OpenAIService.shared.getQuoteMain(
-            topic: self.quoteTopic == "Random" ? randomTopic : self.quoteTopic
-        ) { response in
+        OpenAIService.shared.getQuoteMain { response in
             self.newQuote = response.quote
             self.newSource = response.source
             

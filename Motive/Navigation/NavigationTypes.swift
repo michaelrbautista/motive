@@ -21,12 +21,27 @@ enum Screen: Identifiable, Hashable {
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>
     )
+    case LearnView(
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<OnboardingViewModel>
+    )
     case EnterGoalsView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
-    case LearnView(
+    case PreventingView(
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<OnboardingViewModel>
+    )
+    case AccountableView(
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<OnboardingViewModel>
+    )
+    case ReminderView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
@@ -110,8 +125,7 @@ enum Screen: Identifiable, Hashable {
     // MARK: Settings
     case SettingsView(
         navigationController: Binding<NavigationController>,
-        userViewModel: Binding<UserViewModel>,
-        selectedTopics: Binding<[String]>
+        userViewModel: Binding<UserViewModel>
     )
     
     var id: Self { return self }
@@ -147,18 +161,15 @@ enum Sheet: Identifiable, Hashable {
         userViewModel: Binding<UserViewModel>,
         viewModel: Binding<WidgetsViewModel>
     )
-    case SelectTopicView(
-        sheetNavigationController: Binding<SheetNavigationController>,
-        topic: Binding<String>
-    )
-    case SelectAllTopicsView(
-        navigationController: Binding<NavigationController>,
-        userViewModel: Binding<UserViewModel>,
-        selectedTopics: Binding<[String]>
-    )
     
     // MARK: Check in
     case CheckInCoordinatorView(
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
+    )
+    
+    // MARK: Reminder time
+    case CheckInTimeView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>
     )

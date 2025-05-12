@@ -19,9 +19,6 @@ struct NewImageView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                // MARK: Topic selector
-//                TopicSelector(topic: $viewModel.imageTopic)
-                
                 if let image = UIImage(data: viewModel.newImage) {
                     Image(uiImage: image)
                         .resizable()

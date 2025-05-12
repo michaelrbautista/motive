@@ -12,14 +12,6 @@ struct SettingsView: View {
     @Binding var navigationController: NavigationController
     @Binding var userViewModel: UserViewModel
     
-    var defaultTopics = [
-        "Self improvement",
-        "Entrepreneurship",
-        "Sports"
-    ]
-    
-    @Binding var selectedTopics: [String]
-    
     @State var signOutIsLoading = false
     
     @State var presentConfirmSignOut = false
@@ -27,32 +19,14 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-//            // MARK: Topics
-//            Section {
-//                Button {
-//                    navigationController.presentSheet(.SelectAllTopicsView(selectedTopics: $selectedTopics))
-//                } label: {
-//                    HStack {
-//                        Text(
-//                            self.defaultTopics.filter {
-//                                self.selectedTopics.contains($0)
-//                            }.joined(separator: ", ")
-//                        )
-//                            .font(Font.FontStyles.body)
-//                            .foregroundStyle(Color.ColorSystem.primaryText)
-//                            .lineLimit(1)
-//                        Spacer()
-//                        Image(systemName: "chevron.right")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(height: 12)
-//                            .foregroundStyle(Color.ColorSystem.systemGray2)
-//                            .fontWeight(.bold)
-//                    }
-//                }
-//            } header: {
-//                Text("Topics")
-//            }
+            // MARK: Reminder time
+            Section {
+                Button {
+                    navigationController.presentSheet(.CheckInTimeView(navigationController: $navigationController, userViewModel: $userViewModel))
+                } label: {
+                    Text("Check in time")
+                }
+            }
             
             // MARK: Terms and privacy
             Section {
@@ -176,6 +150,6 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), selectedTopics: .constant(["Sports"]))
+        SettingsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
     }
 }

@@ -34,24 +34,46 @@ struct InspirationView: View {
                 }
                 
                 MultiSelectRow(
-                    text: "Sports",
+                    text: "Athletes",
                     setSelection: $viewModel.inspirations
                 ) {
-                    if viewModel.inspirations.contains("Sports") {
-                        viewModel.inspirations.remove("Sports")
+                    if viewModel.inspirations.contains("Athletes") {
+                        viewModel.inspirations.remove("Athletes")
                     } else {
-                        viewModel.inspirations.insert("Sports")
+                        viewModel.inspirations.insert("Athletes")
                     }
                 }
                 
                 MultiSelectRow(
-                    text: "Entrepreneurship",
+                    text: "Entrepreneurs",
                     setSelection: $viewModel.inspirations
                 ) {
-                    if viewModel.inspirations.contains("Entrepreneurship") {
-                        viewModel.inspirations.remove("Entrepreneurship")
+                    if viewModel.inspirations.contains("Entrepreneurs") {
+                        viewModel.inspirations.remove("Entrepreneurs")
                     } else {
-                        viewModel.inspirations.insert("Entrepreneurship")
+                        viewModel.inspirations.insert("Entrepreneurs")
+                    }
+                }
+                
+                MultiSelectRow(
+                    text: "Philosophers",
+                    setSelection: $viewModel.inspirations
+                ) {
+                    if viewModel.inspirations.contains("Philosophers") {
+                        viewModel.inspirations.remove("Philosophers")
+                    } else {
+                        viewModel.inspirations.insert("Philosophers")
+                    }
+                }
+                
+                MultiSelectRow(
+                    text: "Faith",
+                    setSelection: $viewModel.inspirations
+                ) {
+                    if viewModel.inspirations.contains("Faith") {
+                        viewModel.inspirations.remove("Faith")
+                    } else {
+                        viewModel.inspirations.insert("Faith")
                     }
                 }
             }
@@ -62,7 +84,7 @@ struct InspirationView: View {
                 isLoading: .constant(false)
             ) {
                 navigationController.push(
-                    .EnterGoalsView(
+                    .LearnView(
                         navigationController: $navigationController,
                         userViewModel: $userViewModel,
                         viewModel: $viewModel

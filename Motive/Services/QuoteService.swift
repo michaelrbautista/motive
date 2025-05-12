@@ -13,8 +13,8 @@ final class QuoteService: ObservableObject {
     public static let shared = QuoteService()
     
     // MARK: Create new quote
-    public func createAndSaveQuote(topic: String, completion: @escaping ((String, String) -> Void)) {
-        OpenAIService.shared.getQuoteMain(topic: topic) { response in
+    public func createAndSaveQuote(completion: @escaping ((String, String) -> Void)) {
+        OpenAIService.shared.getQuoteMain { response in
             // Save quote
             self.saveQuote(quote: response.quote, source: response.source)
             
