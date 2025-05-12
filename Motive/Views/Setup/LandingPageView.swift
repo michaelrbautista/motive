@@ -11,6 +11,7 @@ import SuperwallKit
 struct LandingPageView: View {
     
     var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     var body: some View {
         VStack(spacing: 40) {
@@ -24,7 +25,12 @@ struct LandingPageView: View {
                     text: "Get Started",
                     isLoading: .constant(false)
                 ) {
-                    navigationController.push(.WelcomeView)
+                    navigationController.push(
+                        .WelcomeView(
+                            navigationController: navigationController,
+                            userViewModel: userViewModel
+                        )
+                    )
                 }
                 
                 StyledButton(
@@ -32,7 +38,12 @@ struct LandingPageView: View {
                     text: "Sign In",
                     isLoading: .constant(false)
                 ) {
-                    navigationController.push(.SignInView)
+                    navigationController.push(
+                        .SignInView(
+                            navigationController: navigationController,
+                            userViewModel: userViewModel
+                        )
+                    )
                 }
             }
         }
@@ -41,5 +52,5 @@ struct LandingPageView: View {
 }
 
 #Preview {
-    LandingPageView(navigationController: NavigationController())
+    LandingPageView(navigationController: NavigationController(), userViewModel: UserViewModel())
 }

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct LearnView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @StateObject var viewModel: OnboardingViewModel
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
@@ -36,7 +39,13 @@ struct LearnView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.PersonalizingView(viewModel: viewModel))
+                navigationController.push(
+                    .PersonalizingView(
+                        navigationController: navigationController,
+                        userViewModel: userViewModel,
+                        viewModel: $viewModel
+                    )
+                )
             }
 
         }
@@ -45,5 +54,5 @@ struct LearnView: View {
 }
 
 #Preview {
-    LearnView(viewModel: OnboardingViewModel())
+    LearnView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
 }

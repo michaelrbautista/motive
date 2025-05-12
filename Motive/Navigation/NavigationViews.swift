@@ -35,8 +35,8 @@ struct HomeCoordinatorView: View {
 // MARK: Check in
 struct CheckInCoordinatorView: View {
     
-    var userViewModel: UserViewModel
     var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     @State var sheetNavigationController = SheetNavigationController()
     
@@ -63,6 +63,7 @@ struct CheckInCoordinatorView: View {
 struct WidgetsCoordinatorView: View {
     
     var userViewModel: UserViewModel
+    
     @State var navigationController: NavigationController = NavigationController()
     
     var body: some View {
@@ -86,8 +87,8 @@ struct WidgetsCoordinatorView: View {
 // MARK: New quote
 struct NewQuoteCoordinatorView: View {
     
-    var userViewModel: UserViewModel
     var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     @State var sheetNavigationController = SheetNavigationController()
     
@@ -116,8 +117,8 @@ struct NewQuoteCoordinatorView: View {
 // MARK: New image
 struct NewImageCoordinatorView: View {
     
-    var userViewModel: UserViewModel
     var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     @State var sheetNavigationController = SheetNavigationController()
     
@@ -147,6 +148,7 @@ struct NewImageCoordinatorView: View {
 struct SettingsCoordinatorView: View {
     
     var userViewModel: UserViewModel
+    
     @State var navigationController: NavigationController = NavigationController()
     
     var body: some View {
@@ -171,6 +173,7 @@ struct SettingsCoordinatorView: View {
 struct LandingPageCoordinatorView: View {
     
     var userViewModel: UserViewModel
+    
     @State var navigationController: NavigationController = NavigationController()
     
     var body: some View {

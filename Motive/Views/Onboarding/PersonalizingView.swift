@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct PersonalizingView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @StateObject var viewModel: OnboardingViewModel
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
@@ -50,7 +53,13 @@ struct PersonalizingView: View {
                 variant: viewModel.isPersonalizingGeneral || viewModel.isPersonalizingQuotes ? .disabled : .primary,
                 text: "Next",
                 isLoading: .constant(false)) {
-                    navigationController.push(.CustomizedView(viewModel: viewModel))
+                    navigationController.push(
+                        .CustomizedView(
+                            navigationController: navigationController,
+                            userViewModel: userViewModel,
+                            viewModel: $viewModel
+                        )
+                    )
                 }
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
@@ -70,5 +79,5 @@ struct PersonalizingView: View {
 }
 
 #Preview {
-    PersonalizingView(viewModel: OnboardingViewModel())
+    PersonalizingView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
 }

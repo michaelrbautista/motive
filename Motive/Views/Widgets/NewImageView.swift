@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct NewImageView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var sheetNavigationController: SheetNavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
     
-    @StateObject var viewModel: WidgetsViewModel
+    var navigationController: NavigationController
+    var sheetNavigationController: SheetNavigationController
+    var userViewModel: UserViewModel
+    
+    @State var viewModel: WidgetsViewModel
     
     @State var presentConfirmSave = false
     
@@ -119,5 +120,5 @@ struct NewImageView: View {
 }
 
 #Preview {
-    NewImageView(viewModel: WidgetsViewModel())
+    NewImageView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: WidgetsViewModel())
 }

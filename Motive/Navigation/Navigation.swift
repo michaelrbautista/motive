@@ -50,51 +50,109 @@ class NavigationController: CoordinatorProtocol {
         switch screen {
         // Onboarding
         case .LandingPageView(let navigationController, let userViewModel):
-            LandingPageView(navigationController: navigationController)
-        case .WelcomeView:
-            WelcomeView()
-        case .InspirationView:
-            InspirationView()
-        case .EnterGoalsView(let viewModel):
-            EnterGoalsView(viewModel: viewModel)
-        case .LearnView(let viewModel):
-            LearnView(viewModel: viewModel)
-        case .PersonalizingView(let viewModel):
-            PersonalizingView(viewModel: viewModel)
-        case .CustomizedView(let viewModel):
-            CustomizedView(viewModel: viewModel)
-        case .AddWidgetsView(let viewModel):
-            AddWidgetsView(viewModel: viewModel)
+            LandingPageView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
+        case .WelcomeView(let navigationController, let userViewModel):
+            WelcomeView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
+        case .InspirationView(let navigationController, let userViewModel):
+            InspirationView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
+        case .EnterGoalsView(let navigationController, let userViewModel, let viewModel):
+            EnterGoalsView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .LearnView(let navigationController, let userViewModel, let viewModel):
+            LearnView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .PersonalizingView(let navigationController, let userViewModel, let viewModel):
+            PersonalizingView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .CustomizedView(let navigationController, let userViewModel, let viewModel):
+            CustomizedView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .AddWidgetsView(let navigationController, let userViewModel, let viewModel):
+            AddWidgetsView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
             
         // Auth
-        case .SignInView:
-            SignInView()
-        case .CreateAccountView(let viewModel):
-            CreateAccountView(viewModel: viewModel)
-        case .OneTimeCodeView(let viewModel, let isSignIn):
-            OneTimeCodeView(viewModel: viewModel, isSignIn: isSignIn)
+        case .SignInView(let navigationController, let userViewModel):
+            SignInView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
+        case .CreateAccountView(let navigationController, let userViewModel, let viewModel):
+            CreateAccountView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .OneTimeCodeView(let navigationController, let userViewModel, let viewModel, let isSignIn):
+            OneTimeCodeView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel,
+                isSignIn: isSignIn
+            )
             
         // Home
-        case .HomeView:
-            HomeView()
-        case .FirstCheckInView:
-            FirstCheckInView()
-        case .SecondCheckInView(let viewModel):
-            SecondCheckInView(viewModel: viewModel)
-        case .ThirdCheckInView(let viewModel):
-            ThirdCheckInView(viewModel: viewModel)
+        case .HomeView(let navigationController, let userViewModel):
+            HomeView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
             
         // Widgets
-        case .WidgetsView:
-            WidgetsView()
-        case .NewQuoteView(let viewModel):
-            NewQuoteView(viewModel: viewModel)
-        case .NewImageView(let viewModel):
-            NewImageView(viewModel: viewModel)
+        case .WidgetsView(let navigationController, let userViewModel):
+            WidgetsView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
+        case .NewQuoteView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
+            NewQuoteView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .NewImageView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
+            NewImageView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
             
         // Settings
-        case .SettingsView(let selectedTopics):
-            SettingsView(selectedTopics: selectedTopics)
+        case .SettingsView(let navigationController, let userViewModel, let selectedTopics):
+            SettingsView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                selectedTopics: selectedTopics
+            )
+            
+        default:
+            Text("Navigation Error")
         }
     }
     
@@ -102,18 +160,34 @@ class NavigationController: CoordinatorProtocol {
     @ViewBuilder
     func build(_ sheet: Sheet) -> some View {
         switch sheet {
-        case .NewQuoteCoordinatorView(let viewModel):
-            NewQuoteCoordinatorView(viewModel: viewModel)
-        case .NewImageCoordinatorView(let viewModel):
-            NewImageCoordinatorView(viewModel: viewModel)
-        case .SelectTopicView(let topic):
-            SelectTopicView(topic: topic)
-        case .SelectAllTopicsView(let selectedTopics):
-            SelectAllTopicsView(selectedTopics: selectedTopics)
-        case .SaveQuoteView(let viewModel):
-            NewQuoteView(viewModel: viewModel)
-        case .CheckInCoordinatorView:
-            CheckInCoordinatorView()
+        case .NewQuoteCoordinatorView(let navigationController, let userViewModel, let viewModel):
+            NewQuoteCoordinatorView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .NewImageCoordinatorView(let navigationController, let userViewModel, let viewModel):
+            NewImageCoordinatorView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .SelectTopicView(let sheetNavigationController, let topic):
+            SelectTopicView(
+                sheetNavigationController: sheetNavigationController,
+                topic: topic
+            )
+        case .SelectAllTopicsView(let navigationController, let userViewModel, let selectedTopics):
+            SelectAllTopicsView(
+                navigationController: navigationController,
+                userViewModel: userViewModel,
+                selectedTopics: selectedTopics
+            )
+        case .CheckInCoordinatorView(let navigationController, let userViewModel):
+            CheckInCoordinatorView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
         }
     }
 }
@@ -148,20 +222,44 @@ class SheetNavigationController: CoordinatorProtocol {
     func build(_ screen: Screen) -> some View {
         switch screen {
         // New quote/image
-        case .NewQuoteView(let viewModel):
-            NewQuoteView(viewModel: viewModel)
-        case .NewImageView(let viewModel):
-            NewImageView(viewModel: viewModel)
+        case .NewQuoteView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
+            NewQuoteView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .NewImageView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
+            NewImageView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
             
         // Check in
-        case .FirstCheckInView:
-            FirstCheckInView()
-        case .SecondCheckInView(let viewModel):
-            SecondCheckInView(viewModel: viewModel)
-        case .ThirdCheckInView(let viewModel):
-            ThirdCheckInView(viewModel: viewModel)
+        case .FirstCheckInView(let navigationController, let sheetNavigationController, let userViewModel):
+            FirstCheckInView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel
+            )
+        case .SecondCheckInView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
+            SecondCheckInView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
+        case .ThirdCheckInView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
+            ThirdCheckInView(
+                navigationController: navigationController,
+                sheetNavigationController: sheetNavigationController,
+                userViewModel: userViewModel,
+                viewModel: viewModel
+            )
         default:
-            Text("Error")
+            Text("Navigation Error")
         }
     }
     
@@ -169,10 +267,13 @@ class SheetNavigationController: CoordinatorProtocol {
     @ViewBuilder
     func build(_ sheet: Sheet) -> some View {
         switch sheet {
-        case .SelectTopicView(let topic):
-            SelectTopicView(topic: topic)
+        case .SelectTopicView(let sheetNavigationController, let topic):
+            SelectTopicView(
+                sheetNavigationController: sheetNavigationController,
+                topic: topic
+            )
         default:
-            Text("Error")
+            Text("Navigation Error")
         }
     }
 }

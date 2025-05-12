@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SecondCheckInView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var sheetNavigationController: SheetNavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
+    var navigationController: NavigationController
+    var sheetNavigationController: SheetNavigationController
+    var userViewModel: UserViewModel
     
-    @StateObject var viewModel: CheckInViewModel
+    @State var viewModel: CheckInViewModel
     
     var body: some View {
         VStack {
@@ -43,7 +43,14 @@ struct SecondCheckInView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    sheetNavigationController.push(.ThirdCheckInView(viewModel: viewModel))
+                    sheetNavigationController.push(
+                        .ThirdCheckInView(
+                            navigationController: navigationController,
+                            sheetNavigationController: sheetNavigationController,
+                            userViewModel: userViewModel,
+                            viewModel: viewModel
+                        )
+                    )
                 } label: {
                     Text("Next")
                         .foregroundStyle(viewModel.didntDoWell == "" ? Color.ColorSystem.systemGray : Color.ColorSystem.primaryText)
@@ -55,5 +62,5 @@ struct SecondCheckInView: View {
 }
 
 #Preview {
-    SecondCheckInView(viewModel: CheckInViewModel())
+    SecondCheckInView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: CheckInViewModel())
 }

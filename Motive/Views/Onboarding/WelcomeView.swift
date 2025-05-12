@@ -10,7 +10,9 @@ import SwiftUI
 import SwiftUI
 
 struct WelcomeView: View {
-    @EnvironmentObject var navigationController: NavigationController
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     var body: some View {
         VStack {
@@ -31,7 +33,12 @@ struct WelcomeView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.InspirationView)
+                navigationController.push(
+                    .InspirationView(
+                        navigationController: navigationController,
+                        userViewModel: userViewModel
+                    )
+                )
             }
 
         }
@@ -40,5 +47,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    WelcomeView(navigationController: NavigationController(), userViewModel: UserViewModel())
 }

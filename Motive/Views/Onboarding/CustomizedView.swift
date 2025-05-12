@@ -9,8 +9,11 @@ import SwiftUI
 import SuperwallKit
 
 struct CustomizedView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @StateObject var viewModel: OnboardingViewModel
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
@@ -38,10 +41,22 @@ struct CustomizedView: View {
                 isLoading: .constant(false)
             ) {
                 if SubscriptionService.shared.isSubscribed {
-                    navigationController.push(.AddWidgetsView(viewModel: viewModel))
+                    navigationController.push(
+                        .AddWidgetsView(
+                            navigationController: navigationController,
+                            userViewModel: userViewModel,
+                            viewModel: $viewModel
+                        )
+                    )
                 } else {
                     Superwall.shared.register(placement: "campaign_trigger") {
-                        navigationController.push(.AddWidgetsView(viewModel: viewModel))
+                        navigationController.push(
+                            .AddWidgetsView(
+                                navigationController: navigationController,
+                                userViewModel: userViewModel,
+                                viewModel: $viewModel
+                            )
+                        )
                     }
                 }
             }
@@ -51,5 +66,5 @@ struct CustomizedView: View {
 }
 
 #Preview {
-    CustomizedView(viewModel: OnboardingViewModel())
+    CustomizedView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
 }

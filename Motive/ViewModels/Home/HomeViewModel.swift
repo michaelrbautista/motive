@@ -8,15 +8,16 @@
 import SwiftUI
 import SwiftData
 
-final class HomeViewModel: ObservableObject {
+@Observable
+final class HomeViewModel {
     
-    @Published var quote = ""
-    @Published var source = ""
-    @Published var image = Data()
+    var quote = ""
+    var source = ""
+    var image = Data()
     
-    @Published var entries = [CheckInEntry]()
+    var entries = [CheckInEntry]()
     
-    @Published var isLoading = false
+    var isLoading = false
     
     // MARK: Get entries
     public func getEntries() {

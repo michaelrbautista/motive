@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TopicSelector: View {
-    @EnvironmentObject var sheetNavigationController: SheetNavigationController
+    
+    var sheetNavigationController: SheetNavigationController
     
     @Binding var topic: String
     
@@ -20,7 +21,12 @@ struct TopicSelector: View {
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
             
             Button {
-                sheetNavigationController.presentSheet(.SelectTopicView(topic: $topic))
+                sheetNavigationController.presentSheet(
+                    .SelectTopicView(
+                        sheetNavigationController: sheetNavigationController,
+                        topic: $topic
+                    )
+                )
             } label: {
                 HStack {
                     if topic == "" {
@@ -49,5 +55,5 @@ struct TopicSelector: View {
 }
 
 #Preview {
-    TopicSelector(topic: .constant("Random"))
+    TopicSelector(sheetNavigationController: SheetNavigationController(), topic: .constant("Random"))
 }

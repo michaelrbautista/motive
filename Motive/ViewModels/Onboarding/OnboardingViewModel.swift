@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
-
-final class OnboardingViewModel: ObservableObject {
+@Observable
+final class OnboardingViewModel {
     
-    @Published var inspirations = Set<String>()
-    @Published var goals = ""
+    var inspirations = Set<String>()
+    var goals = ""
     
-    @Published var email = ""
+    var email = ""
     
-    @Published var isValidEmail = false
+    var isValidEmail = false
     
-    @Published var isPersonalizingGeneral = true
-    @Published var isPersonalizingQuotes = true
+    var isPersonalizingGeneral = true
+    var isPersonalizingQuotes = true
     
-    @Published var returnedError = false
-    @Published var errorMessage = ""
+    var returnedError = false
+    var errorMessage = ""
     
 }

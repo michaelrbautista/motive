@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Supabase
-import SuperwallKit
 import HealthKit
 
 @MainActor

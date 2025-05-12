@@ -13,8 +13,6 @@ struct HomeView: View {
     var navigationController: NavigationController
     var userViewModel: UserViewModel
     
-    @Environment(\.modelContext) private var modelContext
-    
     @State var viewModel = HomeViewModel()
     
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -54,7 +52,11 @@ struct HomeView: View {
             
             // MARK: Check in button
             Button {
-                navigationController.presentSheet(.CheckInCoordinatorView)
+                navigationController.presentSheet(
+                    .CheckInCoordinatorView(
+                        navigationController: navigationController,
+                        userViewModel: userViewModel
+                    ))
             } label: {
                 HStack {
                     Spacer()
@@ -129,6 +131,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
-        .environmentObject(UserViewModel())
+    HomeView(navigationController: NavigationController(), userViewModel: UserViewModel())
 }

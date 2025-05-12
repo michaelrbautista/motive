@@ -9,10 +9,11 @@ import SwiftUI
 import Supabase
 
 struct OneTimeCodeView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
     
-    @StateObject var viewModel: OnboardingViewModel
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @Binding var viewModel: OnboardingViewModel
     
     var isSignIn: Bool
     @State var code = ""
@@ -140,5 +141,5 @@ struct OneTimeCodeView: View {
 }
 
 #Preview {
-    OneTimeCodeView(viewModel: OnboardingViewModel(), isSignIn: true, code: "")
+    OneTimeCodeView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()), isSignIn: true, code: "")
 }

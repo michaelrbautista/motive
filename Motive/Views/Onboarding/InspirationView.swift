@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct InspirationView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @StateObject var viewModel = OnboardingViewModel()
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @State var viewModel = OnboardingViewModel()
     
     var body: some View {
         VStack {
@@ -58,7 +61,13 @@ struct InspirationView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.EnterGoalsView(viewModel: viewModel))
+                navigationController.push(
+                    .EnterGoalsView(
+                        navigationController: navigationController,
+                        userViewModel: userViewModel,
+                        viewModel: $viewModel
+                    )
+                )
             }
 
         }
@@ -67,5 +76,5 @@ struct InspirationView: View {
 }
 
 #Preview {
-    InspirationView()
+    InspirationView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: OnboardingViewModel())
 }

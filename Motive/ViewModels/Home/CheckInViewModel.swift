@@ -8,11 +8,12 @@
 import SwiftUI
 import SwiftData
 
-final class CheckInViewModel: ObservableObject {
+@Observable
+final class CheckInViewModel {
     
-    @Published var didWell = ""
-    @Published var didntDoWell = ""
-    @Published var willDoBetter = ""
+    var didWell = ""
+    var didntDoWell = ""
+    var willDoBetter = ""
     
     // MARK: Save check in
     public func saveCheckIn() {

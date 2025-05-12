@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     var defaultTopics = [
         "Self improvement",
@@ -174,6 +175,6 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView(selectedTopics: ["Sports"])
+        SettingsView(navigationController: NavigationController(), userViewModel: UserViewModel(), selectedTopics: ["Sports"])
     }
 }

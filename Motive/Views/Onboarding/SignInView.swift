@@ -9,9 +9,11 @@ import SwiftUI
 import Supabase
 
 struct SignInView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
-    @StateObject var viewModel = OnboardingViewModel()
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @State var viewModel = OnboardingViewModel()
     
     @State var isValidEmail = false
     
@@ -37,16 +39,16 @@ struct SignInView: View {
                         .onChange(of: viewModel.email, {
                             isValidEmail = validateEmail(viewModel.email)
                         })
-                        .toolbar {
-                            ToolbarItem(placement: .keyboard) {
-                                HStack {
-                                    Spacer()
-                                    Button("Done") {
-                                        hideKeyboard()
-                                    }
-                                }
-                            }
-                        }
+//                        .toolbar {
+//                            ToolbarItem(placement: .keyboard) {
+//                                HStack {
+//                                    Spacer()
+//                                    Button("Done") {
+//                                        hideKeyboard()
+//                                    }
+//                                }
+//                            }
+//                        }
                 }
                 .background(Color.ColorSystem.systemGray6)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -65,7 +67,14 @@ struct SignInView: View {
                         try await SupabaseService.shared.supabase.auth.signInWithOTP(email: viewModel.email, shouldCreateUser: false)
                         
                         // Go to next page
-                        navigationController.push(.OneTimeCodeView(viewModel: viewModel, isSignIn: true))
+                        navigationController.push(
+                            .OneTimeCodeView(
+                                navigationController: navigationController,
+                                userViewModel: userViewModel,
+                                viewModel: $viewModel,
+                                isSignIn: true
+                            )
+                        )
                         
                         isLoading = false
                     } catch {
@@ -74,7 +83,14 @@ struct SignInView: View {
                             errorMessage = "You must create an account before signing in."
                             returnedError = true
                         } else if error.localizedDescription.contains("For security purposes, you can only request this after") {
-                            navigationController.push(.OneTimeCodeView(viewModel: viewModel, isSignIn: false))
+                            navigationController.push(
+                                .OneTimeCodeView(
+                                    navigationController: navigationController,
+                                    userViewModel: userViewModel,
+                                    viewModel: $viewModel,
+                                    isSignIn: false
+                                )
+                            )
                         } else {
                             errorMessage = error.localizedDescription
                             returnedError = true
@@ -97,5 +113,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    SignInView(navigationController: NavigationController(), userViewModel: UserViewModel())
 }

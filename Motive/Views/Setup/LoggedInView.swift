@@ -13,23 +13,20 @@ struct LoggedInView: View {
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeCoordinatorView(userViewModel: userViewModel)
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
-                .environmentObject(userViewModel)
             
-            WidgetsView()
+            WidgetsCoordinatorView(userViewModel: userViewModel)
                 .tabItem {
                     Image(systemName: "photo.stack.fill")
                 }
-                .environmentObject(userViewModel)
             
-            SettingsView()
+            SettingsCoordinatorView(userViewModel: userViewModel)
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                 }
-                .environmentObject(userViewModel)
         }
         .tint(Color.ColorSystem.primaryText)
     }

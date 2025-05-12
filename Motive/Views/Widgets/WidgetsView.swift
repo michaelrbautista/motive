@@ -10,10 +10,11 @@ import WidgetKit
 import SuperwallKit
 
 struct WidgetsView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
     
-    @StateObject var viewModel = WidgetsViewModel()
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @State var viewModel = WidgetsViewModel()
     
     var body: some View {
         VStack {
@@ -51,7 +52,13 @@ struct WidgetsView: View {
                 
                 // MARK: New quote button
                 Button {
-                    navigationController.presentSheet(.NewQuoteCoordinatorView(viewModel: viewModel))
+                    navigationController.presentSheet(
+                        .NewQuoteCoordinatorView(
+                            navigationController: navigationController,
+                            userViewModel: userViewModel,
+                            viewModel: viewModel
+                        )
+                    )
                 } label: {
                     HStack {
                         Spacer()
@@ -97,7 +104,13 @@ struct WidgetsView: View {
                 
                 // MARK: New image button
                 Button {
-                    navigationController.presentSheet(.NewImageCoordinatorView(viewModel: viewModel))
+                    navigationController.presentSheet(
+                        .NewImageCoordinatorView(
+                            navigationController: navigationController,
+                            userViewModel: userViewModel,
+                            viewModel: viewModel
+                        )
+                    )
                 } label: {
                     HStack {
                         Spacer()
@@ -130,7 +143,6 @@ struct WidgetsView: View {
 
 #Preview {
     NavigationStack {
-        WidgetsView()
-            .environmentObject(UserViewModel())
+        WidgetsView(navigationController: NavigationController(), userViewModel: UserViewModel())
     }
 }

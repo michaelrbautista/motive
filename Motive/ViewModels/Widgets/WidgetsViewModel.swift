@@ -8,27 +8,28 @@
 import SwiftUI
 import WidgetKit
 
-final class WidgetsViewModel: ObservableObject {
+@Observable
+final class WidgetsViewModel {
     
-    @Published var quoteTopic = "Random"
-    @Published var imageTopic = "Random"
+    var quoteTopic = "Random"
+    var imageTopic = "Random"
     
-    @Published var quoteIsLoading = false
-    @Published var imageIsLoading = false
+    var quoteIsLoading = false
+    var imageIsLoading = false
     
-    @Published var originalQuote = ""
-    @Published var originalSource = ""
-    @Published var originalImage = Data()
+    var originalQuote = ""
+    var originalSource = ""
+    var originalImage = Data()
     
-    @Published var newQuote = ""
-    @Published var newSource = ""
-    @Published var newImage = Data()
+    var newQuote = ""
+    var newSource = ""
+    var newImage = Data()
     
-    @Published var hasGeneratedQuote = false
-    @Published var hasGeneratedImage = false
+    var hasGeneratedQuote = false
+    var hasGeneratedImage = false
     
-    @Published var returnedError = false
-    @Published var errorMessage = ""
+    var returnedError = false
+    var errorMessage = ""
     
     // MARK: Get new image
     @MainActor

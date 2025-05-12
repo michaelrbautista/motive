@@ -325,8 +325,8 @@
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
 				89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */,
 				89AA0A362DBF327100308F1E /* AddWidgetsView.swift */,
-				89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */,
 				89AA0A0E2DBED24000308F1E /* SignInView.swift */,
+				89AA0A0C2DBED23900308F1E /* CreateAccountView.swift */,
 				89AA0A102DBED24900308F1E /* OneTimeCodeView.swift */,
 			);
 			path = Onboarding;

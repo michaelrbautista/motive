@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct AddWidgetsView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @StateObject var viewModel: OnboardingViewModel
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
+    
+    @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack {
@@ -112,7 +115,13 @@ struct AddWidgetsView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                navigationController.push(.CreateAccountView(viewModel: viewModel))
+                navigationController.push(
+                    .CreateAccountView(
+                        navigationController: navigationController,
+                        userViewModel: userViewModel,
+                        viewModel: $viewModel
+                    )
+                )
             }
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
@@ -121,5 +130,5 @@ struct AddWidgetsView: View {
 }
 
 #Preview {
-    AddWidgetsView(viewModel: OnboardingViewModel())
+    AddWidgetsView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
 }

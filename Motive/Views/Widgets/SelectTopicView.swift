@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SelectTopicView: View {
-    @EnvironmentObject var sheetNavigationController: SheetNavigationController
+    
+    var sheetNavigationController: SheetNavigationController
     
     var topics = [
         "Self improvement",
@@ -54,5 +55,5 @@ struct SelectTopicView: View {
 }
 
 #Preview {
-    SelectTopicView(topic: .constant(""))
+    SelectTopicView(sheetNavigationController: SheetNavigationController(), topic: .constant(""))
 }

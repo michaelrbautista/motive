@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SelectAllTopicsView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
+    
+    var navigationController: NavigationController
+    var userViewModel: UserViewModel
     
     var topics = [
         "Self improvement",
@@ -89,7 +90,7 @@ struct SelectAllTopicsView: View {
 
 #Preview {
     VStack(spacing: 20) {
-        SelectAllTopicsView(selectedTopics: .constant(["Self improvement", "Entrepreneurship"]))
-        SelectAllTopicsView(selectedTopics: .constant([]))
+        SelectAllTopicsView(navigationController: NavigationController(), userViewModel: UserViewModel(), selectedTopics: .constant(["Self improvement", "Entrepreneurship"]))
+        SelectAllTopicsView(navigationController: NavigationController(), userViewModel: UserViewModel(), selectedTopics: .constant([]))
     }
 }

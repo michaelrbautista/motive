@@ -13,10 +13,8 @@ import BackgroundTasks
 @main
 struct DailyApp: App {
     
-    @Environment(\.scenePhase) private var phase
-    
-    var userViewModel = UserViewModel()
-    var subscriptionService = SubscriptionService.shared
+    @State var userViewModel = UserViewModel()
+    @State var subscriptionService: SubscriptionService
     
     init() {
         let navAppearance = UINavigationBarAppearance()
@@ -40,6 +38,8 @@ struct DailyApp: App {
         
         Superwall.configure(apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad")
         
+        self.subscriptionService = SubscriptionService.shared
+        
         print("Next quote:")
         print(UserDefaults.standard.value(forKey: "nextQuote") ?? "nothing")
         print()
@@ -51,7 +51,7 @@ struct DailyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CheckAuthentication(userViewModel: userViewModel)
+            CheckAuthentication(userViewModel: $userViewModel)
                 .onOpenURL { url in
                     handleIncomingURL(url)
                 }
@@ -78,7 +78,7 @@ struct DailyApp: App {
 
 struct CheckAuthentication: View {
     
-    var userViewModel: UserViewModel
+    @Binding var userViewModel: UserViewModel
     
     var body: some View {
         if userViewModel.isLoading {

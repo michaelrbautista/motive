@@ -9,11 +9,12 @@ import SwiftUI
 import WidgetKit
 
 struct NewQuoteView: View {
-    @EnvironmentObject var navigationController: NavigationController
-    @EnvironmentObject var sheetNavigationController: SheetNavigationController
-    @EnvironmentObject var userViewModel: UserViewModel
     
-    @StateObject var viewModel: WidgetsViewModel
+    var navigationController: NavigationController
+    var sheetNavigationController: SheetNavigationController
+    var userViewModel: UserViewModel
+    
+    @State var viewModel: WidgetsViewModel
     
     @State var presentConfirmSave = false
     
@@ -118,5 +119,5 @@ struct NewQuoteView: View {
 }
 
 #Preview {
-    NewQuoteView(viewModel: WidgetsViewModel())
+    NewQuoteView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: WidgetsViewModel())
 }
