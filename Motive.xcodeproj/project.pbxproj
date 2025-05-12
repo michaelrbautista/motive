@@ -53,6 +53,7 @@
 		89AA0A2B2DBF2E1700308F1E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A2A2DBF2E1700308F1E /* WelcomeView.swift */; };
 		89AA0A332DBF305600308F1E /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A322DBF305600308F1E /* MultiSelectRow.swift */; };
 		89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* AddWidgetsView.swift */; };
+		89B649A42DD24CD300A45A50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A32DD24CD100A45A50 /* AppDelegate.swift */; };
 		89CBB2262DC460DD0034873F /* NewQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2252DC460DD0034873F /* NewQuoteView.swift */; };
 		89CBB22C2DC52A380034873F /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB22B2DC52A340034873F /* QuoteService.swift */; };
 		89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2312DC55C750034873F /* BackgroundService.swift */; };
@@ -164,6 +165,7 @@
 		89AA0A2A2DBF2E1700308F1E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		89AA0A322DBF305600308F1E /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
 		89AA0A362DBF327100308F1E /* AddWidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWidgetsView.swift; sourceTree = "<group>"; };
+		89B649A32DD24CD100A45A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89CBB2252DC460DD0034873F /* NewQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuoteView.swift; sourceTree = "<group>"; };
 		89CBB22B2DC52A340034873F /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
 		89CBB2312DC55C750034873F /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				89AA09B82DBEA93600308F1E /* MotiveApp.swift */,
+				89B649A32DD24CD100A45A50 /* AppDelegate.swift */,
 				89AA09CC2DBEC9E000308F1E /* LandingPageView.swift */,
 				89AA09CE2DBEC9E700308F1E /* LoggedInView.swift */,
 			);
@@ -715,6 +718,7 @@
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
 				8963D04A2DC9BA2900E3430E /* StorageService.swift in Sources */,
 				89FC6EEE2DC2BFFC0058B906 /* TopicSelector.swift in Sources */,
+				89B649A42DD24CD300A45A50 /* AppDelegate.swift in Sources */,
 				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
 				8963D0582DCA679C00E3430E /* WidgetPreviews.swift in Sources */,
 				89F3D5A92DD14C8900AA5503 /* CheckIn.swift in Sources */,

@@ -20,9 +20,10 @@ protocol CoordinatorProtocol: ObservableObject {
 }
 
 // MARK: Navigation controller
+@Observable
 class NavigationController: CoordinatorProtocol {
-    @Published var path: NavigationPath = NavigationPath()
-    @Published var sheet: Sheet? = nil
+    var path: NavigationPath = NavigationPath()
+    var sheet: Sheet? = nil
     
     func push(_ screen: Screen) {
         path.append(screen)
@@ -44,11 +45,10 @@ class NavigationController: CoordinatorProtocol {
         self.sheet = nil
     }
     
-    // MARK: - Screen views
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
-        // Onboarding
+        // MARK: Onboarding
         case .LandingPageView(let navigationController, let userViewModel):
             LandingPageView(
                 navigationController: navigationController,
@@ -95,7 +95,7 @@ class NavigationController: CoordinatorProtocol {
                 viewModel: viewModel
             )
             
-        // Auth
+        // MARK: Auth
         case .SignInView(let navigationController, let userViewModel):
             SignInView(
                 navigationController: navigationController,
@@ -115,14 +115,14 @@ class NavigationController: CoordinatorProtocol {
                 isSignIn: isSignIn
             )
             
-        // Home
+        // MARK: Home
         case .HomeView(let navigationController, let userViewModel):
             HomeView(
                 navigationController: navigationController,
                 userViewModel: userViewModel
             )
             
-        // Widgets
+        // MARK: Widgets
         case .WidgetsView(let navigationController, let userViewModel):
             WidgetsView(
                 navigationController: navigationController,
@@ -143,7 +143,7 @@ class NavigationController: CoordinatorProtocol {
                 viewModel: viewModel
             )
             
-        // Settings
+        // MARK: Settings
         case .SettingsView(let navigationController, let userViewModel, let selectedTopics):
             SettingsView(
                 navigationController: navigationController,
@@ -156,10 +156,10 @@ class NavigationController: CoordinatorProtocol {
         }
     }
     
-    // MARK: Sheet views
     @ViewBuilder
     func build(_ sheet: Sheet) -> some View {
         switch sheet {
+        // MARK: New quote/image coordinators
         case .NewQuoteCoordinatorView(let navigationController, let userViewModel, let viewModel):
             NewQuoteCoordinatorView(
                 navigationController: navigationController,
@@ -172,6 +172,8 @@ class NavigationController: CoordinatorProtocol {
                 userViewModel: userViewModel,
                 viewModel: viewModel
             )
+            
+        // MARK: Select topic
         case .SelectTopicView(let sheetNavigationController, let topic):
             SelectTopicView(
                 sheetNavigationController: sheetNavigationController,
@@ -183,6 +185,8 @@ class NavigationController: CoordinatorProtocol {
                 userViewModel: userViewModel,
                 selectedTopics: selectedTopics
             )
+            
+        // MARK: Check in coordinator
         case .CheckInCoordinatorView(let navigationController, let userViewModel):
             CheckInCoordinatorView(
                 navigationController: navigationController,
@@ -193,9 +197,10 @@ class NavigationController: CoordinatorProtocol {
 }
 
 // MARK: Sheet navigation controller
+@Observable
 class SheetNavigationController: CoordinatorProtocol {
-    @Published var path: NavigationPath = NavigationPath()
-    @Published var sheet: Sheet? = nil
+    var path: NavigationPath = NavigationPath()
+    var sheet: Sheet? = nil
     
     func push(_ screen: Screen) {
         path.append(screen)
@@ -217,11 +222,10 @@ class SheetNavigationController: CoordinatorProtocol {
         self.sheet = nil
     }
     
-    // MARK: - Screen views
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
-        // New quote/image
+        // MARK: New quote/image
         case .NewQuoteView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
             NewQuoteView(
                 navigationController: navigationController,
@@ -237,7 +241,7 @@ class SheetNavigationController: CoordinatorProtocol {
                 viewModel: viewModel
             )
             
-        // Check in
+        // MARK: Check in
         case .FirstCheckInView(let navigationController, let sheetNavigationController, let userViewModel):
             FirstCheckInView(
                 navigationController: navigationController,

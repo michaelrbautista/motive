@@ -9,8 +9,8 @@ import SwiftUI
 
 struct InspirationView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     @State var viewModel = OnboardingViewModel()
     
@@ -63,8 +63,8 @@ struct InspirationView: View {
             ) {
                 navigationController.push(
                     .EnterGoalsView(
-                        navigationController: navigationController,
-                        userViewModel: userViewModel,
+                        navigationController: $navigationController,
+                        userViewModel: $userViewModel,
                         viewModel: $viewModel
                     )
                 )
@@ -76,5 +76,5 @@ struct InspirationView: View {
 }
 
 #Preview {
-    InspirationView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: OnboardingViewModel())
+    InspirationView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
 }

@@ -10,8 +10,8 @@ import SwiftData
 
 struct HomeView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     @State var viewModel = HomeViewModel()
     
@@ -54,8 +54,8 @@ struct HomeView: View {
             Button {
                 navigationController.presentSheet(
                     .CheckInCoordinatorView(
-                        navigationController: navigationController,
-                        userViewModel: userViewModel
+                        navigationController: $navigationController,
+                        userViewModel: $userViewModel
                     ))
             } label: {
                 HStack {
@@ -91,6 +91,7 @@ struct HomeView: View {
                 .onAppear {
                     viewModel.quote = userViewModel.quote ?? "Quote"
                     viewModel.source = userViewModel.source ?? "Source"
+                    viewModel.image = userViewModel.image ?? Data()
                 }
                 
                 // MARK: Image
@@ -131,5 +132,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(navigationController: NavigationController(), userViewModel: UserViewModel())
+    HomeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
 }

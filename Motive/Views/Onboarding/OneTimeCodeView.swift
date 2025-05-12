@@ -10,9 +10,8 @@ import Supabase
 
 struct OneTimeCodeView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
-    
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
     
     var isSignIn: Bool
@@ -141,5 +140,5 @@ struct OneTimeCodeView: View {
 }
 
 #Preview {
-    OneTimeCodeView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()), isSignIn: true, code: "")
+    OneTimeCodeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()), isSignIn: true, code: "")
 }

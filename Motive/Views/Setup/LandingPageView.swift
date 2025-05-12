@@ -10,8 +10,8 @@ import SuperwallKit
 
 struct LandingPageView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     var body: some View {
         VStack(spacing: 40) {
@@ -27,8 +27,8 @@ struct LandingPageView: View {
                 ) {
                     navigationController.push(
                         .WelcomeView(
-                            navigationController: navigationController,
-                            userViewModel: userViewModel
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel
                         )
                     )
                 }
@@ -40,8 +40,8 @@ struct LandingPageView: View {
                 ) {
                     navigationController.push(
                         .SignInView(
-                            navigationController: navigationController,
-                            userViewModel: userViewModel
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel
                         )
                     )
                 }
@@ -52,5 +52,5 @@ struct LandingPageView: View {
 }
 
 #Preview {
-    LandingPageView(navigationController: NavigationController(), userViewModel: UserViewModel())
+    LandingPageView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
 }

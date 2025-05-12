@@ -9,21 +9,21 @@ import SwiftUI
 
 struct LoggedInView: View {
     
-    var userViewModel: UserViewModel
+    @Binding var userViewModel: UserViewModel
     
     var body: some View {
         TabView {
-            HomeCoordinatorView(userViewModel: userViewModel)
+            HomeCoordinatorView(userViewModel: $userViewModel)
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
             
-            WidgetsCoordinatorView(userViewModel: userViewModel)
+            WidgetsCoordinatorView(userViewModel: $userViewModel)
                 .tabItem {
                     Image(systemName: "photo.stack.fill")
                 }
             
-            SettingsCoordinatorView(userViewModel: userViewModel)
+            SettingsCoordinatorView(userViewModel: $userViewModel)
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                 }
@@ -33,5 +33,5 @@ struct LoggedInView: View {
 }
 
 #Preview {
-    LoggedInView(userViewModel: UserViewModel())
+    LoggedInView(userViewModel: .constant(UserViewModel()))
 }

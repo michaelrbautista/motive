@@ -9,9 +9,8 @@ import SwiftUI
 
 struct EnterGoalsView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
-    
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
@@ -44,8 +43,8 @@ struct EnterGoalsView: View {
             ) {
                 navigationController.push(
                     .LearnView(
-                        navigationController: navigationController,
-                        userViewModel: userViewModel,
+                        navigationController: $navigationController,
+                        userViewModel: $userViewModel,
                         viewModel: $viewModel
                     )
                 )
@@ -57,5 +56,5 @@ struct EnterGoalsView: View {
 }
 
 #Preview {
-    EnterGoalsView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
+    EnterGoalsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

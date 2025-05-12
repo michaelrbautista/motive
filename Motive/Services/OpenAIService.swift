@@ -26,10 +26,6 @@ final class OpenAIService: ObservableObject {
         
         let env = "https://motive-server-ir1u.onrender.com"
         
-//        #if DEBUG
-//        env = "http://127.0.0.1:8000"
-//        #endif
-        
         let urlString = "\(env)/quote?topic=\(topicParameter)"
         
         return urlString

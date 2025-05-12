@@ -58,21 +58,15 @@ struct QuoteProvider: AppIntentTimelineProvider {
     private func loadQuote() -> FetchedQuote {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         
-        #if DEBUG
-        let quote = FetchedQuote(
-            quote: "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
-            source: "Henry Ford",
-        )
 //        let quote = FetchedQuote(
-//            quote: userDefaults?.value(forKey: "quote") as? String ?? "No current quote.",
-//            source: userDefaults?.value(forKey: "source") as? String ?? "No current source."
+//            quote: "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.",
+//            source: "Henry Ford",
 //        )
-        #else
+        
         let quote = FetchedQuote(
             quote: userDefaults?.value(forKey: "quote") as? String ?? "Circumstances don't make the man, they only reveal him to himself.",
             source: userDefaults?.value(forKey: "source") as? String ?? "Epictetus"
         )
-        #endif
         
         return quote
     }

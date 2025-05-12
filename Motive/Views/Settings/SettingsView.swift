@@ -9,15 +9,16 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     var defaultTopics = [
         "Self improvement",
         "Entrepreneurship",
         "Sports"
     ]
-    @State var selectedTopics: [String]
+    
+    @Binding var selectedTopics: [String]
     
     @State var signOutIsLoading = false
     
@@ -175,6 +176,6 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView(navigationController: NavigationController(), userViewModel: UserViewModel(), selectedTopics: ["Sports"])
+        SettingsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), selectedTopics: .constant(["Sports"]))
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SecondCheckInView: View {
-    var navigationController: NavigationController
-    var sheetNavigationController: SheetNavigationController
-    var userViewModel: UserViewModel
     
-    @State var viewModel: CheckInViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var sheetNavigationController: SheetNavigationController
+    @Binding var userViewModel: UserViewModel
+    @Binding var viewModel: CheckInViewModel
     
     var body: some View {
         VStack {
@@ -45,10 +45,10 @@ struct SecondCheckInView: View {
                 Button {
                     sheetNavigationController.push(
                         .ThirdCheckInView(
-                            navigationController: navigationController,
-                            sheetNavigationController: sheetNavigationController,
-                            userViewModel: userViewModel,
-                            viewModel: viewModel
+                            navigationController: $navigationController,
+                            sheetNavigationController: $sheetNavigationController,
+                            userViewModel: $userViewModel,
+                            viewModel: $viewModel
                         )
                     )
                 } label: {
@@ -62,5 +62,5 @@ struct SecondCheckInView: View {
 }
 
 #Preview {
-    SecondCheckInView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: CheckInViewModel())
+    SecondCheckInView(navigationController: .constant(NavigationController()), sheetNavigationController: .constant(SheetNavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(CheckInViewModel()))
 }

@@ -13,6 +13,8 @@ import BackgroundTasks
 @main
 struct DailyApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @State var userViewModel = UserViewModel()
     @State var subscriptionService: SubscriptionService
     
@@ -57,17 +59,6 @@ struct DailyApp: App {
                 }
         }
         .modelContainer(for: CheckInEntry.self)
-        .backgroundTask(.appRefresh("com.Michael-Bautista.motive.refresh")) { sendable in
-            // call API
-            await OpenAIService.shared.getQuoteBackground(
-                topic: userViewModel.topics.randomElement() ?? "Self improvement"
-            ) { response in
-                QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
-            }
-        }
-        .backgroundTask(.urlSession("getQuoteInBackground")) { sendable in
-            // ?
-        }
     }
     
     func handleIncomingURL(_ url: URL) {
@@ -94,14 +85,14 @@ struct CheckAuthentication: View {
             .frame(width: 160)
         } else {
             if userViewModel.isLoggedIn {
-                LoggedInView(userViewModel: userViewModel)
+                LoggedInView(userViewModel: $userViewModel)
                     .onAppear {
                         if !SubscriptionService.shared.isSubscribed {
                             Superwall.shared.register(placement: "campaign_trigger")
                         }
                     }
             } else {
-                LandingPageCoordinatorView(userViewModel: userViewModel)
+                LandingPageCoordinatorView(userViewModel: $userViewModel)
             }
         }
     }

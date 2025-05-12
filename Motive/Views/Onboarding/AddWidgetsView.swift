@@ -9,9 +9,8 @@ import SwiftUI
 
 struct AddWidgetsView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
-    
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
@@ -117,8 +116,8 @@ struct AddWidgetsView: View {
             ) {
                 navigationController.push(
                     .CreateAccountView(
-                        navigationController: navigationController,
-                        userViewModel: userViewModel,
+                        navigationController: $navigationController,
+                        userViewModel: $userViewModel,
                         viewModel: $viewModel
                     )
                 )
@@ -130,5 +129,5 @@ struct AddWidgetsView: View {
 }
 
 #Preview {
-    AddWidgetsView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
+    AddWidgetsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

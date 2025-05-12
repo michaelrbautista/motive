@@ -9,8 +9,7 @@ import SwiftUI
 
 struct TopicSelector: View {
     
-    var sheetNavigationController: SheetNavigationController
-    
+    @Binding var sheetNavigationController: SheetNavigationController
     @Binding var topic: String
     
     var body: some View {
@@ -23,7 +22,7 @@ struct TopicSelector: View {
             Button {
                 sheetNavigationController.presentSheet(
                     .SelectTopicView(
-                        sheetNavigationController: sheetNavigationController,
+                        sheetNavigationController: $sheetNavigationController,
                         topic: $topic
                     )
                 )
@@ -55,5 +54,5 @@ struct TopicSelector: View {
 }
 
 #Preview {
-    TopicSelector(sheetNavigationController: SheetNavigationController(), topic: .constant("Random"))
+    TopicSelector(sheetNavigationController: .constant(SheetNavigationController()), topic: .constant("Random"))
 }

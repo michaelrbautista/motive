@@ -53,16 +53,11 @@ struct ImageProvider: AppIntentTimelineProvider {
     private func loadImage() -> FetchedImage {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         
-        #if DEBUG
-        let image = FetchedImage(image: UIImage(named: "berserk")?.jpegData(compressionQuality: 1.0) ?? Data())
-//        let image = FetchedImage(
-//            image: userDefaults?.value(forKey: "image") as? Data ?? Data()
-//        )
-        #else
+//        let image = FetchedImage(image: UIImage(named: "berserk")?.jpegData(compressionQuality: 1.0) ?? Data())
+        
         let image = FetchedImage(
             image: userDefaults?.value(forKey: "image") as? Data ?? Data()
         )
-        #endif
         
         return image
     }

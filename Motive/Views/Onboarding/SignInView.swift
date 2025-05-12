@@ -10,8 +10,8 @@ import Supabase
 
 struct SignInView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     @State var viewModel = OnboardingViewModel()
     
@@ -69,8 +69,8 @@ struct SignInView: View {
                         // Go to next page
                         navigationController.push(
                             .OneTimeCodeView(
-                                navigationController: navigationController,
-                                userViewModel: userViewModel,
+                                navigationController: $navigationController,
+                                userViewModel: $userViewModel,
                                 viewModel: $viewModel,
                                 isSignIn: true
                             )
@@ -85,8 +85,8 @@ struct SignInView: View {
                         } else if error.localizedDescription.contains("For security purposes, you can only request this after") {
                             navigationController.push(
                                 .OneTimeCodeView(
-                                    navigationController: navigationController,
-                                    userViewModel: userViewModel,
+                                    navigationController: $navigationController,
+                                    userViewModel: $userViewModel,
                                     viewModel: $viewModel,
                                     isSignIn: false
                                 )
@@ -113,5 +113,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView(navigationController: NavigationController(), userViewModel: UserViewModel())
+    SignInView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
 }

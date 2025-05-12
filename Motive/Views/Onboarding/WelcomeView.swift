@@ -11,8 +11,8 @@ import SwiftUI
 
 struct WelcomeView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     var body: some View {
         VStack {
@@ -35,8 +35,8 @@ struct WelcomeView: View {
             ) {
                 navigationController.push(
                     .InspirationView(
-                        navigationController: navigationController,
-                        userViewModel: userViewModel
+                        navigationController: $navigationController,
+                        userViewModel: $userViewModel
                     )
                 )
             }
@@ -47,5 +47,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView(navigationController: NavigationController(), userViewModel: UserViewModel())
+    WelcomeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
 }

@@ -10,11 +10,10 @@ import WidgetKit
 
 struct NewQuoteView: View {
     
-    var navigationController: NavigationController
-    var sheetNavigationController: SheetNavigationController
-    var userViewModel: UserViewModel
-    
-    @State var viewModel: WidgetsViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var sheetNavigationController: SheetNavigationController
+    @Binding var userViewModel: UserViewModel
+    @Binding var viewModel: WidgetsViewModel
     
     @State var presentConfirmSave = false
     
@@ -119,5 +118,5 @@ struct NewQuoteView: View {
 }
 
 #Preview {
-    NewQuoteView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: WidgetsViewModel())
+    NewQuoteView(navigationController: .constant(NavigationController()), sheetNavigationController: .constant(SheetNavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(WidgetsViewModel()))
 }

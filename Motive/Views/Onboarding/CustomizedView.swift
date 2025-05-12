@@ -10,9 +10,8 @@ import SuperwallKit
 
 struct CustomizedView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
-    
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
@@ -43,8 +42,8 @@ struct CustomizedView: View {
                 if SubscriptionService.shared.isSubscribed {
                     navigationController.push(
                         .AddWidgetsView(
-                            navigationController: navigationController,
-                            userViewModel: userViewModel,
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel,
                             viewModel: $viewModel
                         )
                     )
@@ -52,8 +51,8 @@ struct CustomizedView: View {
                     Superwall.shared.register(placement: "campaign_trigger") {
                         navigationController.push(
                             .AddWidgetsView(
-                                navigationController: navigationController,
-                                userViewModel: userViewModel,
+                                navigationController: $navigationController,
+                                userViewModel: $userViewModel,
                                 viewModel: $viewModel
                             )
                         )
@@ -66,5 +65,5 @@ struct CustomizedView: View {
 }
 
 #Preview {
-    CustomizedView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
+    CustomizedView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

@@ -9,9 +9,8 @@ import SwiftUI
 
 struct LearnView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
-    
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
@@ -41,8 +40,8 @@ struct LearnView: View {
             ) {
                 navigationController.push(
                     .PersonalizingView(
-                        navigationController: navigationController,
-                        userViewModel: userViewModel,
+                        navigationController: $navigationController,
+                        userViewModel: $userViewModel,
                         viewModel: $viewModel
                     )
                 )
@@ -54,5 +53,5 @@ struct LearnView: View {
 }
 
 #Preview {
-    LearnView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
+    LearnView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

@@ -9,9 +9,8 @@ import SwiftUI
 
 struct CreateAccountView: View {
 
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
-    
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
     
     @State var isLoading = false
@@ -62,8 +61,8 @@ struct CreateAccountView: View {
                         // Go to next page
                         navigationController.push(
                             .OneTimeCodeView(
-                                navigationController: navigationController,
-                                userViewModel: userViewModel,
+                                navigationController: $navigationController,
+                                userViewModel: $userViewModel,
                                 viewModel: $viewModel,
                                 isSignIn: false
                             )
@@ -75,8 +74,8 @@ struct CreateAccountView: View {
                         if error.localizedDescription.contains("For security purposes, you can only request this after") {
                             navigationController.push(
                                 .OneTimeCodeView(
-                                    navigationController: navigationController,
-                                    userViewModel: userViewModel,
+                                    navigationController: $navigationController,
+                                    userViewModel: $userViewModel,
                                     viewModel: $viewModel,
                                     isSignIn: true
                                 )
@@ -103,5 +102,5 @@ struct CreateAccountView: View {
 }
 
 #Preview {
-    CreateAccountView(navigationController: NavigationController(), userViewModel: UserViewModel(), viewModel: .constant(OnboardingViewModel()))
+    CreateAccountView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

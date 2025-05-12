@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SelectAllTopicsView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     var topics = [
         "Self improvement",
@@ -90,7 +90,7 @@ struct SelectAllTopicsView: View {
 
 #Preview {
     VStack(spacing: 20) {
-        SelectAllTopicsView(navigationController: NavigationController(), userViewModel: UserViewModel(), selectedTopics: .constant(["Self improvement", "Entrepreneurship"]))
-        SelectAllTopicsView(navigationController: NavigationController(), userViewModel: UserViewModel(), selectedTopics: .constant([]))
+        SelectAllTopicsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), selectedTopics: .constant(["Self improvement", "Entrepreneurship"]))
+        SelectAllTopicsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), selectedTopics: .constant([]))
     }
 }

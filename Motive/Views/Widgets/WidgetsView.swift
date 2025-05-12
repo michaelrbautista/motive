@@ -11,8 +11,8 @@ import SuperwallKit
 
 struct WidgetsView: View {
     
-    var navigationController: NavigationController
-    var userViewModel: UserViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var userViewModel: UserViewModel
     
     @State var viewModel = WidgetsViewModel()
     
@@ -54,9 +54,9 @@ struct WidgetsView: View {
                 Button {
                     navigationController.presentSheet(
                         .NewQuoteCoordinatorView(
-                            navigationController: navigationController,
-                            userViewModel: userViewModel,
-                            viewModel: viewModel
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel,
+                            viewModel: $viewModel
                         )
                     )
                 } label: {
@@ -106,9 +106,9 @@ struct WidgetsView: View {
                 Button {
                     navigationController.presentSheet(
                         .NewImageCoordinatorView(
-                            navigationController: navigationController,
-                            userViewModel: userViewModel,
-                            viewModel: viewModel
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel,
+                            viewModel: $viewModel
                         )
                     )
                 } label: {
@@ -143,6 +143,6 @@ struct WidgetsView: View {
 
 #Preview {
     NavigationStack {
-        WidgetsView(navigationController: NavigationController(), userViewModel: UserViewModel())
+        WidgetsView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
     }
 }

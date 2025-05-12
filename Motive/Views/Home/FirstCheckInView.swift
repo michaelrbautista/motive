@@ -9,9 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct FirstCheckInView: View {
-    var navigationController: NavigationController
-    var sheetNavigationController: SheetNavigationController
-    var userViewModel: UserViewModel
+    
+    @Binding var navigationController: NavigationController
+    @Binding var sheetNavigationController: SheetNavigationController
+    @Binding var userViewModel: UserViewModel
     
     @State var viewModel = CheckInViewModel()
     
@@ -44,7 +45,7 @@ struct FirstCheckInView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    
+                    navigationController.dismissSheet()
                 } label: {
                     Text("Cancel")
                         .foregroundStyle(Color.ColorSystem.primaryText)
@@ -55,10 +56,10 @@ struct FirstCheckInView: View {
                 Button {
                     sheetNavigationController.push(
                         .SecondCheckInView(
-                            navigationController: navigationController,
-                            sheetNavigationController: sheetNavigationController,
-                            userViewModel: userViewModel,
-                            viewModel: viewModel
+                            navigationController: $navigationController,
+                            sheetNavigationController: $sheetNavigationController,
+                            userViewModel: $userViewModel,
+                            viewModel: $viewModel
                         )
                     )
                 } label: {
@@ -72,5 +73,5 @@ struct FirstCheckInView: View {
 }
 
 #Preview {
-    FirstCheckInView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel())
+    FirstCheckInView(navigationController: .constant(NavigationController()), sheetNavigationController: .constant(SheetNavigationController()), userViewModel: .constant(UserViewModel()))
 }

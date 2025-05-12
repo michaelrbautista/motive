@@ -9,11 +9,10 @@ import SwiftUI
 
 struct NewImageView: View {
     
-    var navigationController: NavigationController
-    var sheetNavigationController: SheetNavigationController
-    var userViewModel: UserViewModel
-    
-    @State var viewModel: WidgetsViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var sheetNavigationController: SheetNavigationController
+    @Binding var userViewModel: UserViewModel
+    @Binding var viewModel: WidgetsViewModel
     
     @State var presentConfirmSave = false
     
@@ -120,5 +119,5 @@ struct NewImageView: View {
 }
 
 #Preview {
-    NewImageView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: WidgetsViewModel())
+    NewImageView(navigationController: .constant(NavigationController()), sheetNavigationController: .constant(SheetNavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(WidgetsViewModel()))
 }

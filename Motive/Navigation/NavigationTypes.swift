@@ -10,108 +10,108 @@ import SwiftUI
 enum Screen: Identifiable, Hashable {
     // MARK: Onboarding
     case LandingPageView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     case WelcomeView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     case InspirationView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     case EnterGoalsView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
     case LearnView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
     case PersonalizingView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
     case CustomizedView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
     case AddWidgetsView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
     
     // MARK: Auth
     case SignInView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     case CreateAccountView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
     case OneTimeCodeView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>,
         isSignIn: Bool
     )
     
     // MARK: Home
     case HomeView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     
     // MARK: Check in
     case FirstCheckInView(
-        navigationController: NavigationController,
-        sheetNavigationController: SheetNavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        sheetNavigationController: Binding<SheetNavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     case SecondCheckInView(
-        navigationController: NavigationController,
-        sheetNavigationController: SheetNavigationController,
-        userViewModel: UserViewModel,
-        viewModel: CheckInViewModel
+        navigationController: Binding<NavigationController>,
+        sheetNavigationController: Binding<SheetNavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<CheckInViewModel>
     )
     case ThirdCheckInView(
-        navigationController: NavigationController,
-        sheetNavigationController: SheetNavigationController,
-        userViewModel: UserViewModel,
-        viewModel: CheckInViewModel
+        navigationController: Binding<NavigationController>,
+        sheetNavigationController: Binding<SheetNavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<CheckInViewModel>
     )
     
     // MARK: Widgets
     case WidgetsView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     case NewQuoteView(
-        navigationController: NavigationController,
-        sheetNavigationController: SheetNavigationController,
-        userViewModel: UserViewModel,
-        viewModel: WidgetsViewModel
+        navigationController: Binding<NavigationController>,
+        sheetNavigationController: Binding<SheetNavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<WidgetsViewModel>
     )
     case NewImageView(
-        navigationController: NavigationController,
-        sheetNavigationController: SheetNavigationController,
-        userViewModel: UserViewModel,
-        viewModel: WidgetsViewModel
+        navigationController: Binding<NavigationController>,
+        sheetNavigationController: Binding<SheetNavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<WidgetsViewModel>
     )
     
     // MARK: Settings
     case SettingsView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
-        selectedTopics: [String]
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        selectedTopics: Binding<[String]>
     )
     
     var id: Self { return self }
@@ -138,29 +138,29 @@ extension Screen {
 enum Sheet: Identifiable, Hashable {
     // MARK: New quote/image
     case NewQuoteCoordinatorView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
-        viewModel: WidgetsViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<WidgetsViewModel>
     )
     case NewImageCoordinatorView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
-        viewModel: WidgetsViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
+        viewModel: Binding<WidgetsViewModel>
     )
     case SelectTopicView(
-        sheetNavigationController: SheetNavigationController,
+        sheetNavigationController: Binding<SheetNavigationController>,
         topic: Binding<String>
     )
     case SelectAllTopicsView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel,
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>,
         selectedTopics: Binding<[String]>
     )
     
     // MARK: Check in
     case CheckInCoordinatorView(
-        navigationController: NavigationController,
-        userViewModel: UserViewModel
+        navigationController: Binding<NavigationController>,
+        userViewModel: Binding<UserViewModel>
     )
     
     var id: Self { return self }

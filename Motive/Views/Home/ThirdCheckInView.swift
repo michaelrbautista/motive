@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct ThirdCheckInView: View {
-    var navigationController: NavigationController
-    var sheetNavigationController: SheetNavigationController
-    var userViewModel: UserViewModel
     
-    @State var viewModel: CheckInViewModel
+    @Binding var navigationController: NavigationController
+    @Binding var sheetNavigationController: SheetNavigationController
+    @Binding var userViewModel: UserViewModel
+    @Binding var viewModel: CheckInViewModel
     
     var body: some View {
         VStack {
@@ -59,5 +59,5 @@ struct ThirdCheckInView: View {
 }
 
 #Preview {
-    ThirdCheckInView(navigationController: NavigationController(), sheetNavigationController: SheetNavigationController(), userViewModel: UserViewModel(), viewModel: CheckInViewModel())
+    ThirdCheckInView(navigationController: .constant(NavigationController()), sheetNavigationController: .constant(SheetNavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(CheckInViewModel()))
 }
