@@ -34,8 +34,8 @@ final class OnboardingViewModel {
     // MARK: Schedule notification
     public func scheduleNotification() {
         let content = UNMutableNotificationContent()
-        content.title = "Daily Reminder"
-        content.body = "It's time for your scheduled activity."
+        content.title = "Daily Check In"
+        content.body = "It's time to check in."
         content.sound = .default
 
         let calendar = Calendar.current
@@ -117,8 +117,9 @@ final class OnboardingViewModel {
                 completion(quote, source)
             }
         } catch {
+            print(error)
             self.returnedError = true
-            self.errorMessage = errorMessage
+            self.errorMessage = "Couldn't create your account. Please try again later."
             self.isLoading = false
         }
     }

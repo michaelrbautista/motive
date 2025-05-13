@@ -19,8 +19,6 @@ final class QuoteService: ObservableObject {
             self.saveQuote(quote: response.quote, source: response.source)
             
             // Generate and save image
-            
-            
             completion(response.quote, response.source)
         }
     }
@@ -33,7 +31,7 @@ final class QuoteService: ObservableObject {
         userDefaults?.set(source, forKey: "source")
         
         // Set last quote date
-        UserDefaults.standard.set(quote, forKey: "lastQuote")
+        UserDefaults.standard.set(Date.now, forKey: "lastQuote")
         
         // Update widget timeline
         WidgetCenter.shared.reloadAllTimelines()

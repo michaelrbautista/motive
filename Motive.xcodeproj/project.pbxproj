@@ -58,6 +58,7 @@
 		89B649A82DD26F9100A45A50 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A72DD26F9100A45A50 /* ReminderView.swift */; };
 		89B649AA2DD2979400A45A50 /* PreventingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A92DD2979400A45A50 /* PreventingView.swift */; };
 		89B649AC2DD29CF800A45A50 /* CheckInTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */; };
+		89B649AE2DD2E1AE00A45A50 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649AD2DD2E1AE00A45A50 /* TestView.swift */; };
 		89CBB2262DC460DD0034873F /* NewQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2252DC460DD0034873F /* NewQuoteView.swift */; };
 		89CBB22C2DC52A380034873F /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB22B2DC52A340034873F /* QuoteService.swift */; };
 		89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2312DC55C750034873F /* BackgroundService.swift */; };
@@ -171,6 +172,7 @@
 		89B649A72DD26F9100A45A50 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		89B649A92DD2979400A45A50 /* PreventingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventingView.swift; sourceTree = "<group>"; };
 		89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeView.swift; sourceTree = "<group>"; };
+		89B649AD2DD2E1AE00A45A50 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		89CBB2252DC460DD0034873F /* NewQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuoteView.swift; sourceTree = "<group>"; };
 		89CBB22B2DC52A340034873F /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
 		89CBB2312DC55C750034873F /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				8963D0852DD11C3D00E3430E /* FirstCheckInView.swift */,
 				8963D0872DD11C4400E3430E /* SecondCheckInView.swift */,
 				8963D0892DD11C4B00E3430E /* ThirdCheckInView.swift */,
+				89B649AD2DD2E1AE00A45A50 /* TestView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				8963D0882DD11C4400E3430E /* SecondCheckInView.swift in Sources */,
 				89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */,
 				89FC6EF82DC2F5E70058B906 /* APIResponse.swift in Sources */,
+				89B649AE2DD2E1AE00A45A50 /* TestView.swift in Sources */,
 				8963D0862DD11C3D00E3430E /* FirstCheckInView.swift in Sources */,
 				89FC6EB32DC130F60058B906 /* OpenAIService.swift in Sources */,
 				89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */,
@@ -939,7 +943,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -972,7 +976,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

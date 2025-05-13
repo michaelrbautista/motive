@@ -38,17 +38,11 @@ struct DailyApp: App {
 //            UserDefaults.standard.synchronize()
 //        }
         
+//        UserDefaults.standard.removeObject(forKey: "lastQuote")
+        
         Superwall.configure(apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad")
         
         self.subscriptionService = SubscriptionService.shared
-        
-        print("Next quote:")
-        print(UserDefaults.standard.value(forKey: "nextQuote") ?? "nothing")
-        print()
-        
-        print("Last quote:")
-        print(UserDefaults.standard.value(forKey: "lastQuote") ?? "nothing")
-        print()
     }
     
     var body: some Scene {

@@ -27,8 +27,8 @@ final class HomeViewModel {
         let reminderTime = Calendar.current.date(from: components) ?? Date()
         
         let content = UNMutableNotificationContent()
-        content.title = "Daily Reminder"
-        content.body = "It's time for your scheduled activity."
+        content.title = "Daily Check In"
+        content.body = "It's time to check in."
         content.sound = .default
 
         let calendar = Calendar.current

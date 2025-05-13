@@ -21,7 +21,7 @@ struct LearnView: View {
                     .resizable()
                     .scaledToFit()
                 
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("History’s greatest leaders, innovators, and talents were inspired by those that came before them.")
                         .font(Font.FontStyles.title2)
                         .foregroundStyle(Color.ColorSystem.primaryText)

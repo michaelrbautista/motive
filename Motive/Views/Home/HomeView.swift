@@ -35,6 +35,9 @@ struct HomeView: View {
     
     var streak = 23
     
+    // For testing
+    @State var presentTest = false
+    
     init(navigationController: Binding<NavigationController>, userViewModel: Binding<UserViewModel>) {
         _navigationController = navigationController
         _userViewModel = userViewModel
@@ -201,19 +204,9 @@ struct HomeView: View {
             #if DEBUG
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    let fetchDescriptor = FetchDescriptor<CheckInEntry>()
-                    do {
-                        let allEntries = try modelContext.fetch(fetchDescriptor)
-                        for entry in allEntries {
-                            modelContext.delete(entry)
-                        }
-                        try modelContext.save()
-                    } catch {
-                        print("Failed to delete all journal entries: \(error.localizedDescription)")
-                    }
+                    presentTest.toggle()
                 } label: {
-                    Text("Delete")
-                        .foregroundStyle(Color.ColorSystem.systemRed)
+                    Text("Test")
                 }
             }
             #endif
@@ -238,6 +231,9 @@ struct HomeView: View {
                         print("Permission granted.")
                     }
                 }
+        }
+        .sheet(isPresented: $presentTest) {
+            TestView()
         }
     }
 }

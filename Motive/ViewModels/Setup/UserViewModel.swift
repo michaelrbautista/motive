@@ -51,6 +51,17 @@ class UserViewModel {
             
             UserService.currentUser = user
             
+            // Check if user has gotten new quote for the day
+            if let lastQuoteDate = UserDefaults.standard.object(forKey: "lastQuote") as? Date {
+                print(lastQuoteDate)
+                let calendar = Calendar.current
+                if !calendar.isDateInToday(lastQuoteDate) {
+                    QuoteService.shared.createAndSaveQuote { quote, source in
+                        print("New quote created and saved.")
+                    }
+                }
+            }
+            
             // Get quote, source, and image
             let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
             self.quote = userDefaults?.value(forKey: "quote") as? String
@@ -62,8 +73,6 @@ class UserViewModel {
             
             let lastEntry = UserDefaults.standard.value(forKey: "lastCheckIn") as? Date
             let now = Date()
-            
-            print("Last entry: \(lastEntry)")
             
             if let entry = lastEntry {
                 let lastDay = calendar.startOfDay(for: entry)

@@ -13,9 +13,13 @@ struct AccountableView: View {
     @Binding var viewModel: OnboardingViewModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 40) {
             Spacer()
-            VStack(alignment: .leading, spacing: 20) {
+            Image("graph")
+                .resizable()
+                .scaledToFit()
+            
+            VStack(alignment: .leading, spacing: 10) {
                 Text("People that use the daily check in are 30% more likely to achieve their goals.")
                     .font(Font.FontStyles.title2)
                     .foregroundStyle(Color.ColorSystem.primaryText)
