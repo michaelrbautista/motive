@@ -13,6 +13,7 @@ struct MotiveWidgetsBundle: WidgetBundle {
     var body: some Widget {
         QuoteWidgets()
         ImageWidgets()
+        EmergencyWidgets()
         MotiveWidgetsControl()
         MotiveWidgetsLiveActivity()
     }

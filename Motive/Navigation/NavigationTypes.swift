@@ -175,9 +175,10 @@ enum Sheet: Identifiable, Hashable {
     )
     
     // MARK: Emergency
-    case EmergencyView(
-        navigationController: Binding<NavigationController>
-    )
+    case EmergencyView
+//    case EmergencyView(
+//        navigationController: Binding<NavigationController>
+//    )
     
     var id: Self { return self }
     

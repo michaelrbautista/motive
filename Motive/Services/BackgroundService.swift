@@ -14,10 +14,17 @@ final class BackgroundService {
     
     // MARK: Schedule app refresh
     public func scheduleAppRefresh() {
+        #if DEBUG
+        let today = Calendar.current.startOfDay(for: .now)
+        let tomorrow = Calendar.current.date(byAdding: .minute, value: 5, to: today)!
+        let midnightComponent = DateComponents(hour: 0)
+        let midnight = Calendar.current.date(byAdding: midnightComponent, to: tomorrow)
+        #else
         let today = Calendar.current.startOfDay(for: .now)
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
         let midnightComponent = DateComponents(hour: 0)
         let midnight = Calendar.current.date(byAdding: midnightComponent, to: tomorrow)
+        #endif
         
         let request = BGAppRefreshTaskRequest(identifier: "com.Michael-Bautista.motive.refresh")
         request.earliestBeginDate = midnight

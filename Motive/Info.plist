@@ -6,6 +6,20 @@
 	<array>
 		<string>com.Michael-Bautista.motive.refresh</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.Michael-Bautista.motive</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>motive</string>
+			</array>
+		</dict>
+		<dict/>
+	</array>
 	<key>NSUserNotificationsUsageDescription</key>
 	<string>We use this to remind you to check in.</string>
 	<key>UIAppFonts</key>

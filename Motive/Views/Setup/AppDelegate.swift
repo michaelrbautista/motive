@@ -11,7 +11,6 @@ import BackgroundTasks
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
         // Register background task
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.Michael-Bautista.motive.refresh", using: nil) { task in
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -23,6 +22,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func handleAppRefresh(task: BGAppRefreshTask) {
+        #if DEBUG
+        task.expirationHandler = {
+            let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
+            userDefaults?.set("Background task was cancelled", forKey: "quote")
+            userDefaults?.set("None", forKey: "source")
+        }
+        #endif
+        
         BackgroundService.shared.scheduleAppRefresh()
 
         let queue = OperationQueue()

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct EmergencyView: View {
+    @Environment(\.dismiss) private var dismiss
     
-    @Binding var navigationController: NavigationController
+//    @Binding var navigationController: NavigationController
     
     @State var viewModel = EmergencyViewModel()
     
@@ -25,23 +26,29 @@ struct EmergencyView: View {
                 }
         } else {
             VStack(spacing: 40) {
-                HStack(spacing: 10) {
-                    Image(systemName: "exclamationmark.octagon.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .foregroundStyle(Color.ColorSystem.systemRed)
+                VStack {
+                    HStack(spacing: 10) {
+                        Image(systemName: "exclamationmark.octagon.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(Color.ColorSystem.systemRed)
+                        
+                        Text("WARNING")
+                            .font(Font.system(size: 40))
+                            .fontWeight(.bold)
+                            .foregroundStyle(Color.ColorSystem.systemRed)
+                    }
                     
-                    Text("WARNING")
-                        .font(Font.system(size: 40))
+                    Text("YOU'RE IN DANGER OF WASTING YOUR POTENTIAL.")
+                        .font(Font.system(size: 20))
                         .fontWeight(.bold)
-                        .foregroundStyle(Color.ColorSystem.systemRed)
+                        .foregroundStyle(Color.ColorSystem.primaryText)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
                 }
-                
-                Text("YOU'RE IN DANGER OF WASTING YOUR POTENTIAL.")
-                    .font(Font.system(size: 20))
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.ColorSystem.primaryText)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                .background(Color.ColorSystem.systemGray6)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 
                 Text(viewModel.content.uppercased())
                     .font(Font.system(size: 20))
@@ -56,7 +63,7 @@ struct EmergencyView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Button {
-                    navigationController.dismissSheet()
+                    dismiss()
                 } label: {
                     HStack {
                         Spacer()
@@ -79,5 +86,5 @@ struct EmergencyView: View {
 }
 
 #Preview {
-    EmergencyView(navigationController: .constant(NavigationController()))
+    EmergencyView()
 }

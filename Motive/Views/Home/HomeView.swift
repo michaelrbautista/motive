@@ -157,7 +157,8 @@ struct HomeView: View {
             
             // MARK: Emergency
             Button {
-                navigationController.presentSheet(.EmergencyView(navigationController: $navigationController))
+//                navigationController.presentSheet(.EmergencyView(navigationController: $navigationController))
+                navigationController.presentSheet(.EmergencyView)
             } label: {
                 HStack(spacing: 10) {
                     Image(systemName: "exclamationmark.octagon.fill")
@@ -208,6 +209,9 @@ struct HomeView: View {
                     NotificationService.shared.scheduleNotification(date: checkInTime)
                 }
             }
+        }
+        .onOpenURL { url in
+            navigationController.handleDeepLink(url)
         }
         .sheet(isPresented: $presentTest) {
             TestView()

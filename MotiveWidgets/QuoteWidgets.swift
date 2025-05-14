@@ -58,15 +58,15 @@ struct QuoteProvider: AppIntentTimelineProvider {
     private func loadQuote() -> FetchedQuote {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         
-        let quote = FetchedQuote(
-            quote: "It is not death that a man should fear, but he should fear never beginning to live.",
-            source: "Marcus Aurelius",
-        )
-        
 //        let quote = FetchedQuote(
-//            quote: userDefaults?.value(forKey: "quote") as? String ?? "No quote",
-//            source: userDefaults?.value(forKey: "source") as? String ?? ""
+//            quote: "It is not death that a man should fear, but he should fear never beginning to live.",
+//            source: "Marcus Aurelius",
 //        )
+        
+        let quote = FetchedQuote(
+            quote: userDefaults?.value(forKey: "quote") as? String ?? "No quote",
+            source: userDefaults?.value(forKey: "source") as? String ?? ""
+        )
         
         return quote
     }
@@ -141,13 +141,16 @@ struct QuoteWidgetsEntryView : View {
                     .font(.custom("InterDisplay", size: 10))
                     .foregroundStyle(Color.white)
             }
+            .containerBackground(for: .widget) {
+                Color.clear
+            }
         default:
             Text("Unsupported widget.")
         }
     }
 }
 
-#Preview(as: .systemMedium) {
+#Preview(as: .accessoryRectangular) {
     QuoteWidgets()
 } timeline: {
     QuoteEntry(date: .now, quote: "The secret of getting ahead is getting started.", source: "Mark Twain", configuration: .init())

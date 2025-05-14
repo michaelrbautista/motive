@@ -53,16 +53,8 @@ struct DailyApp: App {
     var body: some Scene {
         WindowGroup {
             CheckAuthentication(userViewModel: $userViewModel)
-                .onOpenURL { url in
-                    handleIncomingURL(url)
-                }
         }
         .modelContainer(for: CheckInEntry.self)
-    }
-    
-    func handleIncomingURL(_ url: URL) {
-        SupabaseService.shared.supabase.handle(url)
-        print("User signed in with magic link!")
     }
 }
 

@@ -15,9 +15,9 @@ final class OpenAIService {
     public func getEmergencyQuote(completion: @escaping ((EmergencyResponse) -> Void)) {
         var env = "https://motive-server-ir1u.onrender.com"
         
-        #if DEBUG
-        env = "http://127.0.0.1:8000"
-        #endif
+//        #if DEBUG
+//        env = "http://127.0.0.1:8000"
+//        #endif
         
         let urlString = "\(env)/emergency"
         
@@ -44,10 +44,6 @@ final class OpenAIService {
     // MARK: Get quote on background thread
     public func getQuoteBackground(completion: @escaping ((APIResponse) -> Void)) async {
         var env = "https://motive-server-ir1u.onrender.com"
-        
-        #if DEBUG
-        env = "http://127.0.0.1:8000"
-        #endif
         
         let urlString = "\(env)/quote?topic=self_improvement"
         
