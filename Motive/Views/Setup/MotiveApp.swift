@@ -38,11 +38,16 @@ struct DailyApp: App {
 //            UserDefaults.standard.synchronize()
 //        }
         
-//        UserDefaults.standard.removeObject(forKey: "lastQuote")
+        UserDefaults.standard.removeObject(forKey: "reminderTime")
         
         Superwall.configure(apiKey: "pk_3992dc437b4a37af14839c75858845fb92a8d8a68f6f2aad")
         
         self.subscriptionService = SubscriptionService.shared
+        
+//        let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
+//        print(userDefaults?.value(forKey: "quote"))
+//        print(userDefaults?.value(forKey: "source"))
+//        print(userDefaults?.value(forKey: "image"))
     }
     
     var body: some Scene {

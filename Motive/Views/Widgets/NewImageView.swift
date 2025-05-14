@@ -34,7 +34,7 @@ struct NewImageView: View {
                         .frame(maxWidth: .infinity)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 } else {
-                    Image("davidGoggins")
+                    Image("goggins")
                         .resizable()
                         .scaledToFill()
                         .frame(height: 170)

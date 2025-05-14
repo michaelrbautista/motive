@@ -133,68 +133,46 @@ struct HomeView: View {
                 .listRowSeparator(.hidden)
             }
             
-            VStack(spacing: 20) {
-                // MARK: Quote
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(viewModel.quote)
-                        .font(Font.FontStyles.title2)
-                        .foregroundStyle(Color.ColorSystem.primaryText)
+            // MARK: Quote
+            VStack(alignment: .leading, spacing: 5) {
+                Text(viewModel.quote)
+                    .font(Font.FontStyles.title2)
+                    .foregroundStyle(Color.ColorSystem.primaryText)
+                
+                Text(viewModel.source)
+                    .font(Font.FontStyles.headline)
+                    .foregroundStyle(Color.ColorSystem.systemGray)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+            .background(Color.ColorSystem.systemGray6)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .onAppear {
+                viewModel.quote = userViewModel.quote ?? "Quote"
+                viewModel.source = userViewModel.source ?? "Source"
+                viewModel.image = userViewModel.image ?? Data()
+            }
+            .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .listRowSeparator(.hidden)
+            
+            // MARK: Emergency
+            Button {
+                navigationController.presentSheet(.EmergencyView(navigationController: $navigationController))
+            } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: "exclamationmark.octagon.fill")
                     
-                    Text(viewModel.source)
+                    Text("TAP IF YOU HAVE A SLACK JAWED POOPY PANTS MENTALITY")
                         .font(Font.FontStyles.headline)
-                        .foregroundStyle(Color.ColorSystem.systemGray)
+                        .foregroundStyle(Color.ColorSystem.primaryText)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                .background(Color.ColorSystem.systemGray6)
+                .background(Color.ColorSystem.systemRed)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .onAppear {
-                    viewModel.quote = userViewModel.quote ?? "Quote"
-                    viewModel.source = userViewModel.source ?? "Source"
-                    viewModel.image = userViewModel.image ?? Data()
-                }
-                
-                // MARK: Image
-                if let image = UIImage(data: viewModel.image) {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 170)
-                        .frame(maxWidth: .infinity)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                } else {
-                    Image("goggins")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 170)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-                
-                // MARK: New quote/image
-                Button {
-                    navigationController.push(
-                        .WidgetsView(
-                            navigationController: $navigationController,
-                            userViewModel: $userViewModel
-                        )
-                    )
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("New quote or image")
-                            .font(Font.FontStyles.headline)
-                            .foregroundStyle(Color.ColorSystem.primaryText)
-                        Spacer()
-                    }
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                    .background(Color.ColorSystem.systemGray5)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-                .buttonStyle(.plain)
-                .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
-                .listRowSeparator(.hidden)
             }
-            .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .buttonStyle(.plain)
+            .listRowInsets(EdgeInsets(top: 40, leading: 20, bottom: 0, trailing: 20))
             .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
@@ -224,13 +202,12 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                    if let error = error {
-                        print("Notification permission error: \(error.localizedDescription)")
-                    } else {
-                        print("Permission granted.")
-                    }
+            NotificationService.shared.requestNotificationAuth { wasGranted in
+                if wasGranted {
+                    let checkInTime = UserDefaults.standard.value(forKey: "checkInTime") as? Date
+                    NotificationService.shared.scheduleNotification(date: checkInTime)
                 }
+            }
         }
         .sheet(isPresented: $presentTest) {
             TestView()

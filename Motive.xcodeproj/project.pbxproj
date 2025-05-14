@@ -55,10 +55,14 @@
 		89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA0A362DBF327100308F1E /* AddWidgetsView.swift */; };
 		89B649A42DD24CD300A45A50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A32DD24CD100A45A50 /* AppDelegate.swift */; };
 		89B649A62DD26F8B00A45A50 /* AccountableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A52DD26F8B00A45A50 /* AccountableView.swift */; };
-		89B649A82DD26F9100A45A50 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A72DD26F9100A45A50 /* ReminderView.swift */; };
+		89B649A82DD26F9100A45A50 /* CheckInTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A72DD26F9100A45A50 /* CheckInTimeView.swift */; };
 		89B649AA2DD2979400A45A50 /* PreventingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649A92DD2979400A45A50 /* PreventingView.swift */; };
-		89B649AC2DD29CF800A45A50 /* CheckInTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */; };
+		89B649AC2DD29CF800A45A50 /* SetCheckInTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649AB2DD29CF800A45A50 /* SetCheckInTimeView.swift */; };
 		89B649AE2DD2E1AE00A45A50 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649AD2DD2E1AE00A45A50 /* TestView.swift */; };
+		89B649B12DD2E25E00A45A50 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649B02DD2E25B00A45A50 /* TestViewModel.swift */; };
+		89B649B32DD2E32100A45A50 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649B22DD2E31E00A45A50 /* NotificationService.swift */; };
+		89B649B52DD3B9D800A45A50 /* EmergencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649B42DD3B9D800A45A50 /* EmergencyView.swift */; };
+		89B649B72DD41C9200A45A50 /* EmergencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B649B62DD41C8E00A45A50 /* EmergencyViewModel.swift */; };
 		89CBB2262DC460DD0034873F /* NewQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2252DC460DD0034873F /* NewQuoteView.swift */; };
 		89CBB22C2DC52A380034873F /* QuoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB22B2DC52A340034873F /* QuoteService.swift */; };
 		89CBB2322DC55C790034873F /* BackgroundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBB2312DC55C750034873F /* BackgroundService.swift */; };
@@ -169,10 +173,14 @@
 		89AA0A362DBF327100308F1E /* AddWidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWidgetsView.swift; sourceTree = "<group>"; };
 		89B649A32DD24CD100A45A50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89B649A52DD26F8B00A45A50 /* AccountableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountableView.swift; sourceTree = "<group>"; };
-		89B649A72DD26F9100A45A50 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		89B649A72DD26F9100A45A50 /* CheckInTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeView.swift; sourceTree = "<group>"; };
 		89B649A92DD2979400A45A50 /* PreventingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventingView.swift; sourceTree = "<group>"; };
-		89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeView.swift; sourceTree = "<group>"; };
+		89B649AB2DD29CF800A45A50 /* SetCheckInTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCheckInTimeView.swift; sourceTree = "<group>"; };
 		89B649AD2DD2E1AE00A45A50 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		89B649B02DD2E25B00A45A50 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		89B649B22DD2E31E00A45A50 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		89B649B42DD3B9D800A45A50 /* EmergencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyView.swift; sourceTree = "<group>"; };
+		89B649B62DD41C8E00A45A50 /* EmergencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewModel.swift; sourceTree = "<group>"; };
 		89CBB2252DC460DD0034873F /* NewQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuoteView.swift; sourceTree = "<group>"; };
 		89CBB22B2DC52A340034873F /* QuoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteService.swift; sourceTree = "<group>"; };
 		89CBB2312DC55C750034873F /* BackgroundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundService.swift; sourceTree = "<group>"; };
@@ -266,7 +274,8 @@
 				8963D0852DD11C3D00E3430E /* FirstCheckInView.swift */,
 				8963D0872DD11C4400E3430E /* SecondCheckInView.swift */,
 				8963D0892DD11C4B00E3430E /* ThirdCheckInView.swift */,
-				89B649AD2DD2E1AE00A45A50 /* TestView.swift */,
+				89B649B42DD3B9D800A45A50 /* EmergencyView.swift */,
+				89B649AF2DD2E25300A45A50 /* Test */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -331,7 +340,7 @@
 				89FC6E9B2DBFE79A0058B906 /* EnterGoalsView.swift */,
 				89B649A92DD2979400A45A50 /* PreventingView.swift */,
 				89B649A52DD26F8B00A45A50 /* AccountableView.swift */,
-				89B649A72DD26F9100A45A50 /* ReminderView.swift */,
+				89B649A72DD26F9100A45A50 /* CheckInTimeView.swift */,
 				89AA0A082DBED1D600308F1E /* PersonalizingView.swift */,
 				89AA0A0A2DBED1E200308F1E /* CustomizedView.swift */,
 				89AA0A362DBF327100308F1E /* AddWidgetsView.swift */,
@@ -368,7 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				8963D0772DD10B6E00E3430E /* Home */,
-				89AA09C22DBEA96900308F1E /* New */,
+				89AA09C22DBEA96900308F1E /* Widgets */,
 				89AA09C32DBEC97E00308F1E /* Settings */,
 				89AA09BD2DBEA94400308F1E /* Onboarding */,
 				89AA09BE2DBEA94900308F1E /* Setup */,
@@ -386,7 +395,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		89AA09C22DBEA96900308F1E /* New */ = {
+		89AA09C22DBEA96900308F1E /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
 				89AA0A172DBED2E400308F1E /* WidgetsView.swift */,
@@ -394,14 +403,14 @@
 				8963D0572DCA679C00E3430E /* WidgetPreviews.swift */,
 				8963D0532DCA65D100E3430E /* NewImageView.swift */,
 			);
-			path = New;
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		89AA09C32DBEC97E00308F1E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				89AA09C42DBEC98B00308F1E /* SettingsView.swift */,
-				89B649AB2DD29CF800A45A50 /* CheckInTimeView.swift */,
+				89B649AB2DD29CF800A45A50 /* SetCheckInTimeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -417,6 +426,7 @@
 		89AA09EA2DBECA9A00308F1E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				89B649B22DD2E31E00A45A50 /* NotificationService.swift */,
 				89CBB2312DC55C750034873F /* BackgroundService.swift */,
 				89CBB22B2DC52A340034873F /* QuoteService.swift */,
 				89FC6EB22DC130E60058B906 /* OpenAIService.swift */,
@@ -465,11 +475,21 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		89B649AF2DD2E25300A45A50 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				89B649AD2DD2E1AE00A45A50 /* TestView.swift */,
+				89B649B02DD2E25B00A45A50 /* TestViewModel.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		89FC6EAD2DC12DE10058B906 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				8963D0812DD11BCB00E3430E /* HomeViewModel.swift */,
 				8963D0832DD11BD400E3430E /* CheckInViewModel.swift */,
+				89B649B62DD41C8E00A45A50 /* EmergencyViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -715,20 +735,23 @@
 			files = (
 				89AA09EC2DBECAA500308F1E /* UserService.swift in Sources */,
 				89AA0A372DBF327100308F1E /* AddWidgetsView.swift in Sources */,
+				89B649B12DD2E25E00A45A50 /* TestViewModel.swift in Sources */,
 				89B649AA2DD2979400A45A50 /* PreventingView.swift in Sources */,
-				89B649A82DD26F9100A45A50 /* ReminderView.swift in Sources */,
+				89B649A82DD26F9100A45A50 /* CheckInTimeView.swift in Sources */,
 				89AA0A0B2DBED1E200308F1E /* CustomizedView.swift in Sources */,
 				8963D0822DD11BD200E3430E /* HomeViewModel.swift in Sources */,
 				89AA09CF2DBEC9E700308F1E /* LoggedInView.swift in Sources */,
 				89AA0A032DBED19B00308F1E /* InspirationView.swift in Sources */,
 				8963D0842DD11BD700E3430E /* CheckInViewModel.swift in Sources */,
-				89B649AC2DD29CF800A45A50 /* CheckInTimeView.swift in Sources */,
+				89B649AC2DD29CF800A45A50 /* SetCheckInTimeView.swift in Sources */,
 				89AA0A142DBED29900308F1E /* StyledButton.swift in Sources */,
 				89AA09E92DBECA7C00308F1E /* UserViewModel.swift in Sources */,
 				8963D04A2DC9BA2900E3430E /* StorageService.swift in Sources */,
+				89B649B52DD3B9D800A45A50 /* EmergencyView.swift in Sources */,
 				89B649A62DD26F8B00A45A50 /* AccountableView.swift in Sources */,
 				89B649A42DD24CD300A45A50 /* AppDelegate.swift in Sources */,
 				89AA0A112DBED24900308F1E /* OneTimeCodeView.swift in Sources */,
+				89B649B32DD2E32100A45A50 /* NotificationService.swift in Sources */,
 				8963D0582DCA679C00E3430E /* WidgetPreviews.swift in Sources */,
 				89F3D5A92DD14C8900AA5503 /* CheckIn.swift in Sources */,
 				8963D03C2DC6CE1C00E3430E /* LearnView.swift in Sources */,
@@ -752,6 +775,7 @@
 				89AA09EE2DBECABC00308F1E /* SupabaseService.swift in Sources */,
 				89AA09FD2DBECC3800308F1E /* Navigation.swift in Sources */,
 				89AA09F82DBECC0300308F1E /* Design.swift in Sources */,
+				89B649B72DD41C9200A45A50 /* EmergencyViewModel.swift in Sources */,
 				8963D0882DD11C4400E3430E /* SecondCheckInView.swift in Sources */,
 				89AA09BC2DBEA93600308F1E /* MotiveApp.swift in Sources */,
 				89FC6EF82DC2F5E70058B906 /* APIResponse.swift in Sources */,
@@ -943,7 +967,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -976,7 +1000,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Motive/Motive.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = T2V9U83CKZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

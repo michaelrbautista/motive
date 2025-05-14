@@ -59,6 +59,31 @@ struct CheckInCoordinatorView: View {
     }
 }
 
+// MARK: Widgets
+struct WidgetsCoordinatorView: View {
+    
+    @Binding var userViewModel: UserViewModel
+    
+    @State var navigationController: NavigationController = NavigationController()
+    
+    var body: some View {
+        NavigationStack(path: $navigationController.path) {
+            navigationController.build(
+                .WidgetsView(
+                    navigationController: $navigationController,
+                    userViewModel: $userViewModel
+                )
+            )
+            .navigationDestination(for: Screen.self) { screen in
+                navigationController.build(screen)
+            }
+            .sheet(item: $navigationController.sheet) { sheet in
+                navigationController.build(sheet)
+            }
+        }
+    }
+}
+
 // MARK: New quote
 struct NewQuoteCoordinatorView: View {
     

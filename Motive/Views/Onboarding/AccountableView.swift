@@ -36,7 +36,7 @@ struct AccountableView: View {
                 isLoading: .constant(false)
             ) {
                 navigationController.push(
-                    .ReminderView(
+                    .CheckInTimeView(
                         navigationController: $navigationController,
                         userViewModel: $userViewModel,
                         viewModel: $viewModel

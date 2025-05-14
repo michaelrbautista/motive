@@ -8,7 +8,7 @@
 import SwiftUI
 import Supabase
 
-class UserService {
+final class UserService {
     
     public static let shared = UserService()
     public static var currentUser: User? = nil

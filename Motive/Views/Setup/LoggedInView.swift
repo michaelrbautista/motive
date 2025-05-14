@@ -18,6 +18,11 @@ struct LoggedInView: View {
                     Image(systemName: "house.fill")
                 }
             
+            WidgetsCoordinatorView(userViewModel: $userViewModel)
+                .tabItem {
+                    Image(systemName: "rectangle.fill.on.rectangle.fill")
+                }
+            
             SettingsCoordinatorView(userViewModel: $userViewModel)
                 .tabItem {
                     Image(systemName: "gearshape.fill")

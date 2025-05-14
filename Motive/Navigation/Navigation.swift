@@ -88,8 +88,8 @@ class NavigationController: CoordinatorProtocol {
                 userViewModel: userViewModel,
                 viewModel: viewModel
             )
-        case .ReminderView(let navigationController, let userViewModel, let viewModel):
-            ReminderView(
+        case .CheckInTimeView(let navigationController, let userViewModel, let viewModel):
+            CheckInTimeView(
                 navigationController: navigationController,
                 userViewModel: userViewModel,
                 viewModel: viewModel
@@ -197,9 +197,18 @@ class NavigationController: CoordinatorProtocol {
                 userViewModel: userViewModel
             )
             
-        // MARK: Check in time
-        case .CheckInTimeView(let navigationController, let userViewModel):
-            CheckInTimeView(navigationController: navigationController, userViewModel: userViewModel)
+        // MARK: Set Check in time
+        case .SetCheckInTimeView(let navigationController, let userViewModel):
+            SetCheckInTimeView(
+                navigationController: navigationController,
+                userViewModel: userViewModel
+            )
+            
+        // MARK: Emergency
+        case .EmergencyView(let navigationController):
+            EmergencyView(
+                navigationController: navigationController
+            )
         }
     }
 }

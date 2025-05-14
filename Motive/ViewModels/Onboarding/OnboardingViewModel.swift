@@ -12,7 +12,7 @@ final class OnboardingViewModel {
     var inspirations = Set<String>()
     var goals = ""
     var sendReminder = true
-    var reminderTime: Date = {
+    var checkInTime: Date = {
         var components = DateComponents()
         components.hour = 20
         components.minute = 0
@@ -31,34 +31,6 @@ final class OnboardingViewModel {
     var returnedError = false
     var errorMessage = ""
     
-    // MARK: Schedule notification
-    public func scheduleNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Daily Check In"
-        content.body = "It's time to check in."
-        content.sound = .default
-
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: reminderTime)
-        let minute = calendar.component(.minute, from: reminderTime)
-        
-        var dateComponents = DateComponents()
-        dateComponents.hour = hour
-        dateComponents.minute = minute
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-        let request = UNNotificationRequest(identifier: "dailyReminder", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error.localizedDescription)")
-            } else {
-                print("Daily notification scheduled for \(hour):\(minute)")
-            }
-        }
-    }
-    
     // MARK: Sign in
     public func signIn(completion: @escaping ((String, String) -> Void)) async {
         self.isLoading = true
@@ -73,7 +45,9 @@ final class OnboardingViewModel {
             
             UserService.currentUser = user
             
-            UserDefaults.standard.set(reminderTime, forKey: "reminderTime")
+            // Get image
+            let image = try await StorageService.shared.getImage()
+            StorageService.shared.saveImage(image: image ?? Data())
             
             // Create quote
             QuoteService.shared.createAndSaveQuote { quote, source in
@@ -108,8 +82,8 @@ final class OnboardingViewModel {
             
             // Schedule notification
             if sendReminder {
-                scheduleNotification()
-                UserDefaults.standard.set(reminderTime, forKey: "reminderTime")
+                NotificationService.shared.scheduleNotification(date: checkInTime)
+                UserDefaults.standard.set(checkInTime, forKey: "checkInTime")
             }
             
             // Create quote

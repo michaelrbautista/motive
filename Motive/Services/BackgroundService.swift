@@ -8,7 +8,7 @@
 import SwiftUI
 import BackgroundTasks
 
-final class BackgroundService: ObservableObject {
+final class BackgroundService {
     
     public static let shared = BackgroundService()
     

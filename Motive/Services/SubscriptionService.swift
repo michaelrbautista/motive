@@ -8,7 +8,6 @@
 import SwiftUI
 import SuperwallKit
 
-@Observable
 final class SubscriptionService: SuperwallDelegate {
     
     public static let shared = SubscriptionService()
@@ -20,8 +19,6 @@ final class SubscriptionService: SuperwallDelegate {
         
         if Superwall.shared.subscriptionStatus.isActive {
             isSubscribed = true
-        } else {
-            print("NOT SUBSCRIBED")
         }
     }
     

@@ -22,7 +22,7 @@ struct SettingsView: View {
             // MARK: Reminder time
             Section {
                 Button {
-                    navigationController.presentSheet(.CheckInTimeView(navigationController: $navigationController, userViewModel: $userViewModel))
+                    navigationController.presentSheet(.SetCheckInTimeView(navigationController: $navigationController, userViewModel: $userViewModel))
                 } label: {
                     Text("Check in time")
                 }

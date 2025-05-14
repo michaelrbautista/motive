@@ -53,11 +53,14 @@ class UserViewModel {
             
             // Check if user has gotten new quote for the day
             if let lastQuoteDate = UserDefaults.standard.object(forKey: "lastQuote") as? Date {
-                print(lastQuoteDate)
                 let calendar = Calendar.current
                 if !calendar.isDateInToday(lastQuoteDate) {
                     QuoteService.shared.createAndSaveQuote { quote, source in
-                        print("New quote created and saved.")
+                        Task {
+                            let image = try await StorageService.shared.getImage()
+                            StorageService.shared.saveImage(image: image ?? Data())
+                            self.image = image
+                        }
                     }
                 }
             }

@@ -15,10 +15,11 @@ struct AddWidgetsView: View {
     
     var body: some View {
         VStack {
-            Text("Add the widgets to your home and lock screens to stay lock in.")
+            Text("Add the widgets to your home and lock screens to stay locked in.")
                 .font(Font.FontStyles.title2)
                 .foregroundStyle(Color.ColorSystem.primaryText)
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
             VStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 10) {
                     // MARK: Medium
@@ -107,7 +108,7 @@ struct AddWidgetsView: View {
                 }
                 Spacer()
             }
-            .padding(EdgeInsets(top: 40, leading: 20, bottom: 0, trailing: 20))
+            .padding(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
             Spacer()
             StyledButton(
                 variant: .primary,
@@ -123,8 +124,8 @@ struct AddWidgetsView: View {
                 )
             }
         }
-        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
-            .navigationBarBackButtonHidden(true)
+        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -7,13 +7,19 @@
 
 import SwiftUI
 
-final class StorageService: ObservableObject {
+final class StorageService {
     
     public static let shared = StorageService()
     
+    // MARK: Save image
+    public func saveImage(image: Data) {
+        let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
+        userDefaults?.set(image, forKey: "image")
+    }
+    
     // MARK: Get image
     public func getImage() async throws -> Data? {
-        var folderPath = "self_improvement"
+        let folderPath = "self_improvement"
         
         let files = try await SupabaseService.shared.supabase.storage
             .from("images")

@@ -8,7 +8,7 @@
 import SwiftUI
 import WidgetKit
 
-final class QuoteService: ObservableObject {
+final class QuoteService {
     
     public static let shared = QuoteService()
     

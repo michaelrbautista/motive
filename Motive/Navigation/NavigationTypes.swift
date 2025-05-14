@@ -41,7 +41,7 @@ enum Screen: Identifiable, Hashable {
         userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
-    case ReminderView(
+    case CheckInTimeView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
@@ -168,10 +168,15 @@ enum Sheet: Identifiable, Hashable {
         userViewModel: Binding<UserViewModel>
     )
     
-    // MARK: Reminder time
-    case CheckInTimeView(
+    // MARK: Check in time
+    case SetCheckInTimeView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>
+    )
+    
+    // MARK: Emergency
+    case EmergencyView(
+        navigationController: Binding<NavigationController>
     )
     
     var id: Self { return self }

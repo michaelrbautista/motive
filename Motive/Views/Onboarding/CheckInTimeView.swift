@@ -1,5 +1,5 @@
 //
-//  ReminderView.swift
+//  CheckInTimeView.swift
 //  Motive
 //
 //  Created by Michael Bautista on 5/12/25.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UserNotifications
 
-struct ReminderView: View {
+struct CheckInTimeView: View {
     @Binding var navigationController: NavigationController
     @Binding var userViewModel: UserViewModel
     @Binding var viewModel: OnboardingViewModel
@@ -25,7 +25,7 @@ struct ReminderView: View {
                     .font(Font.FontStyles.body)
                     .foregroundStyle(Color.ColorSystem.systemGray)
                 Spacer()
-                DatePicker("Pick a time", selection: $viewModel.reminderTime, displayedComponents: .hourAndMinute)
+                DatePicker("Pick a time", selection: $viewModel.checkInTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(.automatic)
                     .labelsHidden()
             }
@@ -38,19 +38,15 @@ struct ReminderView: View {
                 text: "Next",
                 isLoading: .constant(false)
             ) {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                        if let error = error {
-                            print("Notification permission error: \(error.localizedDescription)")
-                        }
-                    
-                        navigationController.push(
-                            .PersonalizingView(
-                                navigationController: $navigationController,
-                                userViewModel: $userViewModel,
-                                viewModel: $viewModel
-                            )
+                NotificationService.shared.requestNotificationAuth { wasGranted in
+                    navigationController.push(
+                        .PersonalizingView(
+                            navigationController: $navigationController,
+                            userViewModel: $userViewModel,
+                            viewModel: $viewModel
                         )
-                    }
+                    )
+                }
             }
 
         }
@@ -58,13 +54,11 @@ struct ReminderView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                        if let error = error {
-                            print("Notification permission error: \(error.localizedDescription)")
-                        } else {
-                            viewModel.sendReminder = false
+                    NotificationService.shared.requestNotificationAuth { wasGranted in
+                        if !wasGranted {
+                           viewModel.sendReminder = false
                         }
-                    
+                        
                         navigationController.push(
                             .PersonalizingView(
                                 navigationController: $navigationController,
@@ -83,5 +77,5 @@ struct ReminderView: View {
 }
 
 #Preview {
-    ReminderView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
+    CheckInTimeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()), viewModel: .constant(OnboardingViewModel()))
 }

@@ -1,5 +1,5 @@
 //
-//  CheckInTimeView.swift
+//  SetCheckInTimeView.swift
 //  Motive
 //
 //  Created by Michael Bautista on 5/12/25.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct CheckInTimeView: View {
+struct SetCheckInTimeView: View {
     
     @Binding var navigationController: NavigationController
     @Binding var userViewModel: UserViewModel
     
-    @State var reminderTime: Date = {
-        let defaultTime = UserDefaults.standard.value(forKey: "reminderTime") as? Date
+    @State var checkInTime: Date = {
+        let defaultTime = UserDefaults.standard.value(forKey: "checkInTime") as? Date
         
         if let time = defaultTime {
             return time
@@ -34,7 +34,7 @@ struct CheckInTimeView: View {
                         .font(Font.FontStyles.body)
                         .foregroundStyle(Color.ColorSystem.systemGray)
                     Spacer()
-                    DatePicker("Pick a time", selection: $reminderTime, displayedComponents: .hourAndMinute)
+                    DatePicker("Pick a time", selection: $checkInTime, displayedComponents: .hourAndMinute)
                         .datePickerStyle(.automatic)
                         .labelsHidden()
                 }
@@ -57,15 +57,9 @@ struct CheckInTimeView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                            if let error = error {
-                                print("Notification permission error: \(error.localizedDescription)")
-                            }
-                            
-                            UserDefaults.standard.set(reminderTime, forKey: "reminderTime")
-                            
-                            navigationController.dismissSheet()
-                        }
+                        NotificationService.shared.scheduleNotification(date: checkInTime)
+                        
+                        navigationController.dismissSheet()
                     } label: {
                         Text("Save")
                             .foregroundStyle(Color.ColorSystem.systemBlue)
@@ -77,5 +71,5 @@ struct CheckInTimeView: View {
 }
 
 #Preview {
-    CheckInTimeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
+    SetCheckInTimeView(navigationController: .constant(NavigationController()), userViewModel: .constant(UserViewModel()))
 }

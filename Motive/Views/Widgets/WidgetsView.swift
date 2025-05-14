@@ -19,16 +19,6 @@ struct WidgetsView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 10) {
-                // MARK: Quote
-                Text("Quote")
-                    .font(Font.FontStyles.title2)
-                    .foregroundStyle(Color.ColorSystem.primaryText)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                    .onAppear {
-                        viewModel.originalQuote = userViewModel.quote ?? ""
-                        viewModel.originalSource = userViewModel.source ?? ""
-                    }
-                
                 VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.originalQuote)
                         .font(.custom("InterDisplay-Bold", size: 16))
@@ -76,14 +66,6 @@ struct WidgetsView: View {
             
             // MARK: Image
             VStack(alignment: .leading, spacing: 10) {
-                Text("Image")
-                    .font(Font.FontStyles.title2)
-                    .foregroundStyle(Color.ColorSystem.primaryText)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0))
-                    .onAppear {
-                        viewModel.originalImage = userViewModel.image ?? Data()
-                    }
-                
                 if let image = UIImage(data: viewModel.originalImage) {
                     Image(uiImage: image)
                         .resizable()
@@ -129,9 +111,15 @@ struct WidgetsView: View {
             Spacer()
         }
         .listStyle(.insetGrouped)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("New")
-        .toolbarRole(.editor)
+        .navigationBarTitleDisplayMode(.large)
+        .navigationTitle("Widgets")
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("MOTIVE")
+                    .font(.custom("InterDisplay-Bold", size: 12))
+                    .foregroundStyle(Color.ColorSystem.primaryText)
+            }
+        }
     }
 }
 
