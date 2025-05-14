@@ -51,7 +51,7 @@ final class WidgetsViewModel {
         self.quoteIsLoading = true
         
         // Get quote
-        OpenAIService.shared.getQuoteMain { response in
+        APIService.shared.getQuoteMain { response in
             self.newQuote = response.quote
             self.newSource = response.source
             

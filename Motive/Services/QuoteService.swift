@@ -14,7 +14,7 @@ final class QuoteService {
     
     // MARK: Create new quote
     public func createAndSaveQuote(completion: @escaping ((String, String) -> Void)) {
-        OpenAIService.shared.getQuoteMain { response in
+        APIService.shared.getQuoteMain { response in
             // Save quote
             self.saveQuote(quote: response.quote, source: response.source)
             

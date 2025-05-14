@@ -41,11 +41,6 @@ enum Screen: Identifiable, Hashable {
         userViewModel: Binding<UserViewModel>,
         viewModel: Binding<OnboardingViewModel>
     )
-    case CheckInTimeView(
-        navigationController: Binding<NavigationController>,
-        userViewModel: Binding<UserViewModel>,
-        viewModel: Binding<OnboardingViewModel>
-    )
     case PersonalizingView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>,
@@ -83,25 +78,6 @@ enum Screen: Identifiable, Hashable {
     case HomeView(
         navigationController: Binding<NavigationController>,
         userViewModel: Binding<UserViewModel>
-    )
-    
-    // MARK: Check in
-    case FirstCheckInView(
-        navigationController: Binding<NavigationController>,
-        sheetNavigationController: Binding<SheetNavigationController>,
-        userViewModel: Binding<UserViewModel>
-    )
-    case SecondCheckInView(
-        navigationController: Binding<NavigationController>,
-        sheetNavigationController: Binding<SheetNavigationController>,
-        userViewModel: Binding<UserViewModel>,
-        viewModel: Binding<CheckInViewModel>
-    )
-    case ThirdCheckInView(
-        navigationController: Binding<NavigationController>,
-        sheetNavigationController: Binding<SheetNavigationController>,
-        userViewModel: Binding<UserViewModel>,
-        viewModel: Binding<CheckInViewModel>
     )
     
     // MARK: Widgets
@@ -162,23 +138,8 @@ enum Sheet: Identifiable, Hashable {
         viewModel: Binding<WidgetsViewModel>
     )
     
-    // MARK: Check in
-    case CheckInCoordinatorView(
-        navigationController: Binding<NavigationController>,
-        userViewModel: Binding<UserViewModel>
-    )
-    
-    // MARK: Check in time
-    case SetCheckInTimeView(
-        navigationController: Binding<NavigationController>,
-        userViewModel: Binding<UserViewModel>
-    )
-    
     // MARK: Emergency
     case EmergencyView
-//    case EmergencyView(
-//        navigationController: Binding<NavigationController>
-//    )
     
     var id: Self { return self }
     

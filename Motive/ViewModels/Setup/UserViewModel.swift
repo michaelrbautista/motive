@@ -71,28 +71,6 @@ class UserViewModel {
             self.source = userDefaults?.value(forKey: "source") as? String
             self.image = userDefaults?.value(forKey: "image") as? Data
             
-            // Check streak
-            let calendar = Calendar.current
-            
-            let lastEntry = UserDefaults.standard.value(forKey: "lastCheckIn") as? Date
-            let now = Date()
-            
-            if let entry = lastEntry {
-                let lastDay = calendar.startOfDay(for: entry)
-                let today = calendar.startOfDay(for: now)
-                
-                if let daysBetween = calendar.dateComponents([.day], from: lastDay, to: today).day {
-                    if daysBetween >= 2 {
-                        print("Streak lost")
-                        UserDefaults.standard.set(0, forKey: "streak")
-                    } else {
-                        print("Streak still going")
-                    }
-                }
-            } else {
-                UserDefaults.standard.set(0, forKey: "streak")
-            }
-            
             self.isLoggedIn = true
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

@@ -19,15 +19,6 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            // MARK: Reminder time
-            Section {
-                Button {
-                    navigationController.presentSheet(.SetCheckInTimeView(navigationController: $navigationController, userViewModel: $userViewModel))
-                } label: {
-                    Text("Check in time")
-                }
-            }
-            
             // MARK: Terms and privacy
             Section {
                 Button {

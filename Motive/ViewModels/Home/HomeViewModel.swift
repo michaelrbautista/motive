@@ -15,8 +15,6 @@ final class HomeViewModel {
     var source = ""
     var image = Data()
     
-    var entries = [CheckInEntry]()
-    
     var isLoading = false
     
 }

@@ -20,11 +20,11 @@ struct AccountableView: View {
                 .scaledToFit()
             
             VStack(alignment: .leading, spacing: 10) {
-                Text("People that use the daily check in are 30% more likely to achieve their goals.")
+                Text("People that use the motivational widgets are 30% more likely to stay disciplined.")
                     .font(Font.FontStyles.title2)
                     .foregroundStyle(Color.ColorSystem.primaryText)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("The check in will ask you questions to help you reflect and stay accountable.")
+                Text("Make sure to add the widgets to your home and lock screens.")
                     .font(Font.FontStyles.body)
                     .foregroundStyle(Color.ColorSystem.systemGray)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -36,7 +36,7 @@ struct AccountableView: View {
                 isLoading: .constant(false)
             ) {
                 navigationController.push(
-                    .CheckInTimeView(
+                    .PersonalizingView(
                         navigationController: $navigationController,
                         userViewModel: $userViewModel,
                         viewModel: $viewModel

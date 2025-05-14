@@ -48,13 +48,22 @@ struct DailyApp: App {
 //        print(userDefaults?.value(forKey: "quote"))
 //        print(userDefaults?.value(forKey: "source"))
 //        print(userDefaults?.value(forKey: "image"))
+        
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let lastBackgroundQuote = UserDefaults.standard.value(forKey: "lastBackgroundQuote") as? Date
+        let lastBackgroundImage = UserDefaults.standard.value(forKey: "lastBackgroundImage") as? Date
+        
+        print("Last quote: \(formatter.string(from: lastBackgroundQuote ?? Date.now))")
+        print("Last image: \(formatter.string(from: lastBackgroundImage ?? Date.now))")
     }
     
     var body: some Scene {
         WindowGroup {
             CheckAuthentication(userViewModel: $userViewModel)
         }
-        .modelContainer(for: CheckInEntry.self)
     }
 }
 

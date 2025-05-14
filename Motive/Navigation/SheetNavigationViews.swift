@@ -36,33 +36,6 @@ struct NewQuoteCoordinatorView: View {
     }
 }
 
-// MARK: Check in
-struct CheckInCoordinatorView: View {
-    
-    @Binding var navigationController: NavigationController
-    @Binding var userViewModel: UserViewModel
-    
-    @State var sheetNavigationController = SheetNavigationController()
-    
-    var body: some View {
-        NavigationStack(path: $sheetNavigationController.path) {
-            sheetNavigationController.build(
-                .FirstCheckInView(
-                    navigationController: $navigationController,
-                    sheetNavigationController: $sheetNavigationController,
-                    userViewModel: $userViewModel
-                )
-            )
-            .navigationDestination(for: Screen.self) { screen in
-                sheetNavigationController.build(screen)
-            }
-            .sheet(item: $sheetNavigationController.sheet) { sheet in
-                sheetNavigationController.build(sheet)
-            }
-        }
-    }
-}
-
 // MARK: New image
 struct NewImageCoordinatorView: View {
     

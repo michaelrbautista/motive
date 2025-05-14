@@ -25,7 +25,11 @@ struct EmergencyView: View {
                     viewModel.getQuote()
                 }
         } else {
-            VStack(spacing: 40) {
+            ScrollView {
+                Color.clear
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 40)
+                
                 VStack {
                     HStack(spacing: 10) {
                         Image(systemName: "exclamationmark.octagon.fill")
@@ -55,12 +59,14 @@ struct EmergencyView: View {
                     .fontWeight(.bold)
                     .foregroundStyle(Color.ColorSystem.primaryText)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 40, leading: 0, bottom: 40, trailing: 0))
                 
                 Text("IT'S TIME TO LOCK IN.")
                     .font(Font.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundStyle(Color.ColorSystem.primaryText)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
                 
                 Button {
                     dismiss()
@@ -76,10 +82,8 @@ struct EmergencyView: View {
                     .background(Color.ColorSystem.systemGray6)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                
-                Spacer()
             }
-            .padding(EdgeInsets(top: 40, leading: 20, bottom: 20, trailing: 20))
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             .background(Color.ColorSystem.systemBackground)
         }
     }

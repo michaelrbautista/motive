@@ -25,8 +25,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         #if DEBUG
         task.expirationHandler = {
             let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
-            userDefaults?.set("Background task was cancelled", forKey: "quote")
-            userDefaults?.set("None", forKey: "source")
+            userDefaults?.set(true, forKey: "wasCancelled")
         }
         #endif
         
@@ -53,9 +52,8 @@ class MyBackgroundOperation: Operation, @unchecked Sendable {
     override func main() {
         if isCancelled { return }
         Task {
-            await OpenAIService.shared.getQuoteBackground { response in
-                QuoteService.shared.saveQuote(quote: response.quote, source: response.source)
-            }
+            await BackgroundService.shared.getQuoteBackground()
+            await BackgroundService.shared.getImageBackground()
         }
     }
 }

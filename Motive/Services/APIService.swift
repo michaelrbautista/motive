@@ -1,5 +1,5 @@
 //
-//  OpenAIService.swift
+//  APIService.swift
 //  Motive
 //
 //  Created by Michael Bautista on 4/29/25.
@@ -7,17 +7,19 @@
 
 import SwiftUI
 
-final class OpenAIService {
+final class APIService {
     
-    public static let shared = OpenAIService()
+    public static let shared = APIService()
     
     // MARK: Get emergency quote
     public func getEmergencyQuote(completion: @escaping ((EmergencyResponse) -> Void)) {
-        var env = "https://motive-server-ir1u.onrender.com"
-        
+//        var env = "https://motive-server-ir1u.onrender.com"
+//        
 //        #if DEBUG
 //        env = "http://127.0.0.1:8000"
 //        #endif
+        
+        let env = "https://motive-server-ir1u.onrender.com"
         
         let urlString = "\(env)/emergency"
         
@@ -41,44 +43,15 @@ final class OpenAIService {
         }.resume()
     }
     
-    // MARK: Get quote on background thread
-    public func getQuoteBackground(completion: @escaping ((APIResponse) -> Void)) async {
-        var env = "https://motive-server-ir1u.onrender.com"
-        
-        let urlString = "\(env)/quote?topic=self_improvement"
-        
-        guard let url = URL(string: urlString) else { return }
-                
-        let request = URLRequest(url: url)
-        
-        let config = URLSessionConfiguration.background(withIdentifier: "getQuoteInBackground")
-        config.sessionSendsLaunchEvents = true
-        let session = URLSession(configuration: config)
-        
-        let response = await withTaskCancellationHandler {
-            try? await session.data(for: request)
-        } onCancel: {
-            let task = session.downloadTask(with: request)
-            task.resume()
-        }
-        
-        if let data = response {
-            do {
-                let decoded = try JSONDecoder().decode(APIResponse.self, from: data.0)
-                completion(decoded)
-            } catch {
-                print("Decoding error:", error)
-            }
-        }
-    }
-    
     // MARK: Get quote on main thread
     public func getQuoteMain(completion: @escaping ((APIResponse) -> Void)) {
-        var env = "https://motive-server-ir1u.onrender.com"
+//        var env = "https://motive-server-ir1u.onrender.com"
+//        
+//        #if DEBUG
+//        env = "http://127.0.0.1:8000"
+//        #endif
         
-        #if DEBUG
-        env = "http://127.0.0.1:8000"
-        #endif
+        let env = "https://motive-server-ir1u.onrender.com"
         
         let urlString = "\(env)/quote?topic=self_improvement"
         
@@ -101,5 +74,4 @@ final class OpenAIService {
             }
         }.resume()
     }
-    
 }

@@ -58,28 +58,6 @@ class SheetNavigationController: CoordinatorProtocol {
                 userViewModel: userViewModel,
                 viewModel: viewModel
             )
-            
-        // MARK: Check in
-        case .FirstCheckInView(let navigationController, let sheetNavigationController, let userViewModel):
-            FirstCheckInView(
-                navigationController: navigationController,
-                sheetNavigationController: sheetNavigationController,
-                userViewModel: userViewModel
-            )
-        case .SecondCheckInView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
-            SecondCheckInView(
-                navigationController: navigationController,
-                sheetNavigationController: sheetNavigationController,
-                userViewModel: userViewModel,
-                viewModel: viewModel
-            )
-        case .ThirdCheckInView(let navigationController, let sheetNavigationController, let userViewModel, let viewModel):
-            ThirdCheckInView(
-                navigationController: navigationController,
-                sheetNavigationController: sheetNavigationController,
-                userViewModel: userViewModel,
-                viewModel: viewModel
-            )
         default:
             Text("Navigation Error")
         }

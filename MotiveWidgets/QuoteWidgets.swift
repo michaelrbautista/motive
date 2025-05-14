@@ -58,15 +58,21 @@ struct QuoteProvider: AppIntentTimelineProvider {
     private func loadQuote() -> FetchedQuote {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         
+        #if DEBUG
 //        let quote = FetchedQuote(
 //            quote: "It is not death that a man should fear, but he should fear never beginning to live.",
 //            source: "Marcus Aurelius",
 //        )
-        
         let quote = FetchedQuote(
             quote: userDefaults?.value(forKey: "quote") as? String ?? "No quote",
             source: userDefaults?.value(forKey: "source") as? String ?? ""
         )
+        #else
+        let quote = FetchedQuote(
+            quote: userDefaults?.value(forKey: "quote") as? String ?? "No quote",
+            source: userDefaults?.value(forKey: "source") as? String ?? ""
+        )
+        #endif
         
         return quote
     }

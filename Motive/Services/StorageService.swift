@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 final class StorageService {
     
@@ -15,6 +16,9 @@ final class StorageService {
     public func saveImage(image: Data) {
         let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
         userDefaults?.set(image, forKey: "image")
+        
+        // Update widget timeline
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     // MARK: Get image
@@ -34,6 +38,25 @@ final class StorageService {
             .download(path: "\(folderPath)/\(img.name)")
         
         return imageData
+    }
+    
+    // MARK: Get image url
+    public func getImageUrl() async throws -> URL? {
+        let folderPath = "self_improvement"
+        
+        let files = try await SupabaseService.shared.supabase.storage
+            .from("images")
+            .list(path: folderPath)
+        
+        let randomImage = files.randomElement()
+        
+        guard let img = randomImage else { return nil }
+        
+        let imageUrl = try SupabaseService.shared.supabase.storage
+            .from("images")
+            .getPublicURL(path: "\(folderPath)/\(img.name)")
+        
+        return imageUrl
     }
     
 }

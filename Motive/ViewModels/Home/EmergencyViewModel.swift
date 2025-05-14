@@ -16,7 +16,7 @@ final class EmergencyViewModel {
     
     // MARK: Get emergency quote
     public func getQuote() {
-        OpenAIService.shared.getEmergencyQuote { response in
+        APIService.shared.getEmergencyQuote { response in
             self.content = response.content
             self.isLoading = false
         }

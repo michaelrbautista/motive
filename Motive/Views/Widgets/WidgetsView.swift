@@ -17,7 +17,7 @@ struct WidgetsView: View {
     @State var viewModel = WidgetsViewModel()
     
     var body: some View {
-        VStack {
+        List {
             VStack(alignment: .leading, spacing: 10) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(viewModel.originalQuote)
@@ -61,8 +61,11 @@ struct WidgetsView: View {
                     .background(Color.ColorSystem.systemGray5)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
+            .buttonStyle(.plain)
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .listRowSeparator(.hidden)
             
             // MARK: Image
             VStack(alignment: .leading, spacing: 10) {
@@ -105,12 +108,33 @@ struct WidgetsView: View {
                     .background(Color.ColorSystem.systemGray5)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 40, trailing: 20))
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
+            .buttonStyle(.plain)
+            .listRowInsets(EdgeInsets(top: 40, leading: 0, bottom: 0, trailing: 0))
+            .listRowSeparator(.hidden)
             
-            Spacer()
+            // MARK: Emergency
+            Button {
+                navigationController.presentSheet(.EmergencyView)
+            } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: "exclamationmark.octagon.fill")
+                    
+                    Text("TAP IF YOU HAVE A SLACK JAWED POOPY PANTS MENTALITY")
+                        .font(Font.FontStyles.headline)
+                        .foregroundStyle(Color.ColorSystem.primaryText)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                .background(Color.ColorSystem.systemRed)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
+            .buttonStyle(.plain)
+            .listRowInsets(EdgeInsets(top: 40, leading: 20, bottom: 0, trailing: 20))
+            .listRowSeparator(.hidden)
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.plain)
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle("Widgets")
         .toolbar {
@@ -119,6 +143,15 @@ struct WidgetsView: View {
                     .font(.custom("InterDisplay-Bold", size: 12))
                     .foregroundStyle(Color.ColorSystem.primaryText)
             }
+        }
+        .onOpenURL { url in
+            navigationController.handleDeepLink(url)
+        }
+        .onAppear {
+            print("HERE")
+            viewModel.originalQuote = userViewModel.quote ?? ""
+            viewModel.originalSource = userViewModel.source ?? ""
+            viewModel.originalImage = userViewModel.image ?? Data()
         }
     }
 }
