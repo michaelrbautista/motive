@@ -13,6 +13,11 @@ struct LoggedInView: View {
     
     var body: some View {
         TabView {
+            HomeCoordinatorView(userViewModel: $userViewModel)
+                .tabItem {
+                    Image(systemName: "house.fill")
+                }
+            
             WidgetsCoordinatorView(userViewModel: $userViewModel)
                 .tabItem {
                     Image(systemName: "rectangle.fill.on.rectangle.fill")

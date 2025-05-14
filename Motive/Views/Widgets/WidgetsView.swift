@@ -148,7 +148,6 @@ struct WidgetsView: View {
             navigationController.handleDeepLink(url)
         }
         .onAppear {
-            print("HERE")
             viewModel.originalQuote = userViewModel.quote ?? ""
             viewModel.originalSource = userViewModel.source ?? ""
             viewModel.originalImage = userViewModel.image ?? Data()

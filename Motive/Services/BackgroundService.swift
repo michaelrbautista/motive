@@ -104,7 +104,7 @@ class BackgroundSessionDelegate: NSObject, URLSessionDataDelegate {
         if task.taskDescription == "quote" {
             do {
                 let decoder = JSONDecoder()
-                let apiResponse = try decoder.decode(APIResponse.self, from: responseData)
+                let apiResponse = try decoder.decode(QuoteResponse.self, from: responseData)
                 
                 let userDefaults = UserDefaults(suiteName: "group.Michael-Bautista.motive")
                 userDefaults?.set(apiResponse.quote, forKey: "quote")

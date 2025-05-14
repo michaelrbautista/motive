@@ -11,10 +11,14 @@ import SwiftData
 @Observable
 final class HomeViewModel {
     
-    var quote = ""
-    var source = ""
-    var image = Data()
+    var quotes = [QuoteResponse]()
     
-    var isLoading = false
+    var currentIndex = 0
     
+    // MARK: Get more quotes
+    public func getMoreQuotes() {
+        APIService.shared.getQuotesForFeed { response in
+            self.quotes.append(contentsOf: response.quotes)
+        }
+    }
 }

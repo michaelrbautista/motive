@@ -6,11 +6,8 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct HomeView: View {
-    @Environment(\.modelContext) private var modelContext
-    
     @Binding var navigationController: NavigationController
     @Binding var userViewModel: UserViewModel
     
@@ -20,30 +17,30 @@ struct HomeView: View {
     @State var presentTest = false
     
     var body: some View {
-        List {
-            // MARK: Quote
-            VStack(alignment: .leading, spacing: 5) {
-                Text(viewModel.quote)
-                    .font(Font.FontStyles.title2)
-                    .foregroundStyle(Color.ColorSystem.primaryText)
-                
-                Text(viewModel.source)
-                    .font(Font.FontStyles.headline)
-                    .foregroundStyle(Color.ColorSystem.systemGray)
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVStack(spacing: 0) {
+                    ForEach(viewModel.quotes.indices, id: \.self) { index in
+                        VStack {
+                            QuoteCell(
+                                quote: viewModel.quotes[index].quote,
+                                source: viewModel.quotes[index].source
+                            )
+                            .onAppear {
+                                if index == viewModel.quotes.count - 1 {
+                                    viewModel.getMoreQuotes()
+                                }
+                            }
+                        }
+                        .frame(height: UIScreen.main.bounds.height)
+                    }
+                }
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-            .background(Color.ColorSystem.systemGray6)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .onAppear {
-                viewModel.quote = userViewModel.quote ?? "Quote"
-                viewModel.source = userViewModel.source ?? "Source"
-                viewModel.image = userViewModel.image ?? Data()
-            }
-            .listRowInsets(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            .listRowSeparator(.hidden)
+            .ignoresSafeArea()
+            .navigationBarTitleDisplayMode(.inline)
+            .scrollTargetBehavior(.paging)
             
-            // MARK: Emergency
             Button {
                 navigationController.presentSheet(.EmergencyView)
             } label: {
@@ -53,19 +50,20 @@ struct HomeView: View {
                     Text("TAP IF YOU HAVE A SLACK JAWED POOPY PANTS MENTALITY")
                         .font(Font.FontStyles.headline)
                         .foregroundStyle(Color.ColorSystem.primaryText)
+                        .multilineTextAlignment(.leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                .background(Color.ColorSystem.systemRed)
+                .background(Color(red: 153/255, green: 31/255, blue: 26/255))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.ColorSystem.systemRed, lineWidth: 2)
+                )
             }
-            .buttonStyle(.plain)
-            .listRowInsets(EdgeInsets(top: 40, leading: 20, bottom: 0, trailing: 20))
-            .listRowSeparator(.hidden)
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
         }
-        .listStyle(.plain)
-        .navigationBarTitleDisplayMode(.large)
-        .navigationTitle(Date.now.formatted(date: .abbreviated, time: .omitted))
         .toolbar {
             #if DEBUG
             ToolbarItem(placement: .topBarLeading) {
@@ -84,11 +82,8 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            NotificationService.shared.requestNotificationAuth { wasGranted in
-                if wasGranted {
-                    let checkInTime = UserDefaults.standard.value(forKey: "checkInTime") as? Date
-                    NotificationService.shared.scheduleNotification(date: checkInTime)
-                }
+            if viewModel.quotes.count < 5 {
+                viewModel.getMoreQuotes()
             }
         }
         .onOpenURL { url in
